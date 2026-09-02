@@ -9,8 +9,15 @@ export type SlideId =
   | "principles"
   | "loop"
   | "keys"
-  | "demo"
+  | "hills"
+  | "playbacks"
+  | "sponsor-users"
+  | "roles"
+  | "case-airbnb"
+  | "case-ideo"
+  | "case-pg"
   | "impact"
+  | "context"
   | "closing"
   | "thanks";
 

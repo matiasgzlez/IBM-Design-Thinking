@@ -1,37 +1,28 @@
 "use client";
 
 import { motion } from "motion/react";
+import { EASE, T, fadeUp, stagger } from "@/lib/motion";
 
 const symptoms = [
   {
     num: "01",
-    label: "Brecha de empatía",
+    label: "Nació para talleres chicos",
     description:
-      "Decidimos por el usuario sin haberlo visto nunca trabajar. Diseñamos para el usuario que imaginamos, no para el que existe.",
+      "Ocho personas, una pared y post-its. IBM tenía que aplicarlo en una empresa de cientos de miles de personas repartidas por el mundo.",
   },
   {
     num: "02",
-    label: "Equipos desalineados",
+    label: "“Esto es volver al waterfall”",
     description:
-      "Cada área optimiza su propio objetivo. Nadie comparte una definición de éxito, así que el proyecto avanza en cuatro direcciones.",
+      "Los equipos ágiles lo leían como una etapa larga de análisis antes de escribir código: exactamente lo que venían de sacarse de encima.",
   },
   {
     num: "03",
-    label: "Se mide lo que se entrega",
+    label: "Chocaba con lo que ya usaban",
     description:
-      "El tablero muestra features cerradas, no problemas resueltos. Entregamos a tiempo algo que a nadie le sirve.",
+      "Agile, DevOps y PMOM ya estaban instalados. El método nuevo tenía que convivir con ellos, no pedir que se tiraran a la basura.",
   },
 ];
-
-const container = {
-  hidden: {},
-  show: { transition: { delayChildren: 0.5, staggerChildren: 0.12 } },
-};
-
-const item = {
-  hidden: { y: 30, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const } },
-};
 
 export default function Slide02Problem() {
   return (
@@ -39,25 +30,26 @@ export default function Slide02Problem() {
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.4, ease: EASE }}
         className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
       >
-        El problema · <span className="text-[var(--color-accent)]">antes del método</span>
+        Por qué existe Enterprise Design Thinking ·{" "}
+        <span className="text-[var(--color-accent)]">el método no escalaba</span>
       </motion.div>
 
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
-        className="mt-6 font-black leading-[0.88] tracking-[-0.04em] text-[clamp(52px,6.5vw,104px)]"
+        transition={{ duration: 0.5, delay: T.title, ease: EASE }}
+        className="mt-6 font-black leading-[0.88] tracking-[-0.04em] text-[clamp(48px,6vw,96px)]"
       >
-        No fallamos al construir.
+        El Design Thinking clásico
         <br />
-        <span className="text-[var(--color-accent)]">Fallamos al entender.</span>
+        <span className="text-[var(--color-accent)]">se rompía a escala.</span>
       </motion.h2>
 
       <motion.div
-        variants={container}
+        variants={stagger()}
         initial="hidden"
         animate="show"
         className="mt-auto grid grid-cols-3 gap-6"
@@ -65,7 +57,7 @@ export default function Slide02Problem() {
         {symptoms.map(({ num, label, description }) => (
           <motion.div
             key={num}
-            variants={item}
+            variants={fadeUp}
             className="rounded-xl border border-[var(--color-divider)] p-8 bg-[var(--color-bg-primary)] hover:border-[var(--color-accent)] transition-colors flex flex-col gap-5"
           >
             <div className="flex flex-col gap-4">
@@ -82,6 +74,15 @@ export default function Slide02Problem() {
           </motion.div>
         ))}
       </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.75 }}
+        className="mt-8 font-mono text-base uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+      >
+        2015 · IBM lo reescribe en su propio lenguaje: resultados de negocio y equipos de ingeniería
+      </motion.p>
     </section>
   );
 }

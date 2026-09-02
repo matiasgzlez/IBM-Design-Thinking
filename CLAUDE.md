@@ -4,25 +4,26 @@ Guía para trabajar en este repo.
 
 ## Qué es
 
-Una presentación interactiva (no un sitio) sobre **IBM Enterprise Design Thinking**.
+Una presentación interactiva (no un sitio) sobre **IBM Enterprise Design Thinking**,
+del grupo **Viernes de la Jungla** para Agilidad Avanzada · Unidad 1.
 Se navega con el teclado, cada slide ocupa exactamente la pantalla y nunca hay scroll.
 
 ## Reglas del proyecto
 
 1. **Nada de scroll.** `html, body { overflow: hidden }`. Cada slide es
    `w-screen h-screen ... overflow-hidden`. Si el contenido no entra, se achica el
-   contenido — no se agrega scroll a la página.
-2. **Un solo acento.** Azul IBM (`--color-accent: #0F62FE`) sobre blanco / negro carbón / grises.
-   Las únicas excepciones son los colores de las tres fases del Loop
-   (`--color-observe`, `--color-reflect`, `--color-make`) y `--color-success` / `--color-warning`.
-   Los colores se usan siempre por token (`var(--color-…)`), nunca hardcodeados en el layout.
-   Dentro de un SVG sí se usan los hex directos porque `filter: drop-shadow()` los necesita.
+   contenido — no se agrega scroll a la página. Ojo con las columnas altas: usar
+   `min-h-0` en los hijos de un flex/grid para que no desborden sobre el pie.
+2. **Un solo acento.** Azul IBM (`--color-accent: #0F62FE`) sobre blanco / negro carbón /
+   grises. Las únicas excepciones son los colores de las tres fases del Loop
+   (`--color-observe`, `--color-reflect`, `--color-make`) y `--color-success` /
+   `--color-warning`. Siempre por token (`var(--color-…)`), nunca hardcodeado en el layout.
+   Dentro de un SVG sí van los hex directos porque `filter: drop-shadow()` los necesita.
 3. **Tipografía.** Títulos en `font-black` con `tracking` negativo y `clamp()` para escalar;
    eyebrows y datos en `font-mono` uppercase con `tracking-[0.22em]`.
-4. **Animación.** Todo con `motion/react`. Entrada estándar: `initial={{opacity:0, y:20}}` →
-   `animate={{opacity:1, y:0}}` con `ease: [0.4, 0, 0.2, 1]`. Los grupos de tarjetas usan
-   `variants` con `staggerChildren`. Los diagramas que se repiten en loop usan
-   `repeat: Infinity` con `times` para controlar las etapas.
+4. **Tiempos.** Todo sale de `src/lib/motion.ts`. La regla: **la entrada de una slide
+   termina antes de 1.2s**. Nadie se queda esperando frente al proyector a que aparezca
+   una tarjeta. Los diagramas que cuentan un proceso pueden seguir en loop después.
 5. **Tailwind v4.** No hay `tailwind.config`. Los tokens viven en el bloque `@theme` de
    `src/app/globals.css`.
 
@@ -33,40 +34,45 @@ Se navega con el teclado, cada slide ocupa exactamente la pantalla y nunca hay s
 3. Importarla y sumarla al array `slides` de `src/components/Presentation.tsx` (el orden del
    array es el orden de la presentación y define el contador y la barra de progreso).
 
-## Trampas conocidas de SVG + Motion
+Los tres casos (Airbnb, IDEO, P&G) comparten `slides/CaseLayout.tsx`: si se agrega otro caso,
+usar esa plantilla para que el ritmo y la jerarquía sean iguales en todos.
 
+## Trampas de SVG + Motion (todas costaron un bug)
+
+- **El origen de los transforms en SVG es el centro del bounding box del propio elemento.**
+  Un `animate={{ rotate: 360 }}` sobre un punto lo hace girar sobre sí mismo, no orbitar.
+  Para que algo recorra una circunferencia, calcular la posición a mano con
+  `useTime` + `useTransform` y animar `cx` / `cy` (ver `OrbitingDot` en `LoopDiagram.tsx`).
+- **Para escalar desde un borde**, usar los props `originX` / `originY` de Motion (0-1 sobre
+  el bounding box), no `transformOrigin` en px: Motion escribe el transform como atributo
+  y el `transform-origin` de CSS queda ignorado.
 - **No mezclar el atributo `transform` con `scale`/`rotate` animados en el mismo elemento.**
-  El transform CSS que escribe Motion pisa el atributo. Patrón correcto: un `<g transform="…">`
-  estático por fuera y un `<motion.path>` adentro con `style={{ transformOrigin: "0px 0px" }}`.
-- **`x` / `y` en `animate` son traslaciones, no coordenadas.** Usar valores chicos (`y: 8` → `y: 0`)
-  y dejar la posición absoluta en los atributos `x` / `y` del elemento.
-- Para animar posición absoluta en SVG, animar `cx` / `cy` (Motion los trata como atributos).
+  Patrón correcto: un `<g transform="…">` estático por fuera y un `<motion.path>` adentro.
+- **`x` / `y` en `animate` son traslaciones, no coordenadas.** Usar valores chicos
+  (`y: 8` → `y: 0`) y dejar la posición absoluta en los atributos del elemento.
+- **`preserveAspectRatio="none"` deforma todo lo que dibujes**, incluidas las puntas de flecha.
+  Si algo tiene que ocupar el ancho completo y no deformarse, hacerlo con divs y bordes
+  (ver la flecha de retorno de `Slide05Stages.tsx`).
+- Un SVG con `w-full h-full` se centra dentro del contenedor según su viewBox: si el viewBox
+  es mucho más ancho que alto, sobra espacio vertical. Para llenar la tarjeta, subir el alto
+  del viewBox y envolver el dibujo en un `<g transform="translate(0 N)">`.
 
 ## Geometría del Loop
 
-Los dos diagramas circulares (`slides/LoopDiagram.tsx` y `demo/LoopVisualization.tsx`) usan
-tres arcos de 110° con huecos de 10°, en sentido horario:
+`slides/LoopDiagram.tsx` usa tres arcos de 110° con huecos de 10°, en sentido horario:
 
 - Observe: −145° → −35° (arriba)
 - Reflect: −25° → 85° (abajo derecha)
 - Make: 95° → 205° (abajo izquierda)
 
-La punta de flecha al final de cada arco se rota `ánguloFinal + 90`. Si se cambia el centro o el
-radio, hay que recalcular los endpoints: `x = cx + r·cos(θ)`, `y = cy + r·sin(θ)`.
+La punta de flecha al final de cada arco se rota `ánguloFinal + 90`. Si se cambia el centro o
+el radio, recalcular los endpoints: `x = cx + r·cos(θ)`, `y = cy + r·sin(θ)`.
 
-## La demo (slide 09)
+## El logo
 
-Simula un Loop completo con una consola falsa:
-
-- `src/lib/loopCommands.ts` — intérprete: valida el orden (no se puede prototipar sin Hill, no se
-  puede hacer un playback sin prototipo) y escribe el output en la consola.
-- `src/hooks/useLoopState.ts` — reducer con el estado del proyecto (fase, iteración, insights,
-  Hill, prototipos, playbacks, artefactos).
-- `Slide09Demo.tsx` — orquesta: `PRELOADED_COMMANDS` autoescribe el comando de cada paso y
-  `STEP_EXPLANATIONS` narra qué está pasando arriba.
-
-Si se agrega un comando, hay que sumarlo en los tres lugares: intérprete, tipo de acción del
-reducer y (si va en el recorrido guiado) los arrays de la slide.
+`src/components/Logo.tsx` lee `public/logo.png`. **Precarga la imagen antes de montarla**:
+si el archivo no está, no renderiza nada. No usar `onError` sobre un `<img>` server-rendered,
+porque el error dispara antes de que React enganche el handler y queda el ícono de imagen rota.
 
 ## Verificar cambios
 
@@ -75,7 +81,17 @@ npx tsc --noEmit   # typecheck
 npm run build      # build de producción
 ```
 
-Para revisar una slide visualmente sin ir clickeando: levantar `npm run dev` y crear
-temporalmente una ruta `src/app/preview/[n]/page.tsx` que renderice el componente suelto
-(borrarla después). Las animaciones con delay pueden no llegar a correr en capturas headless:
-no es un bug de la slide.
+### Verificar las animaciones
+
+`--virtual-time-budget` de Chrome headless miente: a veces captura la slide antes de que
+Motion arranque y parece que no se anima nada. Para revisar de verdad, sacar capturas con
+tiempo real vía CDP:
+
+1. Crear temporalmente `src/app/preview/[n]/page.tsx` que renderice la slide N suelta
+   (y borrarla después).
+2. Levantar Chrome con `--headless=new --remote-debugging-port=9222`.
+3. Navegar, esperar N ms de reloj real y pedir `Page.captureScreenshot`.
+
+Conviene sacar dos frames por slide (~1.2s y ~4s): el primero muestra si la entrada ya
+terminó, el segundo si los diagramas en loop se ven bien en cualquier momento. Un diagrama
+que queda vacío durante parte de su ciclo es un bug: el que expone puede estar parado ahí.

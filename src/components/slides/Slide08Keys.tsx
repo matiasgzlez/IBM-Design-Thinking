@@ -7,7 +7,8 @@ const LOOP = { repeat: Infinity, repeatType: "loop" as const };
 
 function HillsDiagram() {
   return (
-    <svg viewBox="0 0 400 200" className="w-full h-full" fill="none" strokeLinecap="round">
+    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none" strokeLinecap="round">
+      <g transform="translate(0 50)">
       {/* Colina */}
       <path
         d="M 20 168 C 110 168, 130 52, 200 52 C 270 52, 290 168, 380 168"
@@ -24,10 +25,7 @@ function HillsDiagram() {
         <motion.path
           d="M 200 16 L 244 26 L 200 36 Z"
           fill="#0F62FE"
-          style={{
-            filter: "drop-shadow(0 0 10px #0F62FE)",
-            transformOrigin: "200px 26px",
-          }}
+          style={{ filter: "drop-shadow(0 0 10px #0F62FE)", originX: 0 }}
           animate={{ scaleX: [1, 0.86, 1] }}
           transition={{ duration: 1.6, ...LOOP, ease: "easeInOut" }}
         />
@@ -72,6 +70,7 @@ function HillsDiagram() {
           </text>
         </motion.g>
       ))}
+      </g>
     </svg>
   );
 }
@@ -80,7 +79,8 @@ function PlaybacksDiagram() {
   const marks = [90, 175, 260, 345];
 
   return (
-    <svg viewBox="0 0 400 200" className="w-full h-full" fill="none" strokeLinecap="round">
+    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none" strokeLinecap="round">
+      <g transform="translate(0 50)">
       {/* Línea de tiempo del proyecto */}
       <line x1="24" y1="120" x2="376" y2="120" stroke="rgba(255,255,255,0.22)" strokeWidth="4" />
       <circle cx="24" cy="120" r="8" fill="rgba(255,255,255,0.6)" />
@@ -144,6 +144,7 @@ function PlaybacksDiagram() {
       >
         alineación cada pocas semanas
       </text>
+      </g>
     </svg>
   );
 }
@@ -157,7 +158,8 @@ function SponsorUsersDiagram() {
   ];
 
   return (
-    <svg viewBox="0 0 400 200" className="w-full h-full" fill="none" strokeLinecap="round">
+    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none" strokeLinecap="round">
+      <g transform="translate(0 50)">
       {/* Equipo */}
       <rect
         x="212"
@@ -237,6 +239,7 @@ function SponsorUsersDiagram() {
       >
         SE SUMA
       </motion.text>
+      </g>
     </svg>
   );
 }

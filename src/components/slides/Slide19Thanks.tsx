@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
+import Logo from "@/components/Logo";
+import { EASE } from "@/lib/motion";
 
 const lines = [
   { text: "Diseñás con el usuario,", accent: false },
@@ -11,27 +13,21 @@ function CurtainLine({
   text,
   accent,
   wordOffset,
-  className,
 }: {
   text: string;
   accent: boolean;
   wordOffset: number;
-  className?: string;
 }) {
   const words = text.split(" ");
   return (
-    <div className={`flex flex-wrap gap-x-8 ${className}`}>
+    <div className="flex flex-wrap justify-center gap-x-6">
       {words.map((word, i) => (
         <span key={i} className="overflow-hidden inline-block">
           <motion.span
             initial={{ y: "110%" }}
             animate={{ y: "0%" }}
-            transition={{
-              duration: 0.6,
-              delay: (wordOffset + i) * 0.1,
-              ease: [0.4, 0, 0.2, 1],
-            }}
-            className={`inline-block font-black leading-none tracking-normal text-[clamp(48px,6.5vw,100px)] ${
+            transition={{ duration: 0.55, delay: (wordOffset + i) * 0.07, ease: EASE }}
+            className={`inline-block font-black leading-none tracking-normal text-[clamp(40px,5.4vw,86px)] ${
               accent ? "text-[var(--color-accent)]" : "text-white"
             }`}
           >
@@ -43,7 +39,7 @@ function CurtainLine({
   );
 }
 
-export default function Slide12Thanks() {
+export default function Slide19Thanks() {
   const wordCounts = lines.map((l) => l.text.split(" ").length);
   const offsets = wordCounts.reduce<number[]>((acc, _, i) => {
     acc.push(i === 0 ? 0 : acc[i - 1] + wordCounts[i - 1]);
@@ -51,11 +47,26 @@ export default function Slide12Thanks() {
   }, []);
 
   const totalWords = wordCounts.reduce((a, b) => a + b, 0);
-  const thanksDelay = totalWords * 0.1 + 0.2;
+  const thanksDelay = totalWords * 0.07 + 0.2;
 
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden flex flex-col items-center justify-center px-20">
-      <div className="flex flex-col gap-3">
+    <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden flex flex-col items-center justify-center px-20 py-16">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ type: "spring", stiffness: 150, damping: 16, delay: 0.1 }}
+        className="flex-1 min-h-0 flex items-center justify-center"
+      >
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="h-full flex items-center"
+        >
+          <Logo className="max-h-full object-contain" />
+        </motion.div>
+      </motion.div>
+
+      <div className="flex flex-col gap-3 flex-shrink-0">
         {lines.map((line, i) => (
           <CurtainLine
             key={i}
@@ -66,20 +77,16 @@ export default function Slide12Thanks() {
         ))}
       </div>
 
-      <div className="mt-10 flex">
+      <div className="mt-8 flex flex-shrink-0">
         {"Muchas gracias.".split("").map((char, i) => (
           <span key={i} className="overflow-hidden inline-block">
             <motion.span
               initial={{ y: "110%" }}
               animate={{ y: "0%" }}
-              transition={{
-                duration: 0.5,
-                delay: thanksDelay + i * 0.04,
-                ease: [0.4, 0, 0.2, 1],
-              }}
-              className="inline-block font-black uppercase tracking-[0.05em] text-4xl text-white/60"
+              transition={{ duration: 0.45, delay: thanksDelay + i * 0.03, ease: EASE }}
+              className="inline-block font-black uppercase tracking-[0.05em] text-3xl text-white/55"
             >
-              {char === " " ? " " : char}
+              {char === " " ? " " : char}
             </motion.span>
           </span>
         ))}
@@ -88,11 +95,11 @@ export default function Slide12Thanks() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: thanksDelay + 0.8 }}
+        transition={{ duration: 0.5, delay: thanksDelay + 0.6 }}
         className="absolute bottom-10 left-20 right-20 flex items-center justify-between font-mono text-base uppercase tracking-[0.22em] text-white/30"
       >
-        <span>IBM Design Thinking</span>
-        <span>Observe · Reflect · Make</span>
+        <span className="text-white/60 font-bold">Viernes de la Jungla</span>
+        <span>Agilidad Avanzada · Unidad 1 · 2026</span>
       </motion.div>
     </section>
   );

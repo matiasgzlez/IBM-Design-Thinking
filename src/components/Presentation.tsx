@@ -14,24 +14,38 @@ import Slide05Stages from "./slides/Slide05Stages";
 import Slide06Principles from "./slides/Slide06Principles";
 import Slide07Loop from "./slides/Slide07Loop";
 import Slide08Keys from "./slides/Slide08Keys";
-import Slide09Demo from "./slides/Slide09Demo";
-import Slide10Impact from "./slides/Slide10Impact";
-import Slide11Closing from "./slides/Slide11Closing";
-import Slide12Thanks from "./slides/Slide12Thanks";
+import Slide09Hills from "./slides/Slide09Hills";
+import Slide10Playbacks from "./slides/Slide10Playbacks";
+import Slide11SponsorUsers from "./slides/Slide11SponsorUsers";
+import Slide12Roles from "./slides/Slide12Roles";
+import Slide13CaseAirbnb from "./slides/Slide13CaseAirbnb";
+import Slide14CaseIdeo from "./slides/Slide14CaseIdeo";
+import Slide15CasePG from "./slides/Slide15CasePG";
+import Slide16Impact from "./slides/Slide16Impact";
+import Slide17Context from "./slides/Slide17Context";
+import Slide18Closing from "./slides/Slide18Closing";
+import Slide19Thanks from "./slides/Slide19Thanks";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
-  { id: "problem", label: "El problema", component: Slide02Problem },
-  { id: "definition", label: "Definición", component: Slide03Definition },
-  { id: "origins", label: "Origen", component: Slide04Origins },
-  { id: "stages", label: "Las 5 etapas", component: Slide05Stages },
+  { id: "problem", label: "Por qué existe", component: Slide02Problem },
+  { id: "definition", label: "Qué es", component: Slide03Definition },
+  { id: "origins", label: "De dónde viene", component: Slide04Origins },
+  { id: "stages", label: "El proceso", component: Slide05Stages },
   { id: "principles", label: "Los principios", component: Slide06Principles },
   { id: "loop", label: "The Loop", component: Slide07Loop },
   { id: "keys", label: "The Keys", component: Slide08Keys },
-  { id: "demo", label: "Demo en vivo", component: Slide09Demo },
-  { id: "impact", label: "Impacto", component: Slide10Impact },
-  { id: "closing", label: "Cierre", component: Slide11Closing },
-  { id: "thanks", label: "Gracias", component: Slide12Thanks },
+  { id: "hills", label: "Hills", component: Slide09Hills },
+  { id: "playbacks", label: "Playbacks", component: Slide10Playbacks },
+  { id: "sponsor-users", label: "Sponsor Users", component: Slide11SponsorUsers },
+  { id: "roles", label: "Roles", component: Slide12Roles },
+  { id: "case-airbnb", label: "Caso Airbnb", component: Slide13CaseAirbnb },
+  { id: "case-ideo", label: "Caso IDEO", component: Slide14CaseIdeo },
+  { id: "case-pg", label: "Caso P&G", component: Slide15CasePG },
+  { id: "impact", label: "Resultados", component: Slide16Impact },
+  { id: "context", label: "Dónde encaja", component: Slide17Context },
+  { id: "closing", label: "Cierre", component: Slide18Closing },
+  { id: "thanks", label: "Gracias", component: Slide19Thanks },
 ];
 
 export default function Presentation() {
@@ -57,7 +71,7 @@ export default function Presentation() {
 
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-      <FollowerPointerCard title="Enterprise Design Thinking" className="h-full w-full">
+      <FollowerPointerCard title="Viernes de la Jungla" className="h-full w-full">
         <ProgressBar current={currentSlide} total={total} />
 
         <AnimatePresence mode="wait">

@@ -6,7 +6,8 @@ const LOOP = { repeat: Infinity, repeatType: "loop" as const };
 
 function OutcomesDiagram() {
   return (
-    <svg viewBox="0 0 400 200" className="w-full h-full" fill="none" strokeLinecap="round">
+    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none" strokeLinecap="round">
+      <g transform="translate(0 50)">
       {/* Objetivo */}
       <circle cx="300" cy="100" r="62" stroke="rgba(255,255,255,0.16)" strokeWidth="3" />
       <circle cx="300" cy="100" r="38" stroke="rgba(255,255,255,0.28)" strokeWidth="3" />
@@ -76,6 +77,7 @@ function OutcomesDiagram() {
       >
         su objetivo cumplido
       </text>
+      </g>
     </svg>
   );
 }
@@ -88,7 +90,8 @@ function ReinventionDiagram() {
   ];
 
   return (
-    <svg viewBox="0 0 400 200" className="w-full h-full" fill="none" strokeLinecap="round">
+    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none" strokeLinecap="round">
+      <g transform="translate(0 50)">
       <line x1="30" y1="150" x2="370" y2="150" stroke="rgba(255,255,255,0.16)" strokeWidth="3" />
 
       {versions.map((v, i) => (
@@ -101,13 +104,9 @@ function ReinventionDiagram() {
             stroke="#8A3FFC"
             strokeWidth="3"
             style={{ filter: "drop-shadow(0 0 10px rgba(138,63,252,0.7))" }}
-            animate={{ scale: [0, 1, 1, 1], opacity: [0, 1, 1, 0.35] }}
-            transition={{
-              duration: 3.4,
-              times: [0, 0.12 + i * 0.18, 0.75, 1],
-              ...LOOP,
-              repeatDelay: 0.4,
-            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.4 + i * 0.22 }}
           />
           <motion.text
             x={v.x}
@@ -117,13 +116,9 @@ function ReinventionDiagram() {
             fontFamily="monospace"
             fontWeight="bold"
             fill="#FFFFFF"
-            animate={{ opacity: [0, 1, 1, 0.4] }}
-            transition={{
-              duration: 3.4,
-              times: [0, 0.16 + i * 0.18, 0.75, 1],
-              ...LOOP,
-              repeatDelay: 0.4,
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.55 + i * 0.22 }}
           >
             {v.label}
           </motion.text>
@@ -137,7 +132,7 @@ function ReinventionDiagram() {
         strokeWidth="3.5"
         strokeDasharray="7 5"
         animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 3.4, times: [0, 0.55, 0.85, 1], ...LOOP, repeatDelay: 0.4 }}
+        transition={{ duration: 2.4, times: [0, 0.5, 0.8, 1], ...LOOP, repeatDelay: 0.6, delay: 1.1 }}
       />
       <text
         x="200"
@@ -150,6 +145,7 @@ function ReinventionDiagram() {
       >
         todo es un prototipo
       </text>
+      </g>
     </svg>
   );
 }
@@ -164,7 +160,8 @@ function TeamsDiagram() {
   ];
 
   return (
-    <svg viewBox="0 0 400 200" className="w-full h-full" fill="none" strokeLinecap="round">
+    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none" strokeLinecap="round">
+      <g transform="translate(0 50)">
       {members.map((m, i) =>
         members.slice(i + 1).map((o, j) => (
           <motion.line
@@ -210,6 +207,7 @@ function TeamsDiagram() {
       >
         diversidad + autonomía para decidir
       </text>
+      </g>
     </svg>
   );
 }
@@ -219,21 +217,21 @@ const principles = [
     num: "01",
     label: "Foco en outcomes",
     en: "A focus on user outcomes",
-    quote: "Nos miden por qué tan bien cumplimos las necesidades de nuestros usuarios.",
+    quote: "No nos miden por las funcionalidades que entregamos, sino por qué tan bien resolvemos las necesidades de nuestros usuarios.",
     diagram: <OutcomesDiagram />,
   },
   {
     num: "02",
     label: "Reinvención incansable",
     en: "Restless reinvention",
-    quote: "Todo es un prototipo. Ninguna solución es definitiva.",
+    quote: "Ningún producto está terminado: todo funciona como un prototipo en iteración constante.",
     diagram: <ReinventionDiagram />,
   },
   {
     num: "03",
     label: "Equipos diversos",
     en: "Diverse empowered teams",
-    quote: "Avanzás más rápido cuando el equipo diverso tiene poder para actuar.",
+    quote: "Empatía: primero entre nosotros, después con nuestros usuarios.",
     diagram: <TeamsDiagram />,
   },
 ];

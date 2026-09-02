@@ -37,7 +37,7 @@ export default function Slide07Loop() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 1.8 }}
+        transition={{ duration: 0.4, delay: 1.1 }}
         className="flex items-center justify-between font-mono text-base uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
       >
         <span>Pasá el mouse por cada fase</span>

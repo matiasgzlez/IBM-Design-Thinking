@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, type MouseEvent } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useTime, useTransform } from "motion/react";
 
 type PhaseId = "observe" | "reflect" | "make";
 
@@ -29,7 +29,7 @@ const phases: Phase[] = [
     arrow: { x: 605.6, y: 191, rotate: 55 },
     label: { x: 450, y: 56 },
     tagline: "Sumergite en el mundo real",
-    detail: "Mirá a los usuarios en su contexto · sin supuestos",
+    detail: "Investigar y entender el problema en profundidad",
   },
   {
     id: "reflect",
@@ -40,7 +40,7 @@ const phases: Phase[] = [
     arrow: { x: 466.6, y: 489.3, rotate: 175 },
     label: { x: 700, y: 508 },
     tagline: "Juntense y miren adentro",
-    detail: "Sintetizar, alinear y decidir el próximo paso",
+    detail: "Integrar lo aprendido y armar un plan de acción",
   },
   {
     id: "make",
@@ -51,9 +51,33 @@ const phases: Phase[] = [
     arrow: { x: 277.8, y: 219.7, rotate: 295 },
     label: { x: 205, y: 508 },
     tagline: "Dale forma a lo abstracto",
-    detail: "Cuanto antes hacés, más rápido aprendés",
+    detail: "Prototipos y resultados que alimentan la próxima observación",
   },
 ];
+
+/**
+ * Motion aplica los transforms de SVG con el origen en el centro del bounding
+ * box del propio elemento, así que un `rotate` haría girar al punto sobre sí
+ * mismo. Calculamos la posición sobre la circunferencia a mano.
+ */
+function OrbitingDot() {
+  const time = useTime();
+  const angle = useTransform(time, (t) => (t / 9000) * Math.PI * 2 - Math.PI / 2);
+  const cx = useTransform(angle, (a) => 450 + 190 * Math.cos(a));
+  const cy = useTransform(angle, (a) => 300 + 190 * Math.sin(a));
+
+  return (
+    <motion.circle
+      cx={cx}
+      cy={cy}
+      r={11}
+      fill="var(--color-text-primary)"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, delay: 1 }}
+    />
+  );
+}
 
 export default function LoopDiagram() {
   const [active, setActive] = useState<PhaseId | null>(null);
@@ -83,7 +107,6 @@ export default function LoopDiagram() {
             initial={{ scale: 0.9, opacity: 0.6 }}
             animate={{ scale: [0.9, 1.5], opacity: [0.55, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: i * 1.5, ease: "easeOut" }}
-            style={{ transformOrigin: "450px 300px" }}
           />
         ))}
 
@@ -95,13 +118,12 @@ export default function LoopDiagram() {
           fill="var(--color-bg-dark)"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 220, damping: 18, delay: 0.2 }}
-          style={{ transformOrigin: "450px 300px" }}
+          transition={{ type: "spring", stiffness: 240, damping: 18, delay: 0.1 }}
         />
         <motion.g
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.35, delay: 0.35 }}
         >
           <circle cx={450} cy={283} r={16} fill="#FFFFFF" />
           <path
@@ -147,7 +169,7 @@ export default function LoopDiagram() {
                 initial={{ pathLength: 0, strokeWidth: 14 }}
                 animate={{ pathLength: 1, strokeWidth: isActive ? 20 : 14 }}
                 transition={{
-                  pathLength: { duration: 0.7, delay: 0.4 + i * 0.22, ease: [0.4, 0, 0.2, 1] },
+                  pathLength: { duration: 0.55, delay: 0.25 + i * 0.14, ease: [0.4, 0, 0.2, 1] },
                   strokeWidth: { duration: 0.2 },
                 }}
                 style={{ filter: isActive ? `drop-shadow(0 0 14px ${phase.color})` : "none" }}
@@ -161,11 +183,8 @@ export default function LoopDiagram() {
                   fill={phase.color}
                   initial={{ opacity: 0, scale: 0.4 }}
                   animate={{ opacity: 1, scale: isActive ? 1.25 : 1 }}
-                  transition={{ duration: 0.3, delay: 1.1 + i * 0.22 }}
-                  style={{
-                    transformOrigin: "0px 0px",
-                    filter: isActive ? `drop-shadow(0 0 12px ${phase.color})` : "none",
-                  }}
+                  transition={{ duration: 0.3, delay: 0.7 + i * 0.14 }}
+                  style={{ filter: isActive ? `drop-shadow(0 0 12px ${phase.color})` : "none" }}
                 />
               </g>
 
@@ -173,7 +192,7 @@ export default function LoopDiagram() {
               <motion.g
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.9 + i * 0.22 }}
+                transition={{ duration: 0.35, delay: 0.6 + i * 0.14 }}
               >
                 <text
                   x={phase.label.x}
@@ -203,21 +222,7 @@ export default function LoopDiagram() {
         })}
 
         {/* Punto que recorre el Loop sin fin */}
-        <motion.g
-          animate={{ rotate: 360 }}
-          transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
-          style={{ transformOrigin: "450px 300px" }}
-        >
-          <motion.circle
-            cx={450}
-            cy={110}
-            r={11}
-            fill="var(--color-text-primary)"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 1.6 }}
-          />
-        </motion.g>
+        <OrbitingDot />
       </svg>
 
       <AnimatePresence>
