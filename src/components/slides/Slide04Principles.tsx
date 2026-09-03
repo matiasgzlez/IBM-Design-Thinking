@@ -236,8 +236,15 @@ const principles = [
     num: "03",
     label: "Equipos diversos y empoderados",
     en: "Diverse empowered teams",
-    description:
-      "Equipos multidisciplinarios con autonomía para decidir, que primero generan empatía entre ellos y después con los usuarios.",
+    description: (
+      <>
+        Son dos cosas al mismo tiempo:{" "}
+        <span className="text-[var(--color-accent)] font-bold">diversidad</span>, perspectivas
+        distintas sentadas en la misma mesa, y{" "}
+        <span className="text-[var(--color-accent)] font-bold">autonomía</span>, poder para
+        decidir sin frenar todo en aprobaciones.
+      </>
+    ),
     quote: "Empatía: primero entre nosotros, después con nuestros usuarios.",
     diagram: <TeamsDiagram />,
   },
