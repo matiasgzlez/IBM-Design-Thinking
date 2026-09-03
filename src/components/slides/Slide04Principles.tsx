@@ -215,22 +215,29 @@ function TeamsDiagram() {
 const principles = [
   {
     num: "01",
-    label: "Foco en outcomes",
+    label: "Foco en los resultados del usuario",
     en: "A focus on user outcomes",
-    quote: "No nos miden por las funcionalidades que entregamos, sino por qué tan bien resolvemos las necesidades de nuestros usuarios.",
+    description:
+      "No se miden por las funcionalidades que entregan, sino por qué tan bien resuelven las necesidades reales del usuario.",
+    quote:
+      "No nos miden por las funcionalidades que entregamos. Nos miden por qué tan bien resolvemos las necesidades de nuestros usuarios.",
     diagram: <OutcomesDiagram />,
   },
   {
     num: "02",
     label: "Reinvención incansable",
     en: "Restless reinvention",
+    description:
+      "Ninguna solución es definitiva: todo lo que se entrega es una versión más, lista para volver a cambiar.",
     quote: "Ningún producto está terminado: todo funciona como un prototipo en iteración constante.",
     diagram: <ReinventionDiagram />,
   },
   {
     num: "03",
-    label: "Equipos diversos",
+    label: "Equipos diversos y empoderados",
     en: "Diverse empowered teams",
+    description:
+      "Equipos multidisciplinarios con autonomía para decidir, que primero generan empatía entre ellos y después con los usuarios.",
     quote: "Empatía: primero entre nosotros, después con nuestros usuarios.",
     diagram: <TeamsDiagram />,
   },
@@ -239,26 +246,17 @@ const principles = [
 export default function Slide04Principles() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-10 pb-8 flex flex-col">
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)] flex-shrink-0"
-      >
-        Enterprise Design Thinking · <span className="text-[var(--color-accent)]">los 3 principios</span>
-      </motion.div>
-
       <motion.h2
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
-        className="flex-shrink-0 mt-2 font-black tracking-[-0.03em] leading-none text-[clamp(36px,4.5vw,60px)]"
+        transition={{ duration: 0.5, delay: 0.08, ease: [0.4, 0, 0.2, 1] }}
+        className="flex-shrink-0 font-black tracking-[-0.035em] leading-[0.95] text-[clamp(34px,4.2vw,58px)]"
       >
-        THE <span className="text-[var(--color-accent)]">PRINCIPLES</span>
+        Los <span className="text-[var(--color-accent)]">3 principios</span> del Enterprise Design Thinking
       </motion.h2>
 
       <div className="mt-5 grid grid-cols-3 gap-6 flex-1 min-h-0">
-        {principles.map(({ num, label, en, quote, diagram }, i) => (
+        {principles.map(({ num, label, en, description, quote, diagram }, i) => (
           <motion.div
             key={num}
             initial={{ opacity: 0, y: 28 }}
@@ -271,7 +269,7 @@ export default function Slide04Principles() {
                 {num}
               </span>
               <div className="flex-1">
-                <h3 className="font-black text-3xl text-white uppercase tracking-tight leading-none">
+                <h3 className="font-black text-[26px] text-white uppercase tracking-tight leading-[0.95]">
                   {label}
                 </h3>
                 <span className="font-mono text-sm uppercase tracking-[0.14em] text-[var(--color-accent)]">
@@ -284,8 +282,11 @@ export default function Slide04Principles() {
               {diagram}
             </div>
 
-            <div className="flex-shrink-0 px-7 py-4 border-t border-[rgba(255,255,255,0.07)]">
-              <p className="text-lg text-white/75 leading-snug italic">“{quote}”</p>
+            <div className="flex-shrink-0 px-7 py-4 border-t border-[rgba(255,255,255,0.07)] flex flex-col gap-3">
+              <p className="text-lg text-white leading-snug">{description}</p>
+              <p className="text-base text-white/55 leading-snug italic border-l-2 border-[var(--color-accent)] pl-3">
+                “{quote}”
+              </p>
             </div>
           </motion.div>
         ))}
