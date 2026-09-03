@@ -53,29 +53,13 @@ export default function Slide01Cover() {
         </motion.div>
       </div>
 
-      <motion.p
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.5, ease: EASE }}
-        className="max-w-5xl text-2xl text-[var(--color-text-secondary)] leading-snug"
-      >
-        Un taller de post-its funciona con ocho personas alrededor de una pared.{" "}
-        <span className="text-[var(--color-text-primary)] font-medium">
-          ¿Y con cuatrocientas mil?
-        </span>
-      </motion.p>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.7 }}
-        className="mt-6 flex items-center justify-between font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+        transition={{ duration: 0.4, delay: 0.5 }}
+        className="font-mono text-xl uppercase tracking-[0.22em] font-bold text-[var(--color-text-primary)]"
       >
-        <span className="text-[var(--color-text-primary)] font-bold">
-          Viernes de la Jungla
-        </span>
-        <span>Observe · Reflect · Make</span>
-        <span>2026</span>
+        Viernes de la Jungla
       </motion.div>
     </section>
   );
