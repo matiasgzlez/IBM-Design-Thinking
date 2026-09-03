@@ -14,19 +14,19 @@ const razones = [
   },
   {
     num: "02",
-    label: "Para los ágiles, era volver al waterfall",
+    label: "Para el equipo ágil, era volver al waterfall",
     description:
-      "Se aplicaba como una secuencia de fases cerradas —investigar, idear, prototipar, testear— que terminaba en un taller y recién ahí pasaba el diseño a ingeniería.",
+      "Se aplicaba como una secuencia de fases cerradas —investigar, idear, prototipar— que llevaba a un taller, y recién ahí pasaba a diseño e ingeniería.",
     highlight:
-      "Diseño primero, construcción después: la etapa larga de análisis que los equipos ágiles querían dejar atrás.",
+      "Y eso era justamente lo que el equipo ágil de IBM no quería que pasara.",
   },
   {
     num: "03",
-    label: "Chocaba con lo que ya usaban",
+    label: "Además, chocaba con lo que ya usaban",
     description:
-      "Agile, DevOps y PMOM ya estaban instalados y corriendo en los sprints, y el método clásico no entraba en ese ritmo.",
+      "Usaban métodos ágiles, DevOps, PMOM y otros, ya instalados en la empresa y funcionando en los sprints. El Design Thinking clásico no se ajustaba a eso.",
     highlight:
-      "Eso los llevó a reformular el enfoque en su propio lenguaje: así nace Enterprise Design Thinking.",
+      "Por lo tanto, los llevó a reformular el enfoque en su propio lenguaje: así nació Enterprise Design Thinking.",
   },
 ];
 
