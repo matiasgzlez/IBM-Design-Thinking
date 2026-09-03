@@ -3,7 +3,6 @@ import type { ComponentType } from "react";
 export type SlideId =
   | "cover"
   | "problem"
-  | "definition"
   | "origins"
   | "stages"
   | "principles"

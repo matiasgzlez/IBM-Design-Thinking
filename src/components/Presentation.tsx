@@ -8,44 +8,42 @@ import type { Slide } from "@/types";
 import ProgressBar from "./ProgressBar";
 import Slide01Cover from "./slides/Slide01Cover";
 import Slide02Problem from "./slides/Slide02Problem";
-import Slide03Definition from "./slides/Slide03Definition";
-import Slide04Origins from "./slides/Slide04Origins";
-import Slide05Stages from "./slides/Slide05Stages";
-import Slide06Principles from "./slides/Slide06Principles";
-import Slide07Loop from "./slides/Slide07Loop";
-import Slide08Keys from "./slides/Slide08Keys";
-import Slide09Hills from "./slides/Slide09Hills";
-import Slide10Playbacks from "./slides/Slide10Playbacks";
-import Slide11SponsorUsers from "./slides/Slide11SponsorUsers";
-import Slide12Roles from "./slides/Slide12Roles";
-import Slide13CaseAirbnb from "./slides/Slide13CaseAirbnb";
-import Slide14CaseIdeo from "./slides/Slide14CaseIdeo";
-import Slide15CasePG from "./slides/Slide15CasePG";
-import Slide16Impact from "./slides/Slide16Impact";
-import Slide17Context from "./slides/Slide17Context";
-import Slide18Closing from "./slides/Slide18Closing";
-import Slide19Thanks from "./slides/Slide19Thanks";
+import Slide03Origins from "./slides/Slide03Origins";
+import Slide04Stages from "./slides/Slide04Stages";
+import Slide05Principles from "./slides/Slide05Principles";
+import Slide06Loop from "./slides/Slide06Loop";
+import Slide07Keys from "./slides/Slide07Keys";
+import Slide08Hills from "./slides/Slide08Hills";
+import Slide09Playbacks from "./slides/Slide09Playbacks";
+import Slide10SponsorUsers from "./slides/Slide10SponsorUsers";
+import Slide11Roles from "./slides/Slide11Roles";
+import Slide12CaseAirbnb from "./slides/Slide12CaseAirbnb";
+import Slide13CaseIdeo from "./slides/Slide13CaseIdeo";
+import Slide14CasePG from "./slides/Slide14CasePG";
+import Slide15Impact from "./slides/Slide15Impact";
+import Slide16Context from "./slides/Slide16Context";
+import Slide17Closing from "./slides/Slide17Closing";
+import Slide18Thanks from "./slides/Slide18Thanks";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
   { id: "problem", label: "Por qué existe", component: Slide02Problem },
-  { id: "definition", label: "Qué es", component: Slide03Definition },
-  { id: "origins", label: "De dónde viene", component: Slide04Origins },
-  { id: "stages", label: "El proceso", component: Slide05Stages },
-  { id: "principles", label: "Los principios", component: Slide06Principles },
-  { id: "loop", label: "The Loop", component: Slide07Loop },
-  { id: "keys", label: "The Keys", component: Slide08Keys },
-  { id: "hills", label: "Hills", component: Slide09Hills },
-  { id: "playbacks", label: "Playbacks", component: Slide10Playbacks },
-  { id: "sponsor-users", label: "Sponsor Users", component: Slide11SponsorUsers },
-  { id: "roles", label: "Roles", component: Slide12Roles },
-  { id: "case-airbnb", label: "Caso Airbnb", component: Slide13CaseAirbnb },
-  { id: "case-ideo", label: "Caso IDEO", component: Slide14CaseIdeo },
-  { id: "case-pg", label: "Caso P&G", component: Slide15CasePG },
-  { id: "impact", label: "Resultados", component: Slide16Impact },
-  { id: "context", label: "Dónde encaja", component: Slide17Context },
-  { id: "closing", label: "Cierre", component: Slide18Closing },
-  { id: "thanks", label: "Gracias", component: Slide19Thanks },
+  { id: "origins", label: "De dónde viene", component: Slide03Origins },
+  { id: "stages", label: "El proceso", component: Slide04Stages },
+  { id: "principles", label: "Los principios", component: Slide05Principles },
+  { id: "loop", label: "The Loop", component: Slide06Loop },
+  { id: "keys", label: "The Keys", component: Slide07Keys },
+  { id: "hills", label: "Hills", component: Slide08Hills },
+  { id: "playbacks", label: "Playbacks", component: Slide09Playbacks },
+  { id: "sponsor-users", label: "Sponsor Users", component: Slide10SponsorUsers },
+  { id: "roles", label: "Roles", component: Slide11Roles },
+  { id: "case-airbnb", label: "Caso Airbnb", component: Slide12CaseAirbnb },
+  { id: "case-ideo", label: "Caso IDEO", component: Slide13CaseIdeo },
+  { id: "case-pg", label: "Caso P&G", component: Slide14CasePG },
+  { id: "impact", label: "Resultados", component: Slide15Impact },
+  { id: "context", label: "Dónde encaja", component: Slide16Context },
+  { id: "closing", label: "Cierre", component: Slide17Closing },
+  { id: "thanks", label: "Gracias", component: Slide18Thanks },
 ];
 
 export default function Presentation() {

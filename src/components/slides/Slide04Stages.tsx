@@ -50,7 +50,7 @@ const mindsets = [
   "Ser creativo",
 ];
 
-export default function Slide05Stages() {
+export default function Slide04Stages() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (

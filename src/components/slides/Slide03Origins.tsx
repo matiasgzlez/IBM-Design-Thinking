@@ -33,7 +33,7 @@ const milestones = [
   },
 ];
 
-export default function Slide04Origins() {
+export default function Slide03Origins() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
       <motion.div

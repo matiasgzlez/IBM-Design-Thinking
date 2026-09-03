@@ -48,29 +48,28 @@ logo simplemente no aparece: no rompe nada.
 | `Esc` | Volver al inicio |
 | `F` | Toggle fullscreen |
 
-## 🎞️ Las 19 slides
+## 🎞️ Las 18 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
-| 01 | Portada | Título, logo del grupo y la pregunta que abre |
-| 02 | Por qué existe | El Design Thinking clásico se rompía a escala |
-| 03 | Qué es | Marco no lineal, usuario primero, iteración continua |
-| 04 | De dónde viene | Timeline 1960s → Kelley/IDEO → Brown/HBR → IBM 2015-16 |
-| 05 | El proceso | Las 5 etapas + la flecha de que nunca es lineal |
-| 06 | The Principles | Los 3 principios, cada uno con su diagrama animado |
-| 07 | The Loop | El ciclo Observe · Reflect · Make (interactivo al hover) |
-| 08 | The Keys | Hills, Playbacks y Sponsor Users |
-| 09 | Hills | Who / What / Wow con el ejemplo real de IBM |
-| 10 | Playbacks | Los 4 tipos sobre la línea de tiempo del proyecto |
-| 11 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
-| 12 | Roles | Gerentes vs. equipo |
-| 13 | Caso Airbnb | Las fotos eran el problema |
-| 14 | Caso IDEO | El cepillo de mango grueso |
-| 15 | Caso P&G | El Swiffer y el paso de más |
-| 16 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 17 | Dónde encaja | Double Diamond y TiSDD ↔ el Loop |
-| 18 | Cierre | Los tres bloques para recordar + certificaciones |
-| 19 | Gracias | Logo y cierre |
+| 01 | Portada | Título, logo del grupo y la materia |
+| 02 | Por qué existe | El Design Thinking clásico no funcionaba a gran escala |
+| 03 | De dónde viene | Timeline 1960s → Kelley/IDEO → Brown/HBR → IBM 2015-16 |
+| 04 | El proceso | Las 5 etapas + la flecha de que nunca es lineal |
+| 05 | The Principles | Los 3 principios, cada uno con su diagrama animado |
+| 06 | The Loop | El ciclo Observe · Reflect · Make (interactivo al hover) |
+| 07 | The Keys | Hills, Playbacks y Sponsor Users |
+| 08 | Hills | Who / What / Wow con el ejemplo real de IBM |
+| 09 | Playbacks | Los 4 tipos sobre la línea de tiempo del proyecto |
+| 10 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
+| 11 | Roles | Gerentes vs. equipo |
+| 12 | Caso Airbnb | Las fotos eran el problema |
+| 13 | Caso IDEO | El cepillo de mango grueso |
+| 14 | Caso P&G | El Swiffer y el paso de más |
+| 15 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 16 | Dónde encaja | Double Diamond y TiSDD ↔ el Loop |
+| 17 | Cierre | Los tres bloques para recordar + certificaciones |
+| 18 | Gracias | Logo y cierre |
 
 ## 📁 Estructura
 
@@ -87,7 +86,7 @@ src/
 │   ├── ProgressBar.tsx          # Barra de progreso superior
 │   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
 │   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide19 + LoopDiagram + CaseLayout
+│   └── slides/                  # Slide01…Slide18 + LoopDiagram + CaseLayout
 ├── hooks/
 │   └── useKeyboardShortcuts.ts
 ├── lib/
