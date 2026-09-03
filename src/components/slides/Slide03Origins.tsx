@@ -7,22 +7,26 @@ const milestones = [
   {
     year: "1960s",
     title: "Raíces",
-    description: "El diseño empieza a estudiarse como una forma de resolver problemas, no de decorar.",
+    description:
+      "El diseño empieza a estudiarse como una forma de resolver problemas, no de decorar.",
   },
   {
     year: "1970s",
-    title: "Principios formales",
-    description: "Aparece como una manera distinta de pensar, con métodos propios y transferibles.",
+    title: "Se vuelve un método",
+    description:
+      "Se escriben sus principios y se empieza a enseñar. Deja de depender del talento de un diseñador y pasa a ser un proceso que cualquier equipo puede aprender, repetir y aplicar a problemas que no son de diseño.",
   },
   {
     year: "1991",
     title: "David Kelley · IDEO",
-    description: "Acuña el término design thinking y funda IDEO, la consultora construida sobre el método.",
+    description:
+      "Kelley funda IDEO, una consultora de diseño e innovación que crea productos para otras empresas, y acuña el término design thinking: el método pasa a ser lo que se vende.",
   },
   {
     year: "2008",
     title: "Tim Brown · HBR",
-    description: "El CEO de IDEO lo populariza en Harvard Business Review y salta del diseño al management.",
+    description:
+      "El CEO de IDEO publica el artículo Design Thinking en Harvard Business Review y lo explica en el idioma de los gerentes. Deja de ser cosa de diseñadores: las empresas empiezan a usarlo para resolver problemas de negocio.",
   },
   {
     year: "2015-16",
@@ -36,22 +40,13 @@ const milestones = [
 export default function Slide03Origins() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
-      >
-        De dónde viene · <span className="text-[var(--color-accent)]">60 años de método</span>
-      </motion.div>
-
       <motion.h2
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: T.title, ease: EASE }}
-        className="mt-4 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(44px,5.5vw,80px)]"
+        className="font-black leading-[0.9] tracking-[-0.04em] text-[clamp(44px,5.4vw,86px)]"
       >
-        No es una moda: <span className="text-[var(--color-accent)]">es una disciplina.</span>
+        ¿Cómo es la <span className="text-[var(--color-accent)]">línea del tiempo?</span>
       </motion.h2>
 
       <div className="relative flex-1 flex items-center">
@@ -64,7 +59,7 @@ export default function Slide03Origins() {
             className="absolute left-0 right-0 top-7 h-[3px] bg-[var(--color-divider)]"
           />
 
-          <div className="relative grid grid-cols-5 gap-6">
+          <div className="relative grid grid-cols-5 gap-6 items-start">
             {milestones.map(({ year, title, description, highlight }, i) => (
               <motion.div
                 key={year}
@@ -97,7 +92,7 @@ export default function Slide03Origins() {
                   {year}
                 </span>
 
-                <h3 className="font-black text-2xl uppercase tracking-tight leading-none">
+                <h3 className="font-black text-2xl uppercase tracking-tight leading-[0.95]">
                   {title}
                 </h3>
 
@@ -109,15 +104,6 @@ export default function Slide03Origins() {
           </div>
         </div>
       </div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.85 }}
-        className="font-mono text-base uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
-      >
-        El método es design thinking · la innovación es el resultado
-      </motion.p>
     </section>
   );
 }
