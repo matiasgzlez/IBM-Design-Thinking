@@ -48,7 +48,7 @@ export default function Slide01Cover() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="h-full w-full flex items-center justify-center"
           >
-            <Logo className="max-h-full max-w-full object-contain drop-shadow-2xl" />
+            <Logo className="max-h-[70%] max-w-[70%] object-contain drop-shadow-2xl" />
           </motion.div>
         </motion.div>
       </div>

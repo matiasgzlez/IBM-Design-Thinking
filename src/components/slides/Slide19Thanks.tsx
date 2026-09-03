@@ -62,7 +62,7 @@ export default function Slide19Thanks() {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="h-full flex items-center"
         >
-          <Logo className="max-h-full object-contain" />
+          <Logo className="max-h-[70%] object-contain" />
         </motion.div>
       </motion.div>
 
