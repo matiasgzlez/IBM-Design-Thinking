@@ -4,7 +4,6 @@ export type SlideId =
   | "cover"
   | "problem"
   | "origins"
-  | "stages"
   | "principles"
   | "loop"
   | "keys"

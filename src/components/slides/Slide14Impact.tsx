@@ -44,7 +44,7 @@ const notes = [
   { head: "Forrester", text: "Total Economic Impact, estudio encargado por IBM sobre proyectos de tres años." },
 ];
 
-export default function Slide15Impact() {
+export default function Slide14Impact() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden px-20 pt-14 pb-12 flex flex-col">
       <motion.div

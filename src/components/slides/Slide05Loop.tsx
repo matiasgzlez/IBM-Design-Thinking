@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import LoopDiagram from "./LoopDiagram";
 
-export default function Slide06Loop() {
+export default function Slide05Loop() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-12 pb-10 flex flex-col">
       <motion.span

@@ -48,28 +48,27 @@ logo simplemente no aparece: no rompe nada.
 | `Esc` | Volver al inicio |
 | `F` | Toggle fullscreen |
 
-## 🎞️ Las 18 slides
+## 🎞️ Las 17 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
 | 01 | Portada | Título, logo del grupo y la materia |
 | 02 | Por qué existe | El Design Thinking clásico no funcionaba a gran escala |
-| 03 | De dónde viene | Timeline 1960s → Kelley/IDEO → Brown/HBR → IBM 2015-16 |
-| 04 | El proceso | Las 5 etapas + la flecha de que nunca es lineal |
-| 05 | The Principles | Los 3 principios, cada uno con su diagrama animado |
-| 06 | The Loop | El ciclo Observe · Reflect · Make (interactivo al hover) |
-| 07 | The Keys | Hills, Playbacks y Sponsor Users |
-| 08 | Hills | Who / What / Wow con el ejemplo real de IBM |
-| 09 | Playbacks | Los 4 tipos sobre la línea de tiempo del proyecto |
-| 10 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
-| 11 | Roles | Gerentes vs. equipo |
-| 12 | Caso Airbnb | Las fotos eran el problema |
-| 13 | Caso IDEO | El cepillo de mango grueso |
-| 14 | Caso P&G | El Swiffer y el paso de más |
-| 15 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 16 | Dónde encaja | Double Diamond y TiSDD ↔ el Loop |
-| 17 | Cierre | Los tres bloques para recordar + certificaciones |
-| 18 | Gracias | Logo y cierre |
+| 03 | La línea del tiempo | 1960s → Kelley/IDEO → Brown/HBR → IBM 2015-16 |
+| 04 | The Principles | Los 3 principios, cada uno con su diagrama animado |
+| 05 | The Loop | El ciclo Observe · Reflect · Make (interactivo al hover) |
+| 06 | The Keys | Hills, Playbacks y Sponsor Users |
+| 07 | Hills | Who / What / Wow con el ejemplo real de IBM |
+| 08 | Playbacks | Los 4 tipos sobre la línea de tiempo del proyecto |
+| 09 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
+| 10 | Roles | Gerentes vs. equipo |
+| 11 | Caso Airbnb | Las fotos eran el problema |
+| 12 | Caso IDEO | El cepillo de mango grueso |
+| 13 | Caso P&G | El Swiffer y el paso de más |
+| 14 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 15 | Dónde encaja | Double Diamond y TiSDD ↔ el Loop |
+| 16 | Cierre | Los tres bloques para recordar + certificaciones |
+| 17 | Gracias | Logo y cierre |
 
 ## 📁 Estructura
 
@@ -86,7 +85,7 @@ src/
 │   ├── ProgressBar.tsx          # Barra de progreso superior
 │   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
 │   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide18 + LoopDiagram + CaseLayout
+│   └── slides/                  # Slide01…Slide17 + LoopDiagram + CaseLayout
 ├── hooks/
 │   └── useKeyboardShortcuts.ts
 ├── lib/

@@ -135,7 +135,7 @@ function AirbnbDiagram() {
   );
 }
 
-export default function Slide12CaseAirbnb() {
+export default function Slide11CaseAirbnb() {
   return (
     <CaseLayout
       index="01"

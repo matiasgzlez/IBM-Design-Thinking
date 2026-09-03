@@ -9,41 +9,39 @@ import ProgressBar from "./ProgressBar";
 import Slide01Cover from "./slides/Slide01Cover";
 import Slide02Problem from "./slides/Slide02Problem";
 import Slide03Origins from "./slides/Slide03Origins";
-import Slide04Stages from "./slides/Slide04Stages";
-import Slide05Principles from "./slides/Slide05Principles";
-import Slide06Loop from "./slides/Slide06Loop";
-import Slide07Keys from "./slides/Slide07Keys";
-import Slide08Hills from "./slides/Slide08Hills";
-import Slide09Playbacks from "./slides/Slide09Playbacks";
-import Slide10SponsorUsers from "./slides/Slide10SponsorUsers";
-import Slide11Roles from "./slides/Slide11Roles";
-import Slide12CaseAirbnb from "./slides/Slide12CaseAirbnb";
-import Slide13CaseIdeo from "./slides/Slide13CaseIdeo";
-import Slide14CasePG from "./slides/Slide14CasePG";
-import Slide15Impact from "./slides/Slide15Impact";
-import Slide16Context from "./slides/Slide16Context";
-import Slide17Closing from "./slides/Slide17Closing";
-import Slide18Thanks from "./slides/Slide18Thanks";
+import Slide04Principles from "./slides/Slide04Principles";
+import Slide05Loop from "./slides/Slide05Loop";
+import Slide06Keys from "./slides/Slide06Keys";
+import Slide07Hills from "./slides/Slide07Hills";
+import Slide08Playbacks from "./slides/Slide08Playbacks";
+import Slide09SponsorUsers from "./slides/Slide09SponsorUsers";
+import Slide10Roles from "./slides/Slide10Roles";
+import Slide11CaseAirbnb from "./slides/Slide11CaseAirbnb";
+import Slide12CaseIdeo from "./slides/Slide12CaseIdeo";
+import Slide13CasePG from "./slides/Slide13CasePG";
+import Slide14Impact from "./slides/Slide14Impact";
+import Slide15Context from "./slides/Slide15Context";
+import Slide16Closing from "./slides/Slide16Closing";
+import Slide17Thanks from "./slides/Slide17Thanks";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
   { id: "problem", label: "Por qué existe", component: Slide02Problem },
   { id: "origins", label: "De dónde viene", component: Slide03Origins },
-  { id: "stages", label: "El proceso", component: Slide04Stages },
-  { id: "principles", label: "Los principios", component: Slide05Principles },
-  { id: "loop", label: "The Loop", component: Slide06Loop },
-  { id: "keys", label: "The Keys", component: Slide07Keys },
-  { id: "hills", label: "Hills", component: Slide08Hills },
-  { id: "playbacks", label: "Playbacks", component: Slide09Playbacks },
-  { id: "sponsor-users", label: "Sponsor Users", component: Slide10SponsorUsers },
-  { id: "roles", label: "Roles", component: Slide11Roles },
-  { id: "case-airbnb", label: "Caso Airbnb", component: Slide12CaseAirbnb },
-  { id: "case-ideo", label: "Caso IDEO", component: Slide13CaseIdeo },
-  { id: "case-pg", label: "Caso P&G", component: Slide14CasePG },
-  { id: "impact", label: "Resultados", component: Slide15Impact },
-  { id: "context", label: "Dónde encaja", component: Slide16Context },
-  { id: "closing", label: "Cierre", component: Slide17Closing },
-  { id: "thanks", label: "Gracias", component: Slide18Thanks },
+  { id: "principles", label: "Los principios", component: Slide04Principles },
+  { id: "loop", label: "The Loop", component: Slide05Loop },
+  { id: "keys", label: "The Keys", component: Slide06Keys },
+  { id: "hills", label: "Hills", component: Slide07Hills },
+  { id: "playbacks", label: "Playbacks", component: Slide08Playbacks },
+  { id: "sponsor-users", label: "Sponsor Users", component: Slide09SponsorUsers },
+  { id: "roles", label: "Roles", component: Slide10Roles },
+  { id: "case-airbnb", label: "Caso Airbnb", component: Slide11CaseAirbnb },
+  { id: "case-ideo", label: "Caso IDEO", component: Slide12CaseIdeo },
+  { id: "case-pg", label: "Caso P&G", component: Slide13CasePG },
+  { id: "impact", label: "Resultados", component: Slide14Impact },
+  { id: "context", label: "Dónde encaja", component: Slide15Context },
+  { id: "closing", label: "Cierre", component: Slide16Closing },
+  { id: "thanks", label: "Gracias", component: Slide17Thanks },
 ];
 
 export default function Presentation() {

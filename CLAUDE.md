@@ -51,8 +51,7 @@ usar esa plantilla para que el ritmo y la jerarquía sean iguales en todos.
 - **`x` / `y` en `animate` son traslaciones, no coordenadas.** Usar valores chicos
   (`y: 8` → `y: 0`) y dejar la posición absoluta en los atributos del elemento.
 - **`preserveAspectRatio="none"` deforma todo lo que dibujes**, incluidas las puntas de flecha.
-  Si algo tiene que ocupar el ancho completo y no deformarse, hacerlo con divs y bordes
-  (ver la flecha de retorno de `Slide05Stages.tsx`).
+  Si algo tiene que ocupar el ancho completo y no deformarse, hacerlo con divs y bordes.
 - Un SVG con `w-full h-full` se centra dentro del contenedor según su viewBox: si el viewBox
   es mucho más ancho que alto, sobra espacio vertical. Para llenar la tarjeta, subir el alto
   del viewBox y envolver el dibujo en un `<g transform="translate(0 N)">`.

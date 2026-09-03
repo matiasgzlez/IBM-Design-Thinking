@@ -154,7 +154,7 @@ function SwifferDiagram() {
   );
 }
 
-export default function Slide14CasePG() {
+export default function Slide13CasePG() {
   return (
     <CaseLayout
       index="03"
