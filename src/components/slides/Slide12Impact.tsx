@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { EASE, T } from "@/lib/motion";
 
-function CountUp({ to, duration = 1000, delay = 0 }: { to: number; duration?: number; delay?: number }) {
+function CountUp({ to, duration = 1100, delay = 0 }: { to: number; duration?: number; delay?: number }) {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -31,75 +31,78 @@ function CountUp({ to, duration = 1000, delay = 0 }: { to: number; duration?: nu
   return <>{value.toLocaleString("es-AR")}</>;
 }
 
-const metrics = [
-  { value: 300, prefix: "+", suffix: "%", label: "de retorno de inversión", detail: "ROI a tres años" },
-  { value: 75, prefix: "−", suffix: "%", label: "de tiempo de diseño y desarrollo", detail: "6-8 meses → 3-4 meses" },
-  { value: 2, prefix: "", suffix: "×", label: "más rápido al mercado", detail: "time to market" },
-  { value: 80, prefix: "+", suffix: "%", label: "de líderes con equipos más alineados", detail: "y más enfocados" },
-];
-
-const notes = [
-  { head: "US$ 36 M+", text: "de valor presente neto en los proyectos analizados." },
-  { head: "−50 %", text: "de defectos de software en un especialista en salud." },
-  { head: "Forrester", text: "Total Economic Impact, estudio encargado por IBM sobre proyectos de tres años." },
+const metricas = [
+  {
+    prefix: "+",
+    value: 300,
+    suffix: "%",
+    label: "de ROI",
+    detail:
+      "El retorno sobre la inversión: generó un valor de más de US$ 36 millones en los proyectos analizados.",
+  },
+  {
+    prefix: "−",
+    value: 75,
+    suffix: "%",
+    label: "de tiempo de entrega",
+    detail:
+      "Los ciclos de diseño y desarrollo pasaron de 6-8 meses a solo 3-4 meses por lanzamiento.",
+  },
+  {
+    prefix: "×",
+    value: 2,
+    suffix: "",
+    label: "de velocidad al mercado",
+    detail:
+      "Se duplicó la velocidad de salida al mercado en los equipos que integraron estas prácticas.",
+  },
+  {
+    prefix: "+",
+    value: 80,
+    suffix: "%",
+    label: "de los líderes",
+    detail:
+      "Reportó equipos más alineados, enfocados y con menor fricción en la toma de decisiones.",
+  },
 ];
 
 export default function Slide12Impact() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden px-20 pt-14 pb-12 flex flex-col">
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-white/50"
-      >
-        Resultados · <span className="text-[var(--color-accent)]">el estudio de Forrester</span>
-      </motion.div>
-
       <motion.h2
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: T.title, ease: EASE }}
-        className="mt-4 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(40px,5vw,74px)]"
+        className="max-w-[92%] font-black leading-[1.02] tracking-[-0.03em] text-[clamp(28px,3.1vw,48px)]"
       >
-        La empatía también <span className="text-[var(--color-accent)]">se mide.</span>
+        Un estudio independiente de{" "}
+        <span className="text-[var(--color-accent)]">Forrester (Total Economic Impact)</span> midió
+        los resultados económicos y operacionales de aplicar Enterprise Design Thinking durante un
+        período de tres años.
       </motion.h2>
 
-      <div className="mt-10 grid grid-cols-4 gap-6">
-        {metrics.map(({ value, prefix, suffix, label, detail }, i) => (
+      <div className="flex-1 min-h-0 mt-10 grid grid-cols-4 gap-8 content-center">
+        {metricas.map(({ prefix, value, suffix, label, detail }, i) => (
           <motion.div
             key={label}
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: T.content + i * 0.1, ease: EASE }}
-            className="border-t-4 border-[var(--color-accent)] pt-5"
+            transition={{ duration: 0.5, delay: T.content + i * 0.12, ease: EASE }}
+            className="border-t-4 border-[var(--color-accent)] pt-6 flex flex-col"
           >
-            <span className="block font-black leading-none tracking-[-0.04em] text-[clamp(44px,5vw,80px)]">
+            <span className="block font-black leading-[0.85] tracking-[-0.05em] text-[clamp(44px,5.2vw,88px)]">
               <span className="text-[var(--color-accent)]">{prefix}</span>
-              <CountUp to={value} delay={350 + i * 100} />
+              <CountUp to={value} delay={400 + i * 120} />
               <span className="text-[var(--color-accent)]">{suffix}</span>
             </span>
-            <span className="mt-3 block text-2xl text-white/80 leading-snug">{label}</span>
-            <span className="mt-1 block font-mono text-sm uppercase tracking-[0.16em] text-white/35">
+
+            <span className="mt-4 block font-black text-[clamp(20px,1.8vw,28px)] uppercase tracking-tight leading-none">
+              {label}
+            </span>
+
+            <span className="mt-4 block text-[clamp(17px,1.4vw,21px)] leading-snug text-white/60">
               {detail}
             </span>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="mt-auto grid grid-cols-3 gap-6">
-        {notes.map(({ head, text }, i) => (
-          <motion.div
-            key={head}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.75 + i * 0.1, ease: EASE }}
-            className="rounded-xl border border-white/15 p-7 hover:border-[var(--color-accent)] transition-colors flex flex-col gap-2"
-          >
-            <h3 className="font-black text-3xl tracking-tight leading-none text-[var(--color-accent)]">
-              {head}
-            </h3>
-            <p className="text-xl text-white/65 leading-snug">{text}</p>
           </motion.div>
         ))}
       </div>
