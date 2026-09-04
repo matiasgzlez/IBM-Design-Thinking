@@ -34,7 +34,7 @@ export default function Slide09CasoEncargo() {
             <span className="font-bold">IDEO</span>, reconocida globalmente por haber sido la
             empresa que{" "}
             <span className="font-bold">
-              popularizó y sistematizó la metodología del Design Thinking
+              popularizó la metodología del Design Thinking
             </span>
             .
           </motion.p>
