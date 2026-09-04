@@ -97,7 +97,7 @@ export default function SlotImage({
       {/* Al pasar el mouse se agranda al centro; el overlay no recibe eventos
           para que el hover no parpadee. */}
       <AnimatePresence>
-        {zoomOnHover && hovered && media?.kind === "image" && !open && (
+        {zoomOnHover && hovered && media && !open && (
           <motion.div
             key="zoom"
             initial={{ opacity: 0 }}
@@ -106,16 +106,31 @@ export default function SlotImage({
             transition={{ duration: 0.18 }}
             className="pointer-events-none fixed inset-0 z-40 flex items-center justify-center bg-black/92 backdrop-blur-sm px-16 py-10"
           >
-            <motion.img
-              src={media.url}
-              alt={title}
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 24 }}
-              className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
-              draggable={false}
-            />
+            {media.kind === "image" ? (
+              <motion.img
+                src={media.url}
+                alt={title}
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 24 }}
+                className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
+                draggable={false}
+              />
+            ) : (
+              <motion.video
+                src={media.url}
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 24 }}
+                className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>

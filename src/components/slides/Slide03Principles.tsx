@@ -255,16 +255,16 @@ const principles: Principle[] = [
     color: "var(--color-make)",
     label: "Equipos diversos y empoderados",
     en: "Diverse empowered teams",
+    lead: "Combinar perspectivas multidisciplinarias con autonomía para decidir.",
     description: (
       <>
-        Son dos cosas al mismo tiempo:{" "}
-        <span className="text-[var(--color-accent)] font-bold">diversidad</span>, perspectivas
-        distintas sentadas en la misma mesa, y{" "}
-        <span className="text-[var(--color-accent)] font-bold">autonomía</span>, poder para
-        decidir sin frenar todo en aprobaciones.
+        Unimos distintos perfiles —diseño, negocio, desarrollo— en una misma mesa para resolver
+        problemas complejos. La clave está en darle{" "}
+        <span className="text-[var(--color-accent)] font-bold">autonomía</span> al equipo:
+        autoridad para tomar decisiones y avanzar en cada sprint sin depender de largos procesos
+        de aprobación.
       </>
     ),
-    quote: "Empatía: primero entre nosotros, después con nuestros usuarios.",
     diagram: <TeamsDiagram />,
   },
 ];
