@@ -39,6 +39,22 @@ const playbacks = [
   },
 ];
 
+/** Lo que aparece debajo del meme cuando se agranda. */
+const playbacksCaption = (
+  <div className="flex flex-col items-center gap-5">
+    <p className="font-black text-[clamp(26px,3vw,46px)] leading-tight tracking-tight text-white">
+      Empieza perfecto y se desmorona en la ejecución.
+    </p>
+    <p className="text-[clamp(18px,1.6vw,26px)] leading-snug text-white/70 max-w-5xl">
+      Los <span className="font-bold" style={{ color: "var(--color-observe)" }}>Hills</span> estaban
+      claros y el <span className="font-bold" style={{ color: "var(--color-reflect)" }}>Playback
+      Zero</span> salió aprobado. Pero sin{" "}
+      <span className="font-bold" style={{ color: "var(--color-make)" }}>Delivery Playbacks</span> en
+      cada sprint, nadie mira el avance real y nadie corrige a tiempo.
+    </p>
+  </div>
+);
+
 export default function Slide06Playbacks() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-12 pb-10 flex flex-col">
@@ -94,11 +110,12 @@ export default function Slide06Playbacks() {
         >
           <SlotImage
             slot="keys/playbacks"
-            title="Sin playbacks, el stakeholder ve el producto el día que llega la caja."
+            title="Empieza perfecto y se desmorona en la ejecución."
             subtitle="Playbacks"
             color="var(--color-reflect)"
             className="h-[210px] w-full"
             zoomOnHover
+            zoomCaption={playbacksCaption}
           />
         </motion.div>
       </div>
