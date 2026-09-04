@@ -58,7 +58,7 @@ const phases: Phase[] = [
     start: { x: 433.4, y: 489.3 },
     arrow: { x: 277.8, y: 219.7, rotate: 295 },
     label: { x: 205, y: 508 },
-    definition: "Dar forma concreta a las ideas con prototipos que vuelven a ponerse a prueba.",
+    definition: "Dar forma tangible a las ideas mediante prototipos rápidos para validar con el usuario.",
   },
 ];
 
