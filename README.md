@@ -1,169 +1,154 @@
-# IBM Design Thinking — Viernes de la Jungla
+# IBM Design Thinking
 
-Presentación interactiva sobre **IBM Enterprise Design Thinking** para
-**Agilidad Avanzada · Unidad 1 · Design Thinking (2026)**.
+Presentación interactiva sobre **IBM Enterprise Design Thinking**, del grupo
+**Viernes de la Jungla** para *Agilidad Avanzada · Unidad 1: Design Thinking* (2026).
 
-Cubre por qué IBM tuvo que reinventar el método, los 3 principios, el Loop
-(Observe · Reflect · Make), las 3 llaves (Hills, Playbacks, Sponsor Users), los roles,
-tres casos reales para entenderlo y los resultados del estudio de Forrester.
+Trece slides que se navegan con el teclado: por qué IBM tuvo que reinventar el método,
+los tres principios, el Loop, las tres llaves (Hills, Playbacks, Sponsor Users), quién hace
+qué, el caso de Oral-B & IDEO contado en tres actos y los resultados medidos por Forrester.
 
-Construida con **Next.js 15**, **Tailwind CSS v4**, **Motion** y **Lucide**.
-
-## 📦 Stack
-
-- Next.js 15 (App Router) + React 19
-- TypeScript strict
-- Tailwind CSS v4 con `@theme` en `globals.css`
-- Motion (`motion/react`) para animaciones
-- Fonts: Inter, Space Grotesk, JetBrains Mono (vía `next/font/google`)
-
-## 🚀 Cómo correrlo
+## 🚀 Cómo correrla
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrí http://localhost:3000
-
-### Build de producción
+Abrí **http://localhost:3000**. Para presentar, apretá `F` (pantalla completa) y navegá con las flechas.
 
 ```bash
-npm run build
-npm start
+npm run build && npm start   # build de producción
 ```
 
-## 🖼️ El logo
+> **No corras `npm run build` con `npm run dev` levantado**: los dos escriben en `.next` y el
+> dev server queda servido a medias — la página se ve pero el teclado no responde y las slides
+> aparecen en blanco. Si pasa: cortá dev, `rm -rf .next` y volvé a levantar.
 
-La portada y el cierre muestran el logo del grupo desde **`public/logo.png`**
-(PNG con fondo transparente). Si el archivo no está, las slides se arman igual y el
-logo simplemente no aparece: no rompe nada.
-
-## 😂 Los memes del Loop
-
-En la slide del Loop, cada fase se puede clickear para mostrar su meme a pantalla completa.
-Para que aparezca alcanza con dejar el archivo en **`public/loop/`** con el nombre de la fase:
-
-```
-public/loop/observe.png
-public/loop/reflect.jpg
-public/loop/make.mp4
-```
-
-En la slide de **The Principles**, cada principio puede mostrar su meme en lugar del diagrama
-animado: dejá `public/principios/outcomes.png`, `public/principios/reinvencion.png` o
-`public/principios/equipos.png`. El que no tenga archivo sigue mostrando su animación.
-Al pasar el mouse por encima, la imagen se agranda al centro de la pantalla; con un clic
-queda fija hasta que la cierres.
-
-La slide de **Hills** tiene su propio hueco de imagen: dejá `public/keys/hills.png`
-(la foto del "1000 songs in your pocket") y aparece sola; se puede clickear para verla
-a pantalla completa.
-
-En el centro del Loop se puede poner una **cara real** en lugar del pictograma: dejá
-`public/loop/usuario.jpg` (cuadrada, la recorta en círculo sola).
-
-Sirven `png`, `jpg`, `jpeg`, `webp`, `gif`, `avif` para imágenes y `mp4` o `webm` para video
-(los videos arrancan solos, en loop y sin sonido). No hay que tocar código: la slide busca los
-archivos al cargar, y la fase queda clickeable sólo si encontró el suyo. Para cerrar el meme,
-clic o cualquier tecla.
-
-## ⌨️ Atajos de teclado
+## ⌨️ Atajos
 
 | Tecla | Acción |
 |-------|--------|
 | `→` `Espacio` `PgDn` | Siguiente slide |
 | `←` `PgUp` | Slide anterior |
-| `Esc` | Volver al inicio |
-| `F` | Toggle fullscreen |
+| `Esc` | Volver a la portada |
+| `F` | Pantalla completa |
 
 ## 🎞️ Las 13 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
 | 01 | Portada | Título, logo del grupo y la materia |
-| 02 | Por qué existe | El Design Thinking clásico no funcionaba a gran escala |
-| 03 | The Principles | Los 3 principios, cada uno con su meme o diagrama |
-| 04 | The Loop | Observe · Reflect · Make (clic en cada fase → definición y meme) |
-| 05 | Hills | Who / What / Wow con el aviso del iPod |
-| 06 | Playbacks | Los 4 momentos + el meme del caballo |
-| 07 | Sponsor Users | Las dos líneas animadas: el usuario al final vs. desde el día uno |
+| 02 | Por qué existe | 2015-16: el Design Thinking clásico no funcionaba a gran escala |
+| 03 | The Principles | Los 3 principios, cada uno con su meme o diagrama animado |
+| 04 | The Loop | Observe · Reflect · Make — clic en cada fase abre su definición y su meme |
+| 05 | Hills | Who / What / Wow con el aviso del iPod (el hover lo desarma en sus tres partes) |
+| 06 | Playbacks | Los 4 momentos sobre la línea del proyecto + el meme del caballo |
+| 07 | Sponsor Users | Dos líneas animadas: el usuario al final vs. el usuario desde el día uno |
 | 08 | Roles | Líderes vs. equipo de trabajo |
 | 09 | El caso · el encargo | Oral-B & IDEO (1996): ir a mirar a los chicos |
-| 10 | El caso · el hallazgo | El puño, no el tamaño |
-| 11 | El caso · el resultado | 18 meses como el más vendido |
-| 12 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 10 | El caso · el hallazgo | El problema era la motricidad, no el tamaño |
+| 11 | El caso · el resultado | 18 meses como el más vendido de Estados Unidos |
+| 12 | Resultados | El estudio de Forrester, en verde porque son ganancias |
 | 13 | Gracias | El logo del grupo y el cierre |
 
-## 🔗 La página de fuentes y el QR
+## 🖼️ Las imágenes: se cambian sin tocar código
 
-`/fuentes` es una página web común (scrollea, se ve bien en el celular) con todos los links:
-las páginas de IBM, los badges gratuitos, las fuentes de los tres casos y la bibliografía de
-la unidad. Arriba de todo tiene un botón para **volver a ver la presentación**.
+Cada hueco de imagen busca su archivo en `public/` al cargar la slide. Alcanza con dejar el
+archivo con el nombre que corresponde — sirven `png`, `jpg`, `jpeg`, `webp`, `gif`, `avif` y,
+para video, `mp4` o `webm`.
 
-La última slide muestra un QR que apunta ahí. La URL se calcula sola:
+```
+public/logo.png                    # el logo del grupo: portada y cierre
 
-- si la presentación corre en un dominio público (o en la IP de red, `http://192.168.x.x:3000`),
-  el QR apunta a **esa** URL + `/fuentes`, así que el celular de cualquiera la abre;
-- si corre en `localhost` —donde ningún celular puede entrar— cae a
-  [`FUENTES.md`](FUENTES.md) en GitHub, que tiene la misma lista.
+public/principios/outcomes.png     # principio 1 · el desire path
+public/principios/reinvencion.png  # principio 2 · el archivo "FINAL FINAL"
+public/principios/equipos.mp4      # principio 3 · video
 
-Los links se editan en un solo lugar: `src/lib/links.ts`.
+public/loop/observe.png            # los tres memes del Loop, uno por fase
+public/loop/reflect.png
+public/loop/make.png
+public/loop/usuario.jpg            # opcional: una cara real en el centro del Loop
+
+public/keys/hills.png              # el aviso del iPod
+public/keys/playbacks.png          # el caballo mitad dibujado
+
+public/caso/observacion.png        # slide 09
+public/caso/cepillos.png           # slide 10 · mango fino vs. mango grueso
+public/caso/resultado.png          # slide 11
+```
+
+Si un archivo no está, la slide se arma igual: muestra el diagrama animado de respaldo (en los
+principios y en la comparación de cepillos) o un recuadro punteado con la ruta donde va.
+
+**Qué es interactivo y qué no:** las imágenes de los principios, del iPod y del caballo se
+agrandan al pasar el mouse y quedan fijas con un clic. Las tres del caso (09, 10 y 11) son fijas
+a propósito. En el Loop, el meme se abre clickeando la fase, no la imagen.
 
 ## 📁 Estructura
 
 ```
-public/
-└── logo.png                     # logo del grupo (lo usa la portada y el cierre)
+public/                          # imágenes y videos de las slides (ver arriba)
 src/
 ├── app/
-│   ├── globals.css              # Tailwind v4 + @theme tokens
-│   ├── layout.tsx               # Fonts + metadata
-│   └── page.tsx                 # Renderiza <Presentation />
+│   ├── globals.css              # Tailwind v4 + los tokens de color en @theme
+│   ├── layout.tsx               # fuentes + metadata
+│   ├── page.tsx                 # renderiza <Presentation />
+│   └── fuentes/                 # página aparte con todos los links de referencia
 ├── components/
-│   ├── Presentation.tsx         # Controlador + AnimatePresence
-│   ├── ProgressBar.tsx          # Barra de progreso superior
-│   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
-│   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide13 + LoopDiagram + CaseLayout
-├── hooks/
-│   └── useKeyboardShortcuts.ts
+│   ├── Presentation.tsx         # el orden de las slides y la navegación
+│   ├── ProgressBar.tsx          # la barra de progreso de arriba
+│   ├── Logo.tsx                 # el logo, precargado para no romper si falta
+│   ├── SlotImage.tsx            # los huecos de imagen (zoom, clic, respaldo)
+│   ├── MemeModal.tsx            # el meme a pantalla completa
+│   ├── ui/following-pointer.tsx # el cursor con el nombre del grupo
+│   └── slides/                  # Slide01…Slide13 + LoopDiagram
+├── hooks/useKeyboardShortcuts.ts
 ├── lib/
-│   ├── motion.ts                # Sistema de tiempos y variantes compartidas
+│   ├── motion.ts                # el sistema de tiempos de las animaciones
+│   ├── memes.ts                 # busca los archivos de public/
+│   ├── links.ts                 # las fuentes que lista /fuentes
 │   └── utils.ts
-└── types/
-    └── index.ts
+└── types/index.ts
 ```
 
 ## 🎨 Sistema de diseño
 
-Moderno, minimalista, de alto contraste: blanco / negro carbón / grises con un único
-acento —el rojo del logo de Viernes de la Jungla—. Las tres fases del Loop toman los otros
-colores del logo: verde selva, dorado y rojo.
+Alto contraste, minimalista, con un solo acento: el **rojo del logo de Viernes de la Jungla**.
+Las tres fases del Loop toman los otros colores del logo.
 
-| Token | Valor |
-|-------|-------|
-| `--color-bg-primary` | `#FFFFFF` |
-| `--color-bg-secondary` | `#F4F4F4` |
-| `--color-bg-dark` | `#0A0A0A` |
-| `--color-text-primary` | `#0A0A0A` |
-| `--color-text-secondary` | `#6B6B6B` |
-| `--color-divider` | `#E0E0E0` |
-| `--color-accent` | `#CE1B1B` (el rojo del logo) |
-| `--color-observe` | `#1E7A3C` (verde selva) |
-| `--color-reflect` | `#B07800` (dorado) |
-| `--color-make` | `#CE1B1B` |
-| `--color-success` | `#1E7A3C` |
-| `--color-warning` | `#E8B000` |
+| Token | Valor | |
+|-------|-------|---|
+| `--color-accent` | `#CE1B1B` | el rojo del logo |
+| `--color-observe` | `#1E7A3C` | verde selva |
+| `--color-reflect` | `#B07800` | dorado |
+| `--color-make` | `#CE1B1B` | |
+| `--color-success` | `#1E7A3C` | |
+| `--color-warning` | `#E8B000` | |
+| `--color-bg-primary` | `#FFFFFF` | |
+| `--color-bg-secondary` | `#F4F4F4` | |
+| `--color-bg-dark` | `#0A0A0A` | |
+| `--color-text-primary` | `#0A0A0A` | |
+| `--color-text-secondary` | `#6B6B6B` | |
+| `--color-divider` | `#E0E0E0` | |
+
+Todo sale del bloque `@theme` de `src/app/globals.css`: cambiando un token cambia el deck entero.
+Los tiempos de las animaciones viven en `src/lib/motion.ts`, con una regla: **la entrada de una
+slide termina antes de 1,2 s**.
+
+## 📦 Stack
+
+Next.js 15 (App Router) · React 19 · TypeScript strict · Tailwind CSS v4 · Motion · qrcode.react
+Fuentes: Inter, Space Grotesk y JetBrains Mono vía `next/font/google`.
+
+## ☁️ Deploy
+
+Importá el repo en Vercel y listo: detecta Next.js solo, no hace falta ninguna variable de entorno
+ni configuración. Cada push a `main` redespliega.
 
 ## 📚 Fuentes
 
-- Apunte de cátedra — Agilidad Avanzada 2026, Unidad 1: Design Thinking
-- [What is Design Thinking? — IBM Think](https://www.ibm.com/think/topics/design-thinking)
-- [Enterprise Design Thinking — IBM Training](https://www.ibm.com/training/enterprise-design-thinking)
-- [Enterprise Design Thinking Framework](https://www.ibm.com/training/enterprise-design-thinking/framework)
-- [Design Thinking Examples — 3 Case Studies (Triangility)](https://triangility.com/design-thinking-examples-3-case-studies/)
-- [A new study on Design Thinking — Forrester TEI](https://medium.com/design-ibm/a-new-study-on-design-thinking-is-great-news-for-designers-593f71b40627)
+Están todas en [`FUENTES.md`](FUENTES.md) y en la página `/fuentes` del sitio: las páginas de IBM,
+los badges gratuitos, el estudio de Forrester, el caso de Oral-B & IDEO y la bibliografía de la unidad.
 
 ---
 
