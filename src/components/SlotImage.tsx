@@ -35,6 +35,8 @@ type Props = {
   zoomCaption?: ReactNode;
   /** En false la imagen queda fija: ni clic ni zoom. */
   interactive?: boolean;
+  /** Para imágenes con fondo transparente y texto oscuro: las agranda sobre blanco. */
+  zoomOnLight?: boolean;
 };
 
 /**
@@ -52,6 +54,7 @@ export default function SlotImage({
   zoomOnHover = false,
   zoomCaption,
   interactive = true,
+  zoomOnLight = false,
 }: Props) {
   const [media, setMedia] = useState<MemeSource | null>(null);
   const [open, setOpen] = useState(false);
@@ -137,7 +140,9 @@ export default function SlotImage({
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                className={`${zoomCaption ? "h-[56vh]" : "h-[74vh]"} w-auto max-w-[90vw] rounded-2xl object-contain shadow-2xl`}
+                className={`${zoomCaption ? "h-[56vh]" : "h-[74vh]"} w-auto max-w-[90vw] rounded-2xl object-contain shadow-2xl ${
+                  zoomOnLight ? "bg-white p-8" : ""
+                }`}
                 draggable={false}
               />
             ) : (

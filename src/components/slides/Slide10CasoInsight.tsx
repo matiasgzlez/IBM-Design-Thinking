@@ -124,9 +124,10 @@ export default function Slide10CasoInsight() {
             title="Mango fino contra mango grueso"
             subtitle="Oral-B & IDEO · 1996"
             color="var(--color-accent)"
-            className="h-[85%] w-full"
+            className="h-full w-full"
             fallback={<BrushComparison />}
             zoomOnHover
+            zoomOnLight
           />
         </motion.div>
 
