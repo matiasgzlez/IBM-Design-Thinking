@@ -8,15 +8,15 @@ const razones = [
     num: "01",
     label: "Pensado para talleres chicos",
     description:
-      "El método nació para reuniones presenciales de grupos chicos: un puñado de personas, un facilitador, post-its y una pared, en sesiones de unos pocos días.",
+      "Funciona muy bien en talleres presenciales: pocas personas y dinámicas colaborativas para construir ideas y soluciones de manera conjunta.",
     highlight:
       "IBM necesitaba aplicarlo a cientos de miles de empleados repartidos por todo el mundo.",
   },
   {
     num: "02",
-    label: "Para el equipo ágil, era volver al waterfall",
+    label: "Para el equipo ágil de IBM, era volver al waterfall",
     description:
-      "Se aplicaba como una secuencia de fases cerradas —investigar, idear, prototipar— que llevaba a un taller, y recién ahí pasaba a diseño e ingeniería.",
+      "Se aplicaba como una secuencia de fases cerradas —investigar, idear, prototipar— donde primero se completaba todo el proceso de diseño y recién después se pasaba a desarrollo e ingeniería.",
     highlight:
       "Y eso era justamente lo que el equipo ágil de IBM no quería que pasara.",
   },
@@ -24,7 +24,7 @@ const razones = [
     num: "03",
     label: "Además, chocaba con lo que ya usaban",
     description:
-      "Usaban métodos ágiles, DevOps, PMOM y otros, ya instalados en la empresa y funcionando en los sprints. El Design Thinking clásico no se ajustaba a eso.",
+      "Usaban métodos ágiles, DevOps y PMOM —el modelo operativo de gestión de proyectos—, ya instalados en la empresa y corriendo en los sprints. El Design Thinking clásico no se ajustaba a eso.",
     highlight:
       "Por lo tanto, los llevó a reformular el enfoque en su propio lenguaje: así nació Enterprise Design Thinking.",
   },

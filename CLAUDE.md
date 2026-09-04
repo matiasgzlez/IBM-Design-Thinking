@@ -87,6 +87,12 @@ npx tsc --noEmit   # typecheck
 npm run build      # build de producción
 ```
 
+**No correr `npm run build` con `npm run dev` levantado**: los dos escriben en `.next` y el
+dev server queda servido a medias — la página muestra el HTML pero React no hidrata, así que
+no anda el teclado y las slides se ven en blanco (todo lo que entra con `initial={{opacity:0}}`
+se queda ahí). Parece un bug de las animaciones y no lo es. Si pasa: cortar dev, `rm -rf .next`
+y volver a levantar.
+
 ### Verificar las animaciones
 
 `--virtual-time-budget` de Chrome headless miente: a veces captura la slide antes de que
