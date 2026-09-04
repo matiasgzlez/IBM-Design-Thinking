@@ -43,14 +43,16 @@ const playbacks = [
 const playbacksCaption = (
   <div className="flex flex-col items-center gap-5">
     <p className="font-black text-[clamp(26px,3vw,46px)] leading-tight tracking-tight text-white">
-      Empieza perfecto y se desmorona en la ejecución.
+      Sin validación continua de los stakeholders, la ejecución pierde el rumbo.
     </p>
     <p className="text-[clamp(18px,1.6vw,26px)] leading-snug text-white/70 max-w-5xl">
-      Los <span className="font-bold" style={{ color: "var(--color-observe)" }}>Hills</span> estaban
-      claros y el <span className="font-bold" style={{ color: "var(--color-reflect)" }}>Playback
-      Zero</span> salió aprobado. Pero sin{" "}
-      <span className="font-bold" style={{ color: "var(--color-make)" }}>Delivery Playbacks</span> en
-      cada sprint, nadie mira el avance real y nadie corrige a tiempo.
+      Aunque tengamos claro el{" "}
+      <span className="font-bold" style={{ color: "var(--color-observe)" }}>Hills Playback</span> y
+      aprobado el{" "}
+      <span className="font-bold" style={{ color: "var(--color-reflect)" }}>Playback Zero</span>,
+      los <span className="font-bold" style={{ color: "var(--color-make)" }}>Delivery Playbacks</span>{" "}
+      en cada sprint son la única garantía de que la construcción mantenga la calidad esperada
+      hasta el final.
     </p>
   </div>
 );
@@ -110,7 +112,7 @@ export default function Slide06Playbacks() {
         >
           <SlotImage
             slot="keys/playbacks"
-            title="Empieza perfecto y se desmorona en la ejecución."
+            title="Sin validación continua, la ejecución pierde el rumbo."
             subtitle="Playbacks"
             color="var(--color-reflect)"
             className="h-[210px] w-full"
