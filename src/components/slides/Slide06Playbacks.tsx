@@ -150,18 +150,18 @@ export default function Slide06Playbacks() {
                 </div>
 
                 <div>
-                  <h3 className="font-black text-[26px] uppercase tracking-tight leading-none">
+                  <h3 className="font-black text-[clamp(26px,2.1vw,34px)] uppercase tracking-tight leading-[0.95]">
                     {name}
                   </h3>
                   <span
-                    className="font-mono text-sm uppercase tracking-[0.16em] font-bold"
+                    className="font-mono text-base uppercase tracking-[0.16em] font-bold"
                     style={{ color }}
                   >
                     {when}
                   </span>
                 </div>
 
-                <p className="text-lg text-[var(--color-text-secondary)] leading-snug">
+                <p className="text-[clamp(19px,1.5vw,23px)] leading-snug">
                   {description}
                 </p>
               </motion.div>
