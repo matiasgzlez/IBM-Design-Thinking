@@ -5,7 +5,6 @@ export type SlideId =
   | "problem"
   | "principles"
   | "loop"
-  | "keys"
   | "hills"
   | "playbacks"
   | "sponsor-users"

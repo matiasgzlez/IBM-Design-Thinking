@@ -12,7 +12,7 @@ const closing = [
   { text: "no para el usuario.", accent: true },
 ];
 
-export default function Slide12Fuentes() {
+export default function Slide11Fuentes() {
   const [url, setUrl] = useState<string | null>(null);
 
   // La URL depende de dónde se esté presentando, así que se calcula en el cliente.

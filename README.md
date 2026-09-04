@@ -77,22 +77,21 @@ clic o cualquier tecla.
 | `Esc` | Volver al inicio |
 | `F` | Toggle fullscreen |
 
-## 🎞️ Las 12 slides
+## 🎞️ Las 11 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
 | 01 | Portada | Título, logo del grupo y la materia |
 | 02 | Por qué existe | El Design Thinking clásico no funcionaba a gran escala |
-| 03 | The Principles | Los 3 principios, cada uno con su diagrama animado |
-| 04 | The Loop | El ciclo Observe · Reflect · Make (clic en cada fase → meme) |
-| 05 | The Keys | Hills, Playbacks y Sponsor Users |
-| 06 | Hills | El Hill del iPod partido en who / what / wow |
-| 07 | Playbacks | Los 4 tipos + expectativa vs. realidad |
-| 08 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
-| 09 | Roles | Gerentes vs. equipo |
-| 10 | El ejemplo | IDEO y Oral-B: el cepillo de mango grueso |
-| 11 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 12 | Cierre | El QR con las fuentes y los badges, el logo y el gracias |
+| 03 | The Principles | Los 3 principios, cada uno con su meme o diagrama |
+| 04 | The Loop | Observe · Reflect · Make (clic en cada fase → definición y meme) |
+| 05 | Hills | El Hill del iPod partido en who / what / wow |
+| 06 | Playbacks | Los 4 tipos + expectativa vs. realidad |
+| 07 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
+| 08 | Roles | Gerentes vs. equipo |
+| 09 | El ejemplo | IDEO y Oral-B: el cepillo de mango grueso |
+| 10 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 11 | Cierre | El QR con las fuentes y los badges, el logo y el gracias |
 
 ## 🔗 La página de fuentes y el QR
 
@@ -124,7 +123,7 @@ src/
 │   ├── ProgressBar.tsx          # Barra de progreso superior
 │   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
 │   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide12 + LoopDiagram + CaseLayout
+│   └── slides/                  # Slide01…Slide11 + LoopDiagram + CaseLayout
 ├── hooks/
 │   └── useKeyboardShortcuts.ts
 ├── lib/

@@ -176,7 +176,7 @@ function ToothbrushDiagram() {
   );
 }
 
-export default function Slide10CaseIdeo() {
+export default function Slide09CaseIdeo() {
   return (
     <CaseLayout
       org="IDEO · Oral-B"

@@ -10,28 +10,26 @@ import Slide01Cover from "./slides/Slide01Cover";
 import Slide02Problem from "./slides/Slide02Problem";
 import Slide03Principles from "./slides/Slide03Principles";
 import Slide04Loop from "./slides/Slide04Loop";
-import Slide05Keys from "./slides/Slide05Keys";
-import Slide06Hills from "./slides/Slide06Hills";
-import Slide07Playbacks from "./slides/Slide07Playbacks";
-import Slide08SponsorUsers from "./slides/Slide08SponsorUsers";
-import Slide09Roles from "./slides/Slide09Roles";
-import Slide10CaseIdeo from "./slides/Slide10CaseIdeo";
-import Slide11Impact from "./slides/Slide11Impact";
-import Slide12Fuentes from "./slides/Slide12Fuentes";
+import Slide05Hills from "./slides/Slide05Hills";
+import Slide06Playbacks from "./slides/Slide06Playbacks";
+import Slide07SponsorUsers from "./slides/Slide07SponsorUsers";
+import Slide08Roles from "./slides/Slide08Roles";
+import Slide09CaseIdeo from "./slides/Slide09CaseIdeo";
+import Slide10Impact from "./slides/Slide10Impact";
+import Slide11Fuentes from "./slides/Slide11Fuentes";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
   { id: "problem", label: "Por qué existe", component: Slide02Problem },
   { id: "principles", label: "Los principios", component: Slide03Principles },
   { id: "loop", label: "The Loop", component: Slide04Loop },
-  { id: "keys", label: "The Keys", component: Slide05Keys },
-  { id: "hills", label: "Hills", component: Slide06Hills },
-  { id: "playbacks", label: "Playbacks", component: Slide07Playbacks },
-  { id: "sponsor-users", label: "Sponsor Users", component: Slide08SponsorUsers },
-  { id: "roles", label: "Roles", component: Slide09Roles },
-  { id: "case-ideo", label: "El ejemplo", component: Slide10CaseIdeo },
-  { id: "impact", label: "Resultados", component: Slide11Impact },
-  { id: "sources", label: "Fuentes y cierre", component: Slide12Fuentes },
+  { id: "hills", label: "Hills", component: Slide05Hills },
+  { id: "playbacks", label: "Playbacks", component: Slide06Playbacks },
+  { id: "sponsor-users", label: "Sponsor Users", component: Slide07SponsorUsers },
+  { id: "roles", label: "Roles", component: Slide08Roles },
+  { id: "case-ideo", label: "El ejemplo", component: Slide09CaseIdeo },
+  { id: "impact", label: "Resultados", component: Slide10Impact },
+  { id: "sources", label: "Fuentes y cierre", component: Slide11Fuentes },
 ];
 
 export default function Presentation() {
