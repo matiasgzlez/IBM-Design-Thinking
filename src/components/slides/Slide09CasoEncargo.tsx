@@ -25,8 +25,11 @@ export default function Slide09CasoEncargo() {
             transition={{ duration: 0.5, delay: T.content, ease: EASE }}
             className="text-[clamp(21px,1.9vw,28px)] leading-snug"
           >
-            En 1996 todavía no existía el marco de IBM, pero este caso fue{" "}
-            <span className="font-bold">el pionero en aplicar el corazón del método</span>.
+            En 1996 todavía no existía Enterprise Design Thinking, pero este caso fue{" "}
+            <span className="font-bold">
+              el pionero en aplicar los primeros vistazos del método de IBM
+            </span>
+            .
             Oral-B quería un cepillo infantil para liderar el mercado y le pidió el diseño a{" "}
             <span className="font-bold">IDEO</span>, reconocida globalmente por haber sido la
             empresa que{" "}
