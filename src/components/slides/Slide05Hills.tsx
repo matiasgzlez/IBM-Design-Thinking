@@ -5,14 +5,41 @@ import SlotImage from "@/components/SlotImage";
 import { EASE, T, fadeUp, stagger } from "@/lib/motion";
 
 const parts = [
-  { label: "Quién", hint: "quién es el usuario", color: "var(--color-observe)" },
-  { label: "Qué", hint: "qué necesita lograr", color: "var(--color-reflect)" },
+  { label: "Who", es: "(quién)", hint: "quién es el usuario", color: "var(--color-observe)" },
+  { label: "What", es: "(qué)", hint: "qué necesita lograr", color: "var(--color-reflect)" },
   {
     label: "Wow",
+    es: "(guau)",
     hint: "qué haría que el resultado sea sorprendente",
     color: "var(--color-make)",
   },
 ];
+
+/** Lo que aparece debajo del aviso del iPod cuando se agranda. */
+const ipodCaption = (
+  <div className="flex flex-col items-center gap-6">
+    <p className="font-black text-[clamp(26px,3vw,46px)] leading-tight tracking-tight text-white">
+      “1.000 canciones en tu bolsillo.”
+    </p>
+    <div className="flex flex-wrap items-start justify-center gap-x-10 gap-y-4">
+      {[
+        { label: "Who", text: "cualquiera que escucha música", color: "var(--color-observe)" },
+        { label: "What", text: "llevar toda su música encima", color: "var(--color-reflect)" },
+        { label: "Wow", text: "en el bolsillo", color: "var(--color-make)" },
+      ].map(({ label, text, color }) => (
+        <span key={label} className="flex flex-col items-center gap-1">
+          <span
+            className="font-black text-2xl uppercase tracking-tight leading-none"
+            style={{ color }}
+          >
+            {label}
+          </span>
+          <span className="text-xl text-white/70 leading-snug">{text}</span>
+        </span>
+      ))}
+    </div>
+  </div>
+);
 
 export default function Slide05Hills() {
   return (
@@ -56,22 +83,27 @@ export default function Slide05Hills() {
             className="text-[clamp(24px,2.4vw,34px)] leading-snug border-t border-[var(--color-divider)] pt-7"
           >
             En vez de listar funcionalidades, definen el éxito de un proyecto con una frase tipo{" "}
-            <span className="font-bold text-[var(--color-accent)]">Quién / Qué / Wow</span>.
+            <span className="font-bold text-[var(--color-accent)]">Who / What / Wow</span>.
           </motion.p>
 
           <motion.div variants={stagger(0.55, 0.1)} initial="hidden" animate="show" className="flex flex-col gap-3">
-            {parts.map(({ label, hint, color }) => (
+            {parts.map(({ label, es, hint, color }) => (
               <motion.div
                 key={label}
                 variants={fadeUp}
                 className="flex items-baseline gap-4 border-l-[6px] pl-5 py-1"
                 style={{ borderColor: color }}
               >
-                <span
-                  className="font-black text-3xl uppercase tracking-tight leading-none w-[110px] flex-shrink-0"
-                  style={{ color }}
-                >
-                  {label}
+                <span className="w-[150px] flex-shrink-0">
+                  <span
+                    className="font-black text-3xl uppercase tracking-tight leading-none"
+                    style={{ color }}
+                  >
+                    {label}
+                  </span>{" "}
+                  <span className="font-mono text-sm text-[var(--color-text-secondary)]">
+                    {es}
+                  </span>
                 </span>
                 <span className="text-xl text-[var(--color-text-secondary)] leading-snug">
                   {hint}
@@ -86,24 +118,33 @@ export default function Slide05Hills() {
           initial={{ opacity: 0, x: 26 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: T.content + 0.1, ease: EASE }}
-          className="h-full min-h-0 flex flex-col gap-4 justify-center"
+          className="h-full min-h-0 flex flex-col gap-5 justify-center"
         >
           <SlotImage
             slot="keys/hills"
-            title="Un Hill no lista funcionalidades: dice qué va a lograr el usuario."
+            title="“1.000 canciones en tu bolsillo.”"
             subtitle="Hills"
             color="var(--color-accent)"
-            className="h-[62%] w-full rounded-2xl border border-[var(--color-divider)] bg-[var(--color-bg-secondary)] p-4"
+            className="h-[58%] w-full rounded-2xl border border-[var(--color-divider)] bg-[var(--color-bg-secondary)] p-4"
             zoomOnHover
+            zoomCaption={ipodCaption}
           />
-          <p className="text-xl text-[var(--color-text-secondary)] leading-snug">
-            La referencia es el iPod de Steve Jobs:{" "}
-            <span className="text-[var(--color-text-primary)] font-bold">
-              “1.000 canciones en tu bolsillo”
-            </span>{" "}
-            — ni un GB, ni un códec, ni una batería.
-          </p>
+
+          <div className="rounded-xl border border-[var(--color-divider)] bg-[var(--color-bg-secondary)] px-6 py-5">
+            <span className="font-mono text-sm uppercase tracking-[0.2em] font-bold text-[var(--color-text-secondary)]">
+              Así no
+            </span>
+            <p className="mt-2 text-xl leading-snug text-[var(--color-text-secondary)] line-through decoration-[var(--color-text-secondary)]/40">
+              “Reproductor MP3 de 5 GB, disco de 1,8 pulgadas, batería de 10 horas y
+              sincronización por FireWire.”
+            </p>
+            <p className="mt-2 text-lg leading-snug text-[var(--color-text-primary)]">
+              Es una lista de funcionalidades: no dice quién es el usuario, ni qué logra, ni qué
+              lo hace sorprendente.
+            </p>
+          </div>
         </motion.div>
+
       </div>
     </section>
   );

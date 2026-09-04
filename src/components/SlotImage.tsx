@@ -31,6 +31,8 @@ type Props = {
   fallback?: ReactNode;
   /** Al pasar el mouse, la agranda al centro de la pantalla. */
   zoomOnHover?: boolean;
+  /** Lo que se muestra debajo de la imagen agrandada. */
+  zoomCaption?: ReactNode;
 };
 
 /**
@@ -46,6 +48,7 @@ export default function SlotImage({
   className = "",
   fallback,
   zoomOnHover = false,
+  zoomCaption,
 }: Props) {
   const [media, setMedia] = useState<MemeSource | null>(null);
   const [open, setOpen] = useState(false);
@@ -119,7 +122,7 @@ export default function SlotImage({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="pointer-events-none fixed inset-0 z-40 flex items-center justify-center bg-black/92 backdrop-blur-sm px-16 py-10"
+            className="pointer-events-none fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-black/92 backdrop-blur-sm px-16 py-10"
           >
             {media.kind === "image" ? (
               <motion.img
@@ -140,11 +143,22 @@ export default function SlotImage({
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
+                className={`${zoomCaption ? "max-h-[52vh]" : "max-h-[80vh]"} max-w-full rounded-2xl object-contain shadow-2xl`}
                 autoPlay
                 loop
                 playsInline
               />
+            )}
+
+            {zoomCaption && (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.12 }}
+                className="max-w-6xl text-center"
+              >
+                {zoomCaption}
+              </motion.div>
             )}
           </motion.div>
         )}
