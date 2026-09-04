@@ -14,9 +14,11 @@ import Slide05Hills from "./slides/Slide05Hills";
 import Slide06Playbacks from "./slides/Slide06Playbacks";
 import Slide07SponsorUsers from "./slides/Slide07SponsorUsers";
 import Slide08Roles from "./slides/Slide08Roles";
-import Slide09CaseIdeo from "./slides/Slide09CaseIdeo";
-import Slide10Impact from "./slides/Slide10Impact";
-import Slide11Fuentes from "./slides/Slide11Fuentes";
+import Slide09CasoEncargo from "./slides/Slide09CasoEncargo";
+import Slide10CasoInsight from "./slides/Slide10CasoInsight";
+import Slide11CasoResultado from "./slides/Slide11CasoResultado";
+import Slide12Impact from "./slides/Slide12Impact";
+import Slide13Fuentes from "./slides/Slide13Fuentes";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
@@ -27,9 +29,11 @@ const slides: Slide[] = [
   { id: "playbacks", label: "Playbacks", component: Slide06Playbacks },
   { id: "sponsor-users", label: "Sponsor Users", component: Slide07SponsorUsers },
   { id: "roles", label: "Roles", component: Slide08Roles },
-  { id: "case-ideo", label: "El ejemplo", component: Slide09CaseIdeo },
-  { id: "impact", label: "Resultados", component: Slide10Impact },
-  { id: "sources", label: "Fuentes y cierre", component: Slide11Fuentes },
+  { id: "caso-encargo", label: "El caso · el encargo", component: Slide09CasoEncargo },
+  { id: "caso-insight", label: "El caso · el hallazgo", component: Slide10CasoInsight },
+  { id: "caso-resultado", label: "El caso · el resultado", component: Slide11CasoResultado },
+  { id: "impact", label: "Resultados", component: Slide12Impact },
+  { id: "sources", label: "Fuentes y cierre", component: Slide13Fuentes },
 ];
 
 export default function Presentation() {

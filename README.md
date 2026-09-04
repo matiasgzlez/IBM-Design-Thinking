@@ -77,7 +77,7 @@ clic o cualquier tecla.
 | `Esc` | Volver al inicio |
 | `F` | Toggle fullscreen |
 
-## 🎞️ Las 11 slides
+## 🎞️ Las 13 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
@@ -85,13 +85,15 @@ clic o cualquier tecla.
 | 02 | Por qué existe | El Design Thinking clásico no funcionaba a gran escala |
 | 03 | The Principles | Los 3 principios, cada uno con su meme o diagrama |
 | 04 | The Loop | Observe · Reflect · Make (clic en cada fase → definición y meme) |
-| 05 | Hills | El Hill del iPod partido en who / what / wow |
-| 06 | Playbacks | Los 4 tipos + expectativa vs. realidad |
-| 07 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
-| 08 | Roles | Gerentes vs. equipo |
-| 09 | El ejemplo | IDEO y Oral-B: el cepillo de mango grueso |
-| 10 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 11 | Cierre | El QR con las fuentes y los badges, el logo y el gracias |
+| 05 | Hills | Who / What / Wow con el aviso del iPod |
+| 06 | Playbacks | Los 4 momentos + el meme del caballo |
+| 07 | Sponsor Users | Las dos líneas animadas: el usuario al final vs. desde el día uno |
+| 08 | Roles | Líderes vs. equipo de trabajo |
+| 09 | El caso · el encargo | Oral-B & IDEO (1996): ir a mirar a los chicos |
+| 10 | El caso · el hallazgo | El puño, no el tamaño |
+| 11 | El caso · el resultado | 18 meses como el más vendido |
+| 12 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 13 | Cierre | El QR con las fuentes y los badges, el logo y el gracias |
 
 ## 🔗 La página de fuentes y el QR
 
@@ -123,7 +125,7 @@ src/
 │   ├── ProgressBar.tsx          # Barra de progreso superior
 │   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
 │   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide11 + LoopDiagram + CaseLayout
+│   └── slides/                  # Slide01…Slide13 + LoopDiagram + CaseLayout
 ├── hooks/
 │   └── useKeyboardShortcuts.ts
 ├── lib/

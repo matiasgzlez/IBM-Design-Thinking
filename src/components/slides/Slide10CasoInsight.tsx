@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import CaseLayout from "./CaseLayout";
+import { EASE, T } from "@/lib/motion";
 
 const EASE_OUT = [0.4, 0, 0.2, 1] as const;
 
@@ -176,38 +176,77 @@ function ToothbrushDiagram() {
   );
 }
 
-export default function Slide09CaseIdeo() {
+export default function Slide10CasoInsight() {
   return (
-    <CaseLayout
-      org="IDEO · Oral-B"
-      year="1996"
-      headline={
-        <>
-          Toda la industria hacía mangos finos.{" "}
-          <span className="text-[var(--color-accent)]">Ninguno había mirado a un chico.</span>
-        </>
-      }
-      blocks={[
-        {
-          label: "El encargo",
-          text: "Oral-B le pidió a IDEO un cepillo de dientes para chicos que le ganara a la competencia.",
-        },
-        {
-          label: "El supuesto de todos",
-          text: "Manos chicas, mango fino. Era la regla no escrita de la categoría.",
-        },
-        {
-          label: "Qué hicieron",
-          text: "En vez de asumir, entraron a las casas de los clientes a mirar a los chicos lavarse los dientes.",
-        },
-      ]}
-      insight="Los chicos no agarran el cepillo con los dedos: lo agarran con el puño cerrado, porque la motricidad fina todavía no está desarrollada. Con un mango grueso limpian mejor."
-      result={{
-        value: "18 meses",
-        label:
-          "Fue el cepillo infantil más vendido de Estados Unidos. El mango grueso pasó a ser el estándar de toda la industria.",
-      }}
-      diagram={<ToothbrushDiagram />}
-    />
+    <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-12 pb-10 flex flex-col">
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: EASE }}
+        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+      >
+        El ejemplo · <span className="text-[var(--color-accent)]">qué descubrieron</span>
+      </motion.div>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: T.title, ease: EASE }}
+        className="mt-3 font-black leading-[0.92] tracking-[-0.04em] text-[clamp(40px,4.8vw,74px)]"
+      >
+        El problema no era el tamaño:{" "}
+        <span className="text-[var(--color-accent)]">era la motricidad.</span>
+      </motion.h2>
+
+      <div className="flex-1 min-h-0 mt-8 grid grid-cols-[1.05fr_1fr] gap-12 items-center">
+        <div className="flex flex-col gap-6">
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: T.content, ease: EASE }}
+            className="text-[clamp(21px,1.9vw,28px)] leading-snug text-[var(--color-text-secondary)]"
+          >
+            Hasta entonces los cepillos para niños eran{" "}
+            <span className="text-[var(--color-text-primary)] font-bold">
+              iguales a los de adultos, solo que más chicos
+            </span>
+            , y muchos padres se quejaban de que sus hijos no querían lavarse los dientes.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: T.content + 0.12, ease: EASE }}
+            className="text-[clamp(21px,1.9vw,28px)] leading-snug"
+          >
+            Los adultos agarran el cepillo{" "}
+            <span className="font-bold">con los dedos</span>, con movimientos controlados. Los
+            chicos, sin la motricidad fina desarrollada, lo agarran{" "}
+            <span className="font-bold text-[var(--color-accent)]">cerrando la mano como un puño</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: T.content + 0.24, ease: EASE }}
+            className="border-l-[6px] border-[var(--color-accent)] bg-[var(--color-bg-primary)] rounded-r-xl px-7 py-5"
+          >
+            <p className="text-[clamp(22px,2.1vw,32px)] leading-snug font-medium">
+              Con el mango fino el cepillo se les resbalaba. Por eso diseñaron uno con{" "}
+              <span className="text-[var(--color-accent)]">cuerpo grueso y antideslizante</span>.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 26 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: T.content + 0.1, ease: EASE }}
+          className="h-full min-h-0 flex items-center"
+        >
+          <ToothbrushDiagram />
+        </motion.div>
+      </div>
+    </section>
   );
 }

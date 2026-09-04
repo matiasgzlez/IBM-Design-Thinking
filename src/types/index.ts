@@ -9,7 +9,9 @@ export type SlideId =
   | "playbacks"
   | "sponsor-users"
   | "roles"
-  | "case-ideo"
+  | "caso-encargo"
+  | "caso-insight"
+  | "caso-resultado"
   | "impact"
   | "sources";
 
