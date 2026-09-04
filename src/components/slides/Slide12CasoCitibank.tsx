@@ -6,29 +6,31 @@ import { EASE, T, fadeUp, stagger } from "@/lib/motion";
 
 const bloques = [
   {
-    label: "El desafío",
+    key: "desafio",
     texto: (
       <>
         La plataforma global de banca corporativa de Citi procesaba{" "}
         <span className="font-bold">billones de dólares por día</span>, pero su interfaz era
-        extremadamente compleja, rígida y burocrática para los tesoreros corporativos.
+        extremadamente compleja y difícil de usar para sus usuarios: los tesoreros corporativos.
       </>
     ),
   },
   {
-    label: "Cómo aplicaron EDT",
+    key: "edt",
     texto: (
       <>
-        Citi lo aplicó junto a IBM: talleres con usuarios finales —
-        <span className="font-bold text-[var(--color-accent)]">Sponsor Users</span>— para
-        identificar los puntos de dolor, y{" "}
+        Citibank llamó a IBM para trabajar juntos. Trajeron tesoreros y clientes corporativos
+        reales como{" "}
+        <span className="font-bold text-[var(--color-accent)]">Sponsor Users</span>, hicieron{" "}
+        <span className="font-bold" style={{ color: "var(--color-observe)" }}>Observe</span> directo
+        para entender el flujo diario de trabajo y plantearon{" "}
         <span className="font-bold text-[var(--color-accent)]">Hills</span> enfocados en la
         velocidad y la usabilidad móvil.
       </>
     ),
   },
   {
-    label: "El resultado",
+    key: "resultado",
     texto: (
       <>
         Convirtieron una herramienta financiera compleja en una experiencia intuitiva:{" "}
@@ -52,8 +54,7 @@ export default function Slide12CasoCitibank() {
             transition={{ duration: 0.4, ease: EASE }}
             className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
           >
-            Un ejemplo más actual ·{" "}
-            <span className="text-[var(--color-accent)] font-bold">2014</span>
+            Un ejemplo más actual
           </motion.div>
 
           <motion.h2
@@ -62,7 +63,7 @@ export default function Slide12CasoCitibank() {
             transition={{ duration: 0.5, delay: T.title, ease: EASE }}
             className="mt-3 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(44px,5.4vw,84px)]"
           >
-            Citibank
+            Citibank <span className="text-[var(--color-accent)]">(2014)</span>
           </motion.h2>
         </div>
 
@@ -89,33 +90,28 @@ export default function Slide12CasoCitibank() {
         animate="show"
         className="my-auto grid grid-cols-3 gap-8"
       >
-        {bloques.map(({ label, texto }) => (
+        {bloques.map(({ key, texto }) => (
           <motion.div
-            key={label}
+            key={key}
             variants={fadeUp}
-            className="rounded-2xl border border-[var(--color-divider)] bg-[var(--color-bg-primary)] p-8 flex flex-col gap-4"
+            className="rounded-2xl border border-[var(--color-divider)] bg-[var(--color-bg-primary)] p-8 flex items-center"
           >
-            <span className="font-mono text-sm uppercase tracking-[0.2em] font-bold text-[var(--color-accent)]">
-              {label}
-            </span>
-            <p className="text-[clamp(19px,1.6vw,24px)] leading-snug">{texto}</p>
+            <p className="text-[clamp(20px,1.7vw,26px)] leading-snug">{texto}</p>
           </motion.div>
         ))}
       </motion.div>
 
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.9 }}
-        className="text-lg leading-snug text-[var(--color-text-secondary)] max-w-6xl"
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.85, ease: EASE }}
+        className="border-t-4 border-[var(--color-accent)] pt-6 text-[clamp(22px,2vw,30px)] leading-snug"
       >
-        Se lanzó globalmente en 2014, después de un proceso de co-creación e investigación que
-        arrancó entre 2012 y 2013. Fue{" "}
-        <span className="text-[var(--color-text-primary)] font-bold">
-          el caso insignia que la propia IBM empezó a usar
-        </span>{" "}
-        para demostrar la efectividad de su metodología en la banca corporativa a gran escala.
+        Fue el <span className="font-bold">caso más famoso e insignia</span>: la propia IBM empezó a
+        usarlo como ejemplo para demostrar la efectividad de su metodología en la banca corporativa
+        y en empresas a gran escala.
       </motion.p>
+
     </section>
   );
 }
