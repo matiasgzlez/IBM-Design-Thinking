@@ -27,7 +27,11 @@ export default function Slide09CasoEncargo() {
           >
             En 1996 todavía no existía Enterprise Design Thinking, pero este caso fue{" "}
             <span className="font-bold">
-              el pionero en aplicar los primeros vistazos del método de IBM
+              el pionero en aplicar los primeros vistazos de lo que después sería el corazón del
+              método de IBM
+            </span>{" "}
+            <span className="font-bold" style={{ color: "var(--color-observe)" }}>
+              (Observe)
             </span>
             .
             Oral-B quería un cepillo infantil para liderar el mercado y le pidió el diseño a{" "}
