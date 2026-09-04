@@ -13,7 +13,7 @@ export default function Slide04Loop() {
         transition={{ duration: 0.5, delay: T.title, ease: EASE }}
         className="font-black leading-[0.92] tracking-[-0.03em] text-[clamp(40px,5vw,72px)]"
       >
-        Un ciclo infinito de observar, reflexionar y{" "}
+        IBM define un ciclo infinito de observar, reflexionar y{" "}
         <span className="text-[var(--color-accent)]">hacer.</span>
       </motion.h2>
 

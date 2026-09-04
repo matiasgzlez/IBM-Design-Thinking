@@ -286,17 +286,6 @@ export default function LoopDiagram() {
                 >
                   {phase.name}
                 </text>
-                <text
-                  x={phase.label.x}
-                  y={phase.label.y + 28}
-                  textAnchor="middle"
-                  fontSize={16}
-                  fontFamily="monospace"
-                  letterSpacing="0.16em"
-                  fill="var(--color-text-secondary)"
-                >
-                  {phase.tagline.toUpperCase()}
-                </text>
               </motion.g>
             </motion.g>
           );
