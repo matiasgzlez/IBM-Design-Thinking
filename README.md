@@ -50,6 +50,12 @@ public/loop/reflect.jpg
 public/loop/make.mp4
 ```
 
+En la slide de **The Principles**, cada principio puede mostrar su meme en lugar del diagrama
+animado: dejá `public/principios/outcomes.png`, `public/principios/reinvencion.png` o
+`public/principios/equipos.png`. El que no tenga archivo sigue mostrando su animación.
+Al pasar el mouse por encima, la imagen se agranda al centro de la pantalla; con un clic
+queda fija hasta que la cierres.
+
 La slide de **Hills** tiene su propio hueco de imagen: dejá `public/keys/hills.png`
 (la foto del "1000 songs in your pocket") y aparece sola; se puede clickear para verla
 a pantalla completa.

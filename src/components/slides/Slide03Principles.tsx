@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import SlotImage from "@/components/SlotImage";
 
 const LOOP = { repeat: Infinity, repeatType: "loop" as const };
 
@@ -215,16 +216,20 @@ function TeamsDiagram() {
 const principles = [
   {
     num: "01",
+    slot: "principios/outcomes",
+    color: "var(--color-accent)",
     label: "Foco en los resultados del usuario",
     en: "A focus on user outcomes",
     description:
-      "No se miden por las funcionalidades que entregan, sino por qué tan bien resuelven las necesidades reales del usuario.",
+      "No se miden por las funcionalidades que entregan, sino por qué tan bien resuelven las necesidades reales del usuario: si la gente termina haciendo su propio camino al costado del que diseñamos, el que falló es el diseño.",
     quote:
       "No nos miden por las funcionalidades que entregamos. Nos miden por qué tan bien resolvemos las necesidades de nuestros usuarios.",
     diagram: <OutcomesDiagram />,
   },
   {
     num: "02",
+    slot: "principios/reinvencion",
+    color: "var(--color-reflect)",
     label: "Reinvención incansable",
     en: "Restless reinvention",
     description:
@@ -234,6 +239,8 @@ const principles = [
   },
   {
     num: "03",
+    slot: "principios/equipos",
+    color: "var(--color-make)",
     label: "Equipos diversos y empoderados",
     en: "Diverse empowered teams",
     description: (
@@ -263,7 +270,7 @@ export default function Slide03Principles() {
       </motion.h2>
 
       <div className="mt-5 grid grid-cols-3 gap-6 flex-1 min-h-0">
-        {principles.map(({ num, label, en, description, quote, diagram }, i) => (
+        {principles.map(({ num, slot, color, label, en, description, quote, diagram }, i) => (
           <motion.div
             key={num}
             initial={{ opacity: 0, y: 28 }}
@@ -285,8 +292,16 @@ export default function Slide03Principles() {
               </div>
             </div>
 
-            <div className="flex-1 flex items-center justify-center px-6 py-4 min-h-0">
-              {diagram}
+            <div className="flex-1 min-h-0 px-6 py-4">
+              <SlotImage
+                slot={slot}
+                title={label}
+                subtitle={en}
+                color={color}
+                className="h-full w-full"
+                fallback={<div className="flex h-full w-full items-center justify-center">{diagram}</div>}
+                zoomOnHover
+              />
             </div>
 
             <div className="flex-shrink-0 px-7 py-4 border-t border-[rgba(255,255,255,0.07)] flex flex-col gap-3">

@@ -74,6 +74,18 @@ el radio, recalcular los endpoints: `x = cx + r·cos(θ)`, `y = cy + r·sin(θ)`
 de todo y **come el teclado mientras está abierto** (listener en fase de captura sobre `window`),
 si no las flechas pasarían la slide con el meme abierto.
 
+## Los huecos de imagen
+
+`components/SlotImage.tsx` busca un archivo en `public/<slot>.<ext>` y, según lo que encuentre:
+
+- si está, lo muestra (y con `zoomOnHover` lo agranda al centro al pasar el mouse);
+- si no está, renderiza el `fallback` que se le pase — así los principios siguen mostrando su
+  diagrama animado hasta que aparezca el meme — o, si no hay fallback, el recuadro punteado
+  con la ruta donde va el archivo.
+
+El overlay del zoom lleva `pointer-events-none`: si recibiera eventos, el mouse dejaría de
+estar sobre la tarjeta y el hover parpadearía.
+
 ## El logo
 
 `src/components/Logo.tsx` lee `public/logo.png`. **Precarga la imagen antes de montarla**:
