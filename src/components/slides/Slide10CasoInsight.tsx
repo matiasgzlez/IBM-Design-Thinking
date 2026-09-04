@@ -126,8 +126,7 @@ export default function Slide10CasoInsight() {
             color="var(--color-accent)"
             className="h-full w-full"
             fallback={<BrushComparison />}
-            zoomOnHover
-            zoomOnLight
+            interactive={false}
           />
         </motion.div>
 
