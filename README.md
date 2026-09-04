@@ -71,26 +71,25 @@ clic o cualquier tecla.
 | `Esc` | Volver al inicio |
 | `F` | Toggle fullscreen |
 
-## 🎞️ Las 16 slides
+## 🎞️ Las 15 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
 | 01 | Portada | Título, logo del grupo y la materia |
 | 02 | Por qué existe | El Design Thinking clásico no funcionaba a gran escala |
-| 03 | La línea del tiempo | 1960s → Kelley/IDEO → Brown/HBR → IBM 2015-16 |
-| 04 | The Principles | Los 3 principios, cada uno con su diagrama animado |
-| 05 | The Loop | El ciclo Observe · Reflect · Make (clic en cada fase → meme) |
-| 06 | The Keys | Hills, Playbacks y Sponsor Users |
-| 07 | Hills | El Hill del iPod partido en who / what / wow |
-| 08 | Playbacks | Los 4 tipos + expectativa vs. realidad |
-| 09 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
-| 10 | Roles | Gerentes vs. equipo |
-| 11 | Caso Airbnb | Las fotos eran el problema |
-| 12 | Caso IDEO | El cepillo de mango grueso |
-| 13 | Caso P&G | El Swiffer y el paso de más |
-| 14 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 15 | Fuentes | QR a /fuentes: badges de IBM, fuentes y la presentación |
-| 16 | Gracias | Logo y cierre |
+| 03 | The Principles | Los 3 principios, cada uno con su diagrama animado |
+| 04 | The Loop | El ciclo Observe · Reflect · Make (clic en cada fase → meme) |
+| 05 | The Keys | Hills, Playbacks y Sponsor Users |
+| 06 | Hills | El Hill del iPod partido en who / what / wow |
+| 07 | Playbacks | Los 4 tipos + expectativa vs. realidad |
+| 08 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
+| 09 | Roles | Gerentes vs. equipo |
+| 10 | Caso Airbnb | Las fotos eran el problema |
+| 11 | Caso IDEO | El cepillo de mango grueso |
+| 12 | Caso P&G | El Swiffer y el paso de más |
+| 13 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 14 | Fuentes | QR a /fuentes: badges de IBM, fuentes y la presentación |
+| 15 | Gracias | Logo y cierre |
 
 ## 🔗 La página de fuentes y el QR
 
@@ -98,7 +97,7 @@ clic o cualquier tecla.
 las páginas de IBM, los badges gratuitos, las fuentes de los tres casos y la bibliografía de
 la unidad. Arriba de todo tiene un botón para **volver a ver la presentación**.
 
-La slide 15 muestra un QR que apunta ahí. La URL se calcula sola:
+La slide 14 muestra un QR que apunta ahí. La URL se calcula sola:
 
 - si la presentación corre en un dominio público (o en la IP de red, `http://192.168.x.x:3000`),
   el QR apunta a **esa** URL + `/fuentes`, así que el celular de cualquiera la abre;
@@ -122,7 +121,7 @@ src/
 │   ├── ProgressBar.tsx          # Barra de progreso superior
 │   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
 │   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide16 + LoopDiagram + CaseLayout
+│   └── slides/                  # Slide01…Slide15 + LoopDiagram + CaseLayout
 ├── hooks/
 │   └── useKeyboardShortcuts.ts
 ├── lib/

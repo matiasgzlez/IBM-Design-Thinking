@@ -250,7 +250,7 @@ const principles = [
   },
 ];
 
-export default function Slide04Principles() {
+export default function Slide03Principles() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-10 pb-8 flex flex-col">
       <motion.h2

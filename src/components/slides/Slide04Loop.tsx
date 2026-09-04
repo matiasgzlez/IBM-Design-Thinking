@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { EASE, T } from "@/lib/motion";
 import LoopDiagram from "./LoopDiagram";
 
-export default function Slide05Loop() {
+export default function Slide04Loop() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-10 flex flex-col">
       <motion.h2

@@ -274,7 +274,7 @@ const keys = [
   },
 ];
 
-export default function Slide06Keys() {
+export default function Slide05Keys() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (

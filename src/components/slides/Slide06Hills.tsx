@@ -21,7 +21,7 @@ const parts = [
   { key: "wow", label: "Wow", hint: "el diferencial que sorprende", color: MAKE },
 ];
 
-export default function Slide07Hills() {
+export default function Slide06Hills() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-10 flex flex-col">
       <motion.h2

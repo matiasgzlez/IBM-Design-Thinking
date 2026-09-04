@@ -176,7 +176,7 @@ function ToothbrushDiagram() {
   );
 }
 
-export default function Slide12CaseIdeo() {
+export default function Slide11CaseIdeo() {
   return (
     <CaseLayout
       index="02"

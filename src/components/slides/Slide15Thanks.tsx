@@ -39,7 +39,7 @@ function CurtainLine({
   );
 }
 
-export default function Slide16Thanks() {
+export default function Slide15Thanks() {
   const wordCounts = lines.map((l) => l.text.split(" ").length);
   const offsets = wordCounts.reduce<number[]>((acc, _, i) => {
     acc.push(i === 0 ? 0 : acc[i - 1] + wordCounts[i - 1]);
