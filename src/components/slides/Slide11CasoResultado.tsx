@@ -44,7 +44,7 @@ export default function Slide11CasoResultado() {
             subtitle="Oral-B & IDEO"
             color="var(--color-accent)"
             className="h-[80%] w-full"
-            zoomOnHover
+            interactive={false}
           />
         </motion.div>
       </div>
