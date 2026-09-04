@@ -9,67 +9,81 @@ const playbacks = [
     num: "01",
     name: "Hills Playback",
     when: "Antes de construir",
-    description: "Valida que los objetivos iniciales sean los correctos.",
+    description:
+      "Valida que los objetivos estén centrados en el usuario (Hills) y sean los correctos antes de invertir recursos en el desarrollo.",
     color: "var(--color-observe)",
   },
   {
     num: "02",
     name: "Playback Zero",
-    when: "Primera propuesta",
-    description: "Presenta la solución completa por primera vez a los stakeholders.",
+    when: "Propuesta inicial",
+    description:
+      "Se presenta la primera solución a los stakeholders para alinear visión, alcance y expectativas.",
     color: "var(--color-reflect)",
   },
   {
     num: "03",
     name: "Delivery Playbacks",
     when: "Cada sprint",
-    description: "Revisan el avance después de cada iteración. Se repiten sin parar.",
+    description:
+      "Muestran el avance real al final de cada iteración. Se repiten constantemente para recibir retroalimentación continua.",
     color: "var(--color-make)",
   },
   {
     num: "04",
     name: "Client Playbacks",
     when: "Con el cliente",
-    description: "Recogen feedback directo de los clientes clave.",
+    description:
+      "Recibimos el feedback directo de los usuarios o clientes clave para validar la solución en un entorno real.",
     color: "var(--color-accent)",
   },
 ];
 
 export default function Slide06Playbacks() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
-      <div className="flex items-start justify-between gap-12">
-        <div className="flex-1 min-w-0">
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: EASE }}
-            className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
-          >
-            Llave 02 · <span className="text-[var(--color-accent)]">Playbacks</span>
-          </motion.div>
+    <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-12 pb-10 flex flex-col">
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: EASE }}
+        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+      >
+        The Keys · <span className="text-[var(--color-accent)]">llave 02</span>
+      </motion.div>
 
+      <div className="mt-3 grid grid-cols-[1fr_340px] gap-12 items-start">
+        <div>
           <motion.h2
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: T.title, ease: EASE }}
-            className="mt-4 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(38px,4.6vw,70px)]"
+            className="font-black leading-[0.9] tracking-[-0.04em] text-[clamp(46px,5.6vw,88px)] text-[var(--color-accent)]"
           >
-            Cuatro momentos para{" "}
-            <span className="text-[var(--color-accent)]">alinear sin jerarquías.</span>
+            Playbacks
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.3, ease: EASE }}
-            className="mt-5 max-w-3xl text-2xl text-[var(--color-text-secondary)] leading-snug"
+            transition={{ duration: 0.5, delay: T.content, ease: EASE }}
+            className="mt-4 text-[clamp(20px,2vw,28px)] leading-snug"
           >
-            Sin playbacks, el stakeholder ve el producto{" "}
+            IBM define <span className="font-bold">cuatro momentos distintos</span> según lo que se
+            necesita validar a tiempo para evitar correcciones costosas.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: T.content + 0.12, ease: EASE }}
+            className="mt-3 text-xl text-[var(--color-text-secondary)] leading-snug max-w-4xl"
+          >
+            Sin playbacks, los stakeholders descubren el producto al final del proceso. Sirven para
+            alinear expectativas{" "}
             <span className="text-[var(--color-text-primary)] font-bold">
-              el día que llega la caja
-            </span>
-            . Con playbacks, se entera en la semana dos — cuando todavía se puede corregir.
+              antes, durante y al final
+            </span>{" "}
+            de la construcción.
           </motion.p>
         </div>
 
@@ -77,25 +91,25 @@ export default function Slide06Playbacks() {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: T.content, ease: EASE }}
-          className="flex-shrink-0 w-[360px]"
         >
           <SlotImage
             slot="keys/playbacks"
-            title="Expectativa vs. realidad"
-            subtitle="Lo que se prometió y lo que llegó"
+            title="Sin playbacks, el stakeholder ve el producto el día que llega la caja."
+            subtitle="Playbacks"
             color="var(--color-reflect)"
-            className="h-[250px] w-full"
+            className="h-[210px] w-full"
+            zoomOnHover
           />
         </motion.div>
       </div>
 
-      {/* Línea de tiempo del proyecto */}
+      {/* Los cuatro momentos sobre la línea del proyecto */}
       <div className="relative flex-1 flex items-center">
         <div className="relative w-full">
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
+            transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
             style={{ transformOrigin: "left" }}
             className="absolute left-0 right-0 top-8 h-[3px] bg-[var(--color-divider)]"
           />
@@ -106,7 +120,7 @@ export default function Slide06Playbacks() {
                 key={num}
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.32 + i * 0.11, ease: EASE }}
+                transition={{ duration: 0.45, delay: 0.4 + i * 0.11, ease: EASE }}
                 className="flex flex-col gap-4"
               >
                 <div className="relative">
@@ -117,31 +131,26 @@ export default function Slide06Playbacks() {
                       type: "spring",
                       stiffness: 340,
                       damping: 17,
-                      delay: 0.32 + i * 0.11,
+                      delay: 0.4 + i * 0.11,
                     }}
                     className="relative z-10 w-16 h-16 rounded-full flex items-center justify-center border-[3px] border-[var(--color-bg-secondary)] font-black text-white text-lg"
                     style={{ backgroundColor: color }}
                   >
                     {num}
                   </motion.span>
-                  {/* Pulso: los delivery playbacks se repiten */}
+                  {/* Los delivery playbacks se repiten */}
                   {i === 2 && (
                     <motion.span
                       className="absolute left-0 top-0 w-16 h-16 rounded-full"
                       style={{ border: `3px solid ${color}` }}
                       animate={{ scale: [1, 1.7], opacity: [0.7, 0] }}
-                      transition={{
-                        duration: 1.8,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                        delay: 1,
-                      }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 1 }}
                     />
                   )}
                 </div>
 
                 <div>
-                  <h3 className="font-black text-3xl uppercase tracking-tight leading-none">
+                  <h3 className="font-black text-[26px] uppercase tracking-tight leading-none">
                     {name}
                   </h3>
                   <span
@@ -152,7 +161,7 @@ export default function Slide06Playbacks() {
                   </span>
                 </div>
 
-                <p className="text-xl text-[var(--color-text-secondary)] leading-snug">
+                <p className="text-lg text-[var(--color-text-secondary)] leading-snug">
                   {description}
                 </p>
               </motion.div>
@@ -160,19 +169,6 @@ export default function Slide06Playbacks() {
           </div>
         </div>
       </div>
-
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.85, ease: EASE }}
-        className="max-w-5xl text-2xl text-[var(--color-text-secondary)] leading-snug"
-      >
-        En los cuatro la lógica es la misma: contar la historia{" "}
-        <span className="text-[var(--color-text-primary)] font-bold">
-          desde la perspectiva del usuario
-        </span>
-        , en un espacio seguro, sin jerarquías que frenen la crítica honesta.
-      </motion.p>
     </section>
   );
 }
