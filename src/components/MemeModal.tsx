@@ -8,11 +8,13 @@ type Props = {
   title: string;
   subtitle?: string;
   color: string;
-  meme: MemeSource;
+  /** Cuando todavía no hay archivo en public/loop/, se muestra el hueco. */
+  meme: MemeSource | null;
+  slot: string;
   onClose: () => void;
 };
 
-export default function MemeModal({ title, subtitle, color, meme, onClose }: Props) {
+export default function MemeModal({ title, subtitle, color, meme, slot, onClose }: Props) {
   // Mientras el meme está abierto, el teclado no navega la presentación.
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -62,7 +64,22 @@ export default function MemeModal({ title, subtitle, color, meme, onClose }: Pro
           )}
         </div>
 
-        {meme.kind === "image" ? (
+        {meme === null && (
+          <div
+            className="flex h-[54vh] w-[68vw] max-w-[1000px] flex-col items-center justify-center gap-4 rounded-2xl border-[3px] border-dashed"
+            style={{ borderColor: color }}
+          >
+            <span
+              className="font-mono text-sm uppercase tracking-[0.24em] font-bold"
+              style={{ color }}
+            >
+              Acá va el meme
+            </span>
+            <span className="font-mono text-xl text-white/50">{slot}</span>
+          </div>
+        )}
+
+        {meme?.kind === "image" && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={meme.url}
@@ -70,7 +87,9 @@ export default function MemeModal({ title, subtitle, color, meme, onClose }: Pro
             className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"
             draggable={false}
           />
-        ) : (
+        )}
+
+        {meme?.kind === "video" && (
           <video
             src={meme.url}
             className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"

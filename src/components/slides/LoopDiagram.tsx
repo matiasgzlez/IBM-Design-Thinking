@@ -80,6 +80,7 @@ function OrbitingTeam() {
   return (
     <motion.g
       style={{ x, y }}
+      pointerEvents="none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.9 }}
@@ -147,6 +148,7 @@ export default function LoopDiagram() {
             r={64}
             stroke="rgba(15,98,254,0.35)"
             strokeWidth={2}
+            pointerEvents="none"
             initial={{ scale: 0.9, opacity: 0.6 }}
             animate={{ scale: [0.9, 1.5], opacity: [0.55, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: i * 1.5, ease: "easeOut" }}
@@ -159,11 +161,13 @@ export default function LoopDiagram() {
           cy={CY}
           r={62}
           fill="var(--color-bg-dark)"
+          pointerEvents="none"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 240, damping: 18, delay: 0.1 }}
         />
         <motion.g
+          pointerEvents="none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35, delay: 0.35 }}
@@ -188,18 +192,17 @@ export default function LoopDiagram() {
         {phases.map((phase, i) => {
           const isActive = active === phase.id;
           const dimmed = active !== null && !isActive;
-          const hasMeme = Boolean(memes[phase.id]);
 
           return (
             <motion.g
               key={phase.id}
               animate={{ opacity: dimmed ? 0.22 : 1 }}
               transition={{ duration: 0.22 }}
-              style={{ cursor: hasMeme ? "pointer" : "default" }}
+              style={{ cursor: "pointer" }}
               onMouseEnter={() => setActive(phase.id)}
               onMouseLeave={() => setActive(null)}
               onMouseMove={handleMouseMove}
-              onClick={() => hasMeme && setOpenPhase(phase.id)}
+              onClick={() => setOpenPhase(phase.id)}
             >
               {/* Zona de hover más ancha */}
               <path d={phase.path} stroke="transparent" strokeWidth={54} pointerEvents="stroke" />
@@ -303,23 +306,22 @@ export default function LoopDiagram() {
             <span className="mt-1.5 block font-mono text-sm leading-snug text-white/75">
               {activePhase.detail}
             </span>
-            {memes[activePhase.id] && (
-              <span className="mt-2.5 block font-mono text-xs uppercase tracking-[0.18em] text-white/45">
-                ▶ Clic para ver el meme
-              </span>
-            )}
+            <span className="mt-2.5 block font-mono text-xs uppercase tracking-[0.18em] text-white/45">
+              ▶ Clic para ver el meme
+            </span>
           </motion.div>
         )}
       </AnimatePresence>
 
       <AnimatePresence>
-        {openedPhase && openedMeme && (
+        {openedPhase && (
           <MemeModal
             key="meme"
             title={openedPhase.name}
             subtitle={openedPhase.tagline}
             color={openedPhase.color}
-            meme={openedMeme}
+            meme={openedMeme ?? null}
+            slot={`public/loop/${openedPhase.id}.png`}
             onClose={() => setOpenPhase(null)}
           />
         )}
