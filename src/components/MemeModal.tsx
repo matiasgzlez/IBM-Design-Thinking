@@ -42,32 +42,22 @@ export default function MemeModal({ eyebrow, title, color, meme, slot, onClose }
       exit={{ opacity: 0 }}
       transition={{ duration: 0.18 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/92 backdrop-blur-sm px-16 py-12 cursor-pointer"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/92 backdrop-blur-sm px-12 py-10 cursor-pointer"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.94, y: 14 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 14 }}
         transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-        className="flex flex-col items-center gap-5 max-h-full"
+        className="flex flex-col items-center gap-6 max-h-full"
       >
-        <div className="flex flex-col items-center gap-2 text-center max-w-5xl">
-          {eyebrow && (
-            <span
-              className="font-mono text-base uppercase tracking-[0.24em] font-bold"
-              style={{ color }}
-            >
-              {eyebrow}
-            </span>
-          )}
-          <h2 className="font-black text-[clamp(24px,2.6vw,40px)] leading-[1.1] tracking-tight text-white">
-            {title}
-          </h2>
-        </div>
+        <h2 className="max-w-6xl text-center font-black text-[clamp(30px,3.4vw,56px)] leading-[1.05] tracking-tight text-white">
+          {title}
+        </h2>
 
         {meme === null && (
           <div
-            className="flex h-[54vh] w-[68vw] max-w-[1000px] flex-col items-center justify-center gap-4 rounded-2xl border-[3px] border-dashed"
+            className="flex h-[62vh] w-[74vw] max-w-[1200px] flex-col items-center justify-center gap-4 rounded-2xl border-[3px] border-dashed"
             style={{ borderColor: color }}
           >
             <span
@@ -85,7 +75,7 @@ export default function MemeModal({ eyebrow, title, color, meme, slot, onClose }
           <img
             src={meme.url}
             alt={title}
-            className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"
+            className="h-[64vh] w-auto max-w-[88vw] rounded-xl object-contain shadow-2xl"
             draggable={false}
           />
         )}
@@ -102,7 +92,7 @@ export default function MemeModal({ eyebrow, title, color, meme, slot, onClose }
               });
             }}
             src={meme.url}
-            className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"
+            className="h-[64vh] w-auto max-w-[88vw] rounded-xl object-contain shadow-2xl"
             autoPlay
             loop
             playsInline
@@ -110,9 +100,14 @@ export default function MemeModal({ eyebrow, title, color, meme, slot, onClose }
           />
         )}
 
-        <span className="font-mono text-sm uppercase tracking-[0.2em] text-white/40">
-          Clic o cualquier tecla para volver
-        </span>
+        {eyebrow && (
+          <span
+            className="font-black text-[clamp(30px,3.4vw,56px)] leading-none tracking-tight"
+            style={{ color }}
+          >
+            {eyebrow}
+          </span>
+        )}
       </motion.div>
     </motion.div>
   );
