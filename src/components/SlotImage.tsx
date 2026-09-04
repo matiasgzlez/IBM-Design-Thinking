@@ -33,6 +33,8 @@ type Props = {
   zoomOnHover?: boolean;
   /** Lo que se muestra debajo de la imagen agrandada. */
   zoomCaption?: ReactNode;
+  /** En false la imagen queda fija: ni clic ni zoom. */
+  interactive?: boolean;
 };
 
 /**
@@ -49,6 +51,7 @@ export default function SlotImage({
   fallback,
   zoomOnHover = false,
   zoomCaption,
+  interactive = true,
 }: Props) {
   const [media, setMedia] = useState<MemeSource | null>(null);
   const [open, setOpen] = useState(false);
@@ -67,10 +70,12 @@ export default function SlotImage({
   return (
     <>
       <div
-        onClick={() => media && setOpen(true)}
+        onClick={() => interactive && media && setOpen(true)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className={`relative overflow-hidden rounded-xl ${media ? "cursor-pointer" : ""} ${className}`}
+        className={`relative overflow-hidden rounded-xl ${
+          interactive && media ? "cursor-pointer" : ""
+        } ${className}`}
       >
         {media?.kind === "image" && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -115,7 +120,7 @@ export default function SlotImage({
       {/* Al pasar el mouse se agranda al centro; el overlay no recibe eventos
           para que el hover no parpadee. */}
       <AnimatePresence>
-        {zoomOnHover && hovered && media && !open && (
+        {interactive && zoomOnHover && hovered && media && !open && (
           <motion.div
             key="zoom"
             initial={{ opacity: 0 }}

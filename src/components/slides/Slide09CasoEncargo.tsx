@@ -76,7 +76,7 @@ export default function Slide09CasoEncargo() {
             subtitle="Oral-B & IDEO · 1996"
             color="var(--color-accent)"
             className="h-[78%] w-full"
-            zoomOnHover
+            interactive={false}
           />
         </motion.div>
       </div>
