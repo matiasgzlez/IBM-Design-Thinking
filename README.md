@@ -50,6 +50,9 @@ public/loop/reflect.jpg
 public/loop/make.mp4
 ```
 
+En el centro del Loop se puede poner una **cara real** en lugar del pictograma: dejá
+`public/loop/usuario.jpg` (cuadrada, la recorta en círculo sola).
+
 Sirven `png`, `jpg`, `jpeg`, `webp`, `gif`, `avif` para imágenes y `mp4` o `webm` para video
 (los videos arrancan solos, en loop y sin sonido). No hay que tocar código: la slide busca los
 archivos al cargar, y la fase queda clickeable sólo si encontró el suyo. Para cerrar el meme,

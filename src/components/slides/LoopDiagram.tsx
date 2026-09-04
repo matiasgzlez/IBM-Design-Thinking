@@ -104,6 +104,7 @@ export default function LoopDiagram() {
   const [active, setActive] = useState<PhaseId | null>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [memes, setMemes] = useState<Partial<Record<PhaseId, MemeSource>>>({});
+  const [userPhoto, setUserPhoto] = useState<string | null>(null);
   const [openPhase, setOpenPhase] = useState<PhaseId | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -117,6 +118,9 @@ export default function LoopDiagram() {
           setMemes((prev) => ({ ...prev, [phase.id]: found }));
         }
       }
+      // La cara del usuario en el centro, si está puesta
+      const user = await findMeme("usuario");
+      if (!cancelled && user?.kind === "image") setUserPhoto(user.url);
     })();
     return () => {
       cancelled = true;
@@ -172,8 +176,30 @@ export default function LoopDiagram() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35, delay: 0.35 }}
         >
-          <circle cx={CX} cy={283} r={16} fill="#FFFFFF" />
-          <path d="M 420 330 A 30 30 0 0 0 480 330" fill="#FFFFFF" />
+          {userPhoto ? (
+            <>
+              <defs>
+                <clipPath id="loop-user-clip">
+                  <circle cx={CX} cy={CY} r={62} />
+                </clipPath>
+              </defs>
+              <image
+                href={userPhoto}
+                x={CX - 62}
+                y={CY - 62}
+                width={124}
+                height={124}
+                clipPath="url(#loop-user-clip)"
+                preserveAspectRatio="xMidYMid slice"
+              />
+              <circle cx={CX} cy={CY} r={62} fill="none" stroke="var(--color-bg-dark)" strokeWidth={3} />
+            </>
+          ) : (
+            <>
+              <circle cx={CX} cy={283} r={16} fill="#FFFFFF" />
+              <path d="M 420 330 A 30 30 0 0 0 480 330" fill="#FFFFFF" />
+            </>
+          )}
           <text
             x={CX}
             y={392}
