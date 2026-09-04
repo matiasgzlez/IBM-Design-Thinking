@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { ReactNode } from "react";
 import SlotImage from "@/components/SlotImage";
 
 const LOOP = { repeat: Infinity, repeatType: "loop" as const };
@@ -213,17 +214,28 @@ function TeamsDiagram() {
   );
 }
 
-const principles = [
+type Principle = {
+  num: string;
+  slot: string;
+  color: string;
+  label: string;
+  en: string;
+  lead?: string;
+  description: ReactNode;
+  quote?: string;
+  diagram: ReactNode;
+};
+
+const principles: Principle[] = [
   {
     num: "01",
     slot: "principios/outcomes",
     color: "var(--color-accent)",
     label: "Foco en los resultados del usuario",
     en: "A focus on user outcomes",
+    lead: "Priorizar el valor para el usuario sobre la entrega de funcionalidades.",
     description:
-      "No se miden por las funcionalidades que entregan, sino por qué tan bien resuelven las necesidades reales del usuario: si la gente termina haciendo su propio camino al costado del que diseñamos, el que falló es el diseño.",
-    quote:
-      "No nos miden por las funcionalidades que entregamos. Nos miden por qué tan bien resolvemos las necesidades de nuestros usuarios.",
+      "El éxito no se mide por terminar tareas o lanzar características, sino por transformar la experiencia del usuario. Diseñar con éxito significa resolver su necesidad real para que no tenga que buscar atajos fuera del sistema.",
     diagram: <OutcomesDiagram />,
   },
   {
@@ -270,7 +282,7 @@ export default function Slide03Principles() {
       </motion.h2>
 
       <div className="mt-5 grid grid-cols-3 gap-6 flex-1 min-h-0">
-        {principles.map(({ num, slot, color, label, en, description, quote, diagram }, i) => (
+        {principles.map(({ num, slot, color, label, en, lead, description, quote, diagram }, i) => (
           <motion.div
             key={num}
             initial={{ opacity: 0, y: 28 }}
@@ -304,11 +316,18 @@ export default function Slide03Principles() {
               />
             </div>
 
-            <div className="flex-shrink-0 px-7 py-4 border-t border-[rgba(255,255,255,0.07)] flex flex-col gap-3">
-              <p className="text-lg text-white leading-snug">{description}</p>
-              <p className="text-base text-white/55 leading-snug italic border-l-2 border-[var(--color-accent)] pl-3">
-                “{quote}”
+            <div className="flex-shrink-0 px-7 py-4 border-t border-[rgba(255,255,255,0.07)] flex flex-col gap-2.5">
+              {lead && (
+                <p className="text-lg font-bold text-white leading-snug">{lead}</p>
+              )}
+              <p className={`text-lg leading-snug ${lead ? "text-white/70" : "text-white"}`}>
+                {description}
               </p>
+              {quote && (
+                <p className="text-base text-white/55 leading-snug italic border-l-2 border-[var(--color-accent)] pl-3">
+                  “{quote}”
+                </p>
+              )}
             </div>
           </motion.div>
         ))}

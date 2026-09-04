@@ -104,7 +104,7 @@ export default function SlotImage({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="pointer-events-none fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-16 py-10"
+            className="pointer-events-none fixed inset-0 z-40 flex items-center justify-center bg-black/92 backdrop-blur-sm px-16 py-10"
           >
             <motion.img
               src={media.url}
