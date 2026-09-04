@@ -50,6 +50,10 @@ public/loop/reflect.jpg
 public/loop/make.mp4
 ```
 
+La slide de **Hills** tiene su propio hueco de imagen: dejá `public/keys/hills.png`
+(la foto del "1000 songs in your pocket") y aparece sola; se puede clickear para verla
+a pantalla completa.
+
 En el centro del Loop se puede poner una **cara real** en lugar del pictograma: dejá
 `public/loop/usuario.jpg` (cuadrada, la recorta en círculo sola).
 

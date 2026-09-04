@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion, useTime, useTransform } from "motion/react";
 import MemeModal from "@/components/MemeModal";
-import { findMeme, type MemeSource } from "@/lib/memes";
+import { findMedia, type MemeSource } from "@/lib/memes";
 
 type PhaseId = "observe" | "reflect" | "make";
 
@@ -113,13 +113,13 @@ export default function LoopDiagram() {
     let cancelled = false;
     (async () => {
       for (const phase of phases) {
-        const found = await findMeme(phase.id);
+        const found = await findMedia(`loop/${phase.id}`);
         if (!cancelled && found) {
           setMemes((prev) => ({ ...prev, [phase.id]: found }));
         }
       }
       // La cara del usuario en el centro, si está puesta
-      const user = await findMeme("usuario");
+      const user = await findMedia("loop/usuario");
       if (!cancelled && user?.kind === "image") setUserPhoto(user.url);
     })();
     return () => {

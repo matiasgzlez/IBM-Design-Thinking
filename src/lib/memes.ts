@@ -1,7 +1,7 @@
 /**
- * Los memes de cada fase del Loop viven en public/loop/.
- * Basta con dejar el archivo con el nombre de la fase — observe, reflect o make —
- * y cualquiera de estas extensiones. La slide lo detecta sola al cargar.
+ * Las imágenes y memes de las slides viven en public/ y se buscan por nombre:
+ * `loop/observe`, `keys/hills`, etc. Basta con dejar el archivo con cualquiera
+ * de estas extensiones — la slide lo detecta sola al cargar.
  */
 export type MemeSource = { url: string; kind: "image" | "video" };
 
@@ -33,14 +33,14 @@ function probeVideo(url: string): Promise<boolean> {
   });
 }
 
-/** Busca el meme de una fase probando las extensiones posibles. */
-export async function findMeme(name: string): Promise<MemeSource | null> {
+/** Busca el archivo de un slot probando las extensiones posibles. */
+export async function findMedia(slot: string): Promise<MemeSource | null> {
   for (const ext of IMAGE_EXT) {
-    const url = `/loop/${name}.${ext}${CACHE_BUST}`;
+    const url = `/${slot}.${ext}${CACHE_BUST}`;
     if (await probeImage(url)) return { url, kind: "image" };
   }
   for (const ext of VIDEO_EXT) {
-    const url = `/loop/${name}.${ext}${CACHE_BUST}`;
+    const url = `/${slot}.${ext}${CACHE_BUST}`;
     if (await probeVideo(url)) return { url, kind: "video" };
   }
   return null;
