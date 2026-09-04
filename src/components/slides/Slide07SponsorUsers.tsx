@@ -3,7 +3,16 @@
 import { motion } from "motion/react";
 import { EASE, T, fadeUp, stagger } from "@/lib/motion";
 
+const START = 30;
+const END = 800;
 const STEPS = [140, 340, 540, 740];
+
+/** Un ciclo entero de las dos líneas, para que se puedan mirar mientras se habla. */
+const CYCLE = 7;
+const LOOP = { duration: CYCLE, repeat: Infinity, repeatDelay: 0.6 } as const;
+
+/** En qué momento del ciclo el avance pasa por cada etapa. */
+const passAt = (x: number) => Number((0.7 * ((x - START) / (END - START))).toFixed(3));
 
 function UserGlyph({ x, y, color, scale = 1 }: { x: number; y: number; color: string; scale?: number }) {
   return (
@@ -14,10 +23,76 @@ function UserGlyph({ x, y, color, scale = 1 }: { x: number; y: number; color: st
   );
 }
 
+/** Una línea de tiempo del proyecto que avanza sola y se reinicia. */
+function Lane({
+  y,
+  color,
+  track,
+  children,
+}: {
+  y: number;
+  color: string;
+  track: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <g>
+      {/* El riel completo, siempre visible */}
+      <line x1={START} y1={y} x2={END} y2={y} stroke={track} strokeWidth={4} strokeLinecap="round" />
+      {STEPS.map((x) => (
+        <circle key={x} cx={x} cy={y} r={9} fill={track} />
+      ))}
+
+      {/* El avance del proyecto */}
+      <motion.line
+        x1={START}
+        y1={y}
+        x2={END}
+        y2={y}
+        stroke={color}
+        strokeWidth={4}
+        strokeLinecap="round"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: [0, 1, 1, 1], opacity: [1, 1, 1, 0] }}
+        transition={{ ...LOOP, times: [0, 0.7, 0.94, 1], ease: "easeInOut" }}
+      />
+
+      {/* El equipo, empujando el avance */}
+      <motion.circle
+        cy={y}
+        r={13}
+        fill={color}
+        initial={{ opacity: 0 }}
+        animate={{ cx: [START, END, END, END], opacity: [1, 1, 1, 0] }}
+        transition={{ ...LOOP, times: [0, 0.7, 0.94, 1], ease: "easeInOut" }}
+      />
+
+      {/* Las etapas que ya se cumplieron */}
+      {STEPS.map((x) => {
+        const p = passAt(x);
+        return (
+          <motion.circle
+            key={x}
+            cx={x}
+            cy={y}
+            r={11}
+            fill={color}
+            initial={{ scale: 0 }}
+            animate={{ scale: [0, 0, 1.35, 1, 1, 0] }}
+            transition={{ ...LOOP, times: [0, p, p + 0.04, p + 0.09, 0.94, 1] }}
+          />
+        );
+      })}
+
+      {children}
+    </g>
+  );
+}
+
 function SponsorUserDiagram() {
   return (
     <svg viewBox="0 0 880 300" className="w-full h-full" fill="none">
-      {/* ── Cómo no ── */}
+      {/* ── Así no ── */}
       <text
         x={0}
         y={22}
@@ -28,21 +103,21 @@ function SponsorUserDiagram() {
       >
         ASÍ NO · EL USUARIO APARECE AL FINAL SOLO PARA “APROBAR”
       </text>
-      <line x1={20} y1={78} x2={800} y2={78} stroke="var(--color-divider)" strokeWidth={4} strokeLinecap="round" />
-      {STEPS.map((x, i) => (
-        <circle key={x} cx={x} cy={78} r={11} fill="#C6C6C6" />
-      ))}
-      <motion.g
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 1.1, ease: EASE }}
-      >
-        <UserGlyph x={800} y={78} color="#8D8D8D" />
-        <circle cx={828} cy={62} r={13} fill="#DA1E28" />
-        <path d="M 823 57 L 833 67 M 833 57 L 823 67" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
-      </motion.g>
 
-      {/* ── Cómo sí ── */}
+      <Lane y={78} color="#8D8D8D" track="var(--color-divider)">
+        {/* El usuario recién aparece cuando ya está todo hecho */}
+        <motion.g
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.6, 0.6, 1, 1, 1] }}
+          transition={{ ...LOOP, times: [0, 0.72, 0.78, 0.94, 1] }}
+        >
+          <UserGlyph x={800} y={78} color="#8D8D8D" />
+          <circle cx={828} cy={62} r={13} fill="#DA1E28" />
+          <path d="M 823 57 L 833 67 M 833 57 L 823 67" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
+        </motion.g>
+      </Lane>
+
+      {/* ── Así sí ── */}
       <text
         x={0}
         y={186}
@@ -53,37 +128,41 @@ function SponsorUserDiagram() {
       >
         ASÍ SÍ · EL USUARIO CO-CREA DE PRINCIPIO A FIN
       </text>
-      <motion.line
-        x1={20}
-        y1={242}
-        x2={800}
-        y2={242}
-        stroke="var(--color-make)"
-        strokeWidth={4}
-        strokeLinecap="round"
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
-      />
-      {STEPS.map((x, i) => (
+
+      <Lane y={242} color="var(--color-make)" track="var(--color-divider)">
+        {/* El usuario viaja con el equipo */}
         <motion.g
-          key={x}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", stiffness: 340, damping: 18, delay: 0.5 + i * 0.12 }}
+          initial={{ opacity: 0 }}
+          animate={{ x: [START, END, END, END], opacity: [1, 1, 1, 0] }}
+          transition={{ ...LOOP, times: [0, 0.7, 0.94, 1], ease: "easeInOut" }}
         >
-          <circle cx={x} cy={242} r={11} fill="var(--color-make)" />
-          <UserGlyph x={x} y={206} color="var(--color-make)" scale={0.85} />
+          <UserGlyph x={0} y={206} color="var(--color-make)" scale={0.9} />
         </motion.g>
-      ))}
-      <motion.g
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ type: "spring", stiffness: 340, damping: 18, delay: 1 }}
-      >
-        <circle cx={800} cy={242} r={13} fill="var(--color-success)" />
-        <path d="M 794 242 L 798 247 L 807 237" stroke="#FFFFFF" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
-      </motion.g>
+
+        {/* Y deja su marca en cada etapa */}
+        {STEPS.map((x) => {
+          const p = passAt(x);
+          return (
+            <motion.g
+              key={`u-${x}`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: [0, 0, 1, 1, 0], scale: [0, 0, 1, 1, 1] }}
+              transition={{ ...LOOP, times: [0, p, p + 0.05, 0.94, 1] }}
+            >
+              <UserGlyph x={x} y={206} color="var(--color-make)" scale={0.75} />
+            </motion.g>
+          );
+        })}
+
+        <motion.g
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: [0, 0, 1, 1, 0], scale: [0, 0, 1, 1, 1] }}
+          transition={{ ...LOOP, times: [0, 0.7, 0.76, 0.94, 1] }}
+        >
+          <circle cx={800} cy={242} r={14} fill="var(--color-success)" />
+          <path d="M 793 242 L 798 248 L 808 236" stroke="#FFFFFF" strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round" />
+        </motion.g>
+      </Lane>
     </svg>
   );
 }
