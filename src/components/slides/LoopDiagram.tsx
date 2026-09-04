@@ -31,7 +31,7 @@ const phases: Phase[] = [
     id: "observe",
     name: "Observe",
     es: "Observar",
-    color: "#0F62FE",
+    color: "#1E7A3C",
     path: `M 294.4 191 A ${R} ${R} 0 0 1 605.6 191`,
     start: { x: 294.4, y: 191 },
     arrow: { x: 605.6, y: 191, rotate: 55 },
@@ -42,7 +42,7 @@ const phases: Phase[] = [
     id: "reflect",
     name: "Reflect",
     es: "Reflexionar",
-    color: "#8A3FFC",
+    color: "#B07800",
     path: `M 622.2 219.7 A ${R} ${R} 0 0 1 466.6 489.3`,
     start: { x: 622.2, y: 219.7 },
     arrow: { x: 466.6, y: 489.3, rotate: 175 },
@@ -53,7 +53,7 @@ const phases: Phase[] = [
     id: "make",
     name: "Make",
     es: "Hacer",
-    color: "#009D9A",
+    color: "#CE1B1B",
     path: `M 433.4 489.3 A ${R} ${R} 0 0 1 277.8 219.7`,
     start: { x: 433.4, y: 489.3 },
     arrow: { x: 277.8, y: 219.7, rotate: 295 },
@@ -135,7 +135,7 @@ export default function LoopDiagram() {
             cx={CX}
             cy={CY}
             r={64}
-            stroke="rgba(15,98,254,0.35)"
+            stroke="rgba(30,122,60,0.35)"
             strokeWidth={2}
             pointerEvents="none"
             initial={{ scale: 0.9, opacity: 0.6 }}

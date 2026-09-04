@@ -113,7 +113,7 @@ function SponsorUserDiagram() {
         >
           {/* Arriba de la línea, como en la otra: si se apoya encima queda un borrón */}
           <UserGlyph x={800} y={42} color="#8D8D8D" scale={0.9} />
-          <circle cx={832} cy={26} r={13} fill="#DA1E28" />
+          <circle cx={832} cy={26} r={13} fill="#3D3D3D" />
           <path d="M 827 21 L 837 31 M 837 21 L 827 31" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
         </motion.g>
       </Lane>

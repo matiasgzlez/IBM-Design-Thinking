@@ -17,8 +17,8 @@ function OutcomesDiagram() {
         cx="300"
         cy="100"
         r="14"
-        fill="#0F62FE"
-        style={{ filter: "drop-shadow(0 0 14px #0F62FE)" }}
+        fill="#1E7A3C"
+        style={{ filter: "drop-shadow(0 0 14px #1E7A3C)" }}
         animate={{ scale: [1, 1.18, 1] }}
         transition={{ duration: 1.8, ...LOOP, ease: "easeInOut" }}
       />
@@ -40,18 +40,18 @@ function OutcomesDiagram() {
       {/* Trayecto hacia el outcome */}
       <motion.path
         d="M 96 100 L 232 100"
-        stroke="#0F62FE"
+        stroke="#1E7A3C"
         strokeWidth="4"
         strokeDasharray="7 5"
-        style={{ filter: "drop-shadow(0 0 8px #0F62FE)" }}
+        style={{ filter: "drop-shadow(0 0 8px #1E7A3C)" }}
         animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 1, 1, 0] }}
         transition={{ duration: 3, times: [0, 0.4, 0.75, 1], ...LOOP, ease: "easeInOut" }}
       />
       <motion.circle
         r="9"
         cy="100"
-        fill="#0F62FE"
-        style={{ filter: "drop-shadow(0 0 12px #0F62FE)" }}
+        fill="#1E7A3C"
+        style={{ filter: "drop-shadow(0 0 12px #1E7A3C)" }}
         animate={{ cx: [96, 96, 286], opacity: [0, 1, 1] }}
         transition={{ duration: 3, times: [0, 0.08, 0.62], ...LOOP, ease: "easeInOut" }}
       />
@@ -62,7 +62,7 @@ function OutcomesDiagram() {
         textAnchor="middle"
         fontSize="14"
         fontFamily="monospace"
-        fill="#0F62FE"
+        fill="#1E7A3C"
         fontWeight="bold"
         letterSpacing="0.12em"
       >
@@ -102,10 +102,10 @@ function ReinventionDiagram() {
             cx={v.x}
             cy="100"
             r={v.r}
-            fill="rgba(138,63,252,0.2)"
-            stroke="#8A3FFC"
+            fill="rgba(176,120,0,0.2)"
+            stroke="#B07800"
             strokeWidth="3"
-            style={{ filter: "drop-shadow(0 0 10px rgba(138,63,252,0.7))" }}
+            style={{ filter: "drop-shadow(0 0 10px rgba(176,120,0,0.7))" }}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.4 + i * 0.22 }}
@@ -130,7 +130,7 @@ function ReinventionDiagram() {
       {/* Flecha infinita */}
       <motion.path
         d="M 340 100 C 372 100, 372 40, 330 40 L 90 40"
-        stroke="#8A3FFC"
+        stroke="#B07800"
         strokeWidth="3.5"
         strokeDasharray="7 5"
         animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 1, 1, 0] }}
@@ -154,11 +154,11 @@ function ReinventionDiagram() {
 
 function TeamsDiagram() {
   const members = [
-    { x: 200, y: 44, color: "#0F62FE" },
-    { x: 290, y: 96, color: "#8A3FFC" },
-    { x: 290, y: 152, color: "#009D9A" },
-    { x: 110, y: 152, color: "#F1C21B" },
-    { x: 110, y: 96, color: "#24A148" },
+    { x: 200, y: 44, color: "#1E7A3C" },
+    { x: 290, y: 96, color: "#B07800" },
+    { x: 290, y: 152, color: "#CE1B1B" },
+    { x: 110, y: 152, color: "#E8B000" },
+    { x: 110, y: 96, color: "#1E7A3C" },
   ];
 
   return (

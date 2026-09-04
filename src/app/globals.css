@@ -8,17 +8,17 @@
   --color-text-secondary: #6B6B6B;
   --color-divider: #E0E0E0;
 
-  /* IBM Blue 60 — acento único del sistema */
-  --color-accent: #0F62FE;
-  --color-accent-soft: rgba(15, 98, 254, 0.15);
+  /* El rojo del logo de Viernes de la Jungla — acento único del sistema */
+  --color-accent: #CE1B1B;
+  --color-accent-soft: rgba(206, 27, 27, 0.12);
 
-  /* Las tres fases del Loop */
-  --color-observe: #0F62FE;
-  --color-reflect: #8A3FFC;
-  --color-make: #009D9A;
+  /* Las tres fases del Loop: verde selva, dorado y rojo del logo */
+  --color-observe: #1E7A3C;
+  --color-reflect: #B07800;
+  --color-make: #CE1B1B;
 
-  --color-success: #24A148;
-  --color-warning: #F1C21B;
+  --color-success: #1E7A3C;
+  --color-warning: #E8B000;
 
   --font-sans: var(--font-inter), 'Inter', 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;

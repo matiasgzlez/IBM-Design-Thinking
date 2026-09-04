@@ -93,7 +93,7 @@ clic o cualquier tecla.
 | 10 | El caso · el hallazgo | El puño, no el tamaño |
 | 11 | El caso · el resultado | 18 meses como el más vendido |
 | 12 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 13 | Cierre | El QR con las fuentes y los badges, el logo y el gracias |
+| 13 | Gracias | El logo del grupo y el cierre |
 
 ## 🔗 La página de fuentes y el QR
 
@@ -138,7 +138,8 @@ src/
 ## 🎨 Sistema de diseño
 
 Moderno, minimalista, de alto contraste: blanco / negro carbón / grises con un único
-acento azul IBM. Cada fase del Loop tiene su color propio.
+acento —el rojo del logo de Viernes de la Jungla—. Las tres fases del Loop toman los otros
+colores del logo: verde selva, dorado y rojo.
 
 | Token | Valor |
 |-------|-------|
@@ -148,12 +149,12 @@ acento azul IBM. Cada fase del Loop tiene su color propio.
 | `--color-text-primary` | `#0A0A0A` |
 | `--color-text-secondary` | `#6B6B6B` |
 | `--color-divider` | `#E0E0E0` |
-| `--color-accent` | `#0F62FE` (IBM Blue 60) |
-| `--color-observe` | `#0F62FE` |
-| `--color-reflect` | `#8A3FFC` |
-| `--color-make` | `#009D9A` |
-| `--color-success` | `#24A148` |
-| `--color-warning` | `#F1C21B` |
+| `--color-accent` | `#CE1B1B` (el rojo del logo) |
+| `--color-observe` | `#1E7A3C` (verde selva) |
+| `--color-reflect` | `#B07800` (dorado) |
+| `--color-make` | `#CE1B1B` |
+| `--color-success` | `#1E7A3C` |
+| `--color-warning` | `#E8B000` |
 
 ## 📚 Fuentes
 

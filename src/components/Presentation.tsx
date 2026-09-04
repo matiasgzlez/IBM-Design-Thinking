@@ -18,7 +18,7 @@ import Slide09CasoEncargo from "./slides/Slide09CasoEncargo";
 import Slide10CasoInsight from "./slides/Slide10CasoInsight";
 import Slide11CasoResultado from "./slides/Slide11CasoResultado";
 import Slide12Impact from "./slides/Slide12Impact";
-import Slide13Fuentes from "./slides/Slide13Fuentes";
+import Slide13Gracias from "./slides/Slide13Gracias";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
@@ -33,7 +33,7 @@ const slides: Slide[] = [
   { id: "caso-insight", label: "El caso · el hallazgo", component: Slide10CasoInsight },
   { id: "caso-resultado", label: "El caso · el resultado", component: Slide11CasoResultado },
   { id: "impact", label: "Resultados", component: Slide12Impact },
-  { id: "sources", label: "Fuentes y cierre", component: Slide13Fuentes },
+  { id: "gracias", label: "Gracias", component: Slide13Gracias },
 ];
 
 export default function Presentation() {

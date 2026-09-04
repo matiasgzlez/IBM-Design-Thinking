@@ -14,8 +14,8 @@ Se navega con el teclado, cada slide ocupa exactamente la pantalla y nunca hay s
    `w-screen h-screen ... overflow-hidden`. Si el contenido no entra, se achica el
    contenido — no se agrega scroll a la página. Ojo con las columnas altas: usar
    `min-h-0` en los hijos de un flex/grid para que no desborden sobre el pie.
-2. **Un solo acento.** Azul IBM (`--color-accent: #0F62FE`) sobre blanco / negro carbón /
-   grises. Las únicas excepciones son los colores de las tres fases del Loop
+2. **Un solo acento.** El rojo del logo (`--color-accent: #CE1B1B`) sobre blanco / negro carbón /
+   grises. La paleta sale del logo de Viernes de la Jungla: rojo, dorado y verde selva. Las únicas excepciones son los colores de las tres fases del Loop
    (`--color-observe`, `--color-reflect`, `--color-make`) y `--color-success` /
    `--color-warning`. Siempre por token (`var(--color-…)`), nunca hardcodeado en el layout.
    Dentro de un SVG sí van los hex directos porque `filter: drop-shadow()` los necesita.
