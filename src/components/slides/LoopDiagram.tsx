@@ -47,7 +47,7 @@ const phases: Phase[] = [
     start: { x: 622.2, y: 219.7 },
     arrow: { x: 466.6, y: 489.3, rotate: 175 },
     label: { x: 700, y: 508 },
-    definition: "Integrar lo aprendido con el equipo y decidir el plan de acción.",
+    definition: "Procesar la información recopilada y definir los siguientes pasos.",
   },
   {
     id: "make",
