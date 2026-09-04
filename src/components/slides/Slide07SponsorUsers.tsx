@@ -26,7 +26,7 @@ function SponsorUserDiagram() {
         letterSpacing="0.16em"
         fill="var(--color-text-secondary)"
       >
-        ASÍ NO · EL USUARIO APARECE AL FINAL A “VALIDAR”
+        ASÍ NO · EL USUARIO APARECE AL FINAL SOLO PARA “APROBAR”
       </text>
       <line x1={20} y1={78} x2={800} y2={78} stroke="var(--color-divider)" strokeWidth={4} strokeLinecap="round" />
       {STEPS.map((x, i) => (
@@ -51,7 +51,7 @@ function SponsorUserDiagram() {
         letterSpacing="0.16em"
         fill="var(--color-make)"
       >
-        ASÍ SÍ · PARTICIPA DESDE EL PRIMER DÍA
+        ASÍ SÍ · EL USUARIO CO-CREA DE PRINCIPIO A FIN
       </text>
       <motion.line
         x1={20}
@@ -92,17 +92,19 @@ const requisitos = [
   {
     num: "01",
     label: "Representativo",
-    description: "Tiene que ser del usuario objetivo real, no el que estaba disponible.",
+    description:
+      "Debe ser un usuario final real del producto, no “la persona que justo estaba disponible”.",
   },
   {
     num: "02",
     label: "Interesado de verdad",
-    description: "Le importa el resultado. No está “prestado” para una entrevista.",
+    description: "Tiene que ser alguien a quien le importa directamente la solución.",
   },
   {
     num: "03",
-    label: "Disponible siempre",
-    description: "Colabora de forma continua durante todo el proyecto, no solo al final.",
+    label: "Disponibilidad continua",
+    description:
+      "Tiene que colaborar de forma activa e iterativa durante todo el proceso, no solo en la prueba final.",
   },
 ];
 
@@ -115,7 +117,8 @@ export default function Slide07SponsorUsers() {
         transition={{ duration: 0.4, ease: EASE }}
         className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
       >
-        Llave 03 · <span className="text-[var(--color-accent)]">Sponsor Users</span>
+        The Keys · llave 03 ·{" "}
+        <span className="text-[var(--color-accent)]">Sponsor Users</span>
       </motion.div>
 
       <motion.h2
@@ -157,7 +160,7 @@ export default function Slide07SponsorUsers() {
                 {label}
               </h3>
             </div>
-            <p className="text-xl text-[var(--color-text-secondary)] leading-snug">
+            <p className="text-[clamp(19px,1.5vw,23px)] leading-snug">
               {description}
             </p>
           </motion.div>
@@ -170,7 +173,8 @@ export default function Slide07SponsorUsers() {
         transition={{ duration: 0.4, delay: 1.6 }}
         className="mt-6 font-mono text-base uppercase tracking-[0.2em] text-[var(--color-text-secondary)]"
       >
-        Al menos <span className="text-[var(--color-accent)] font-bold">un Sponsor User por cada Hill</span>
+        Regla clave: al menos{" "}
+        <span className="text-[var(--color-accent)] font-bold">un Sponsor User asignado a cada Hill</span>
       </motion.p>
     </section>
   );
