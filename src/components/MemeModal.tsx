@@ -5,8 +5,9 @@ import { motion } from "motion/react";
 import type { MemeSource } from "@/lib/memes";
 
 type Props = {
+  /** Etiqueta chica arriba del título: el nombre de la fase o del principio. */
+  eyebrow?: string;
   title: string;
-  subtitle?: string;
   color: string;
   /** Cuando todavía no hay archivo en public/loop/, se muestra el hueco. */
   meme: MemeSource | null;
@@ -14,7 +15,7 @@ type Props = {
   onClose: () => void;
 };
 
-export default function MemeModal({ title, subtitle, color, meme, slot, onClose }: Props) {
+export default function MemeModal({ eyebrow, title, color, meme, slot, onClose }: Props) {
   // Mientras el meme está abierto, el teclado no navega la presentación.
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -41,7 +42,7 @@ export default function MemeModal({ title, subtitle, color, meme, slot, onClose 
       exit={{ opacity: 0 }}
       transition={{ duration: 0.18 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/80 backdrop-blur-sm px-16 py-12 cursor-pointer"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/92 backdrop-blur-sm px-16 py-12 cursor-pointer"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.94, y: 14 }}
@@ -50,18 +51,18 @@ export default function MemeModal({ title, subtitle, color, meme, slot, onClose 
         transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
         className="flex flex-col items-center gap-5 max-h-full"
       >
-        <div className="flex items-baseline gap-4">
-          <span
-            className="font-black text-5xl uppercase tracking-tight leading-none"
-            style={{ color }}
-          >
-            {title}
-          </span>
-          {subtitle && (
-            <span className="font-mono text-base uppercase tracking-[0.18em] text-white/50">
-              {subtitle}
+        <div className="flex flex-col items-center gap-2 text-center max-w-5xl">
+          {eyebrow && (
+            <span
+              className="font-mono text-base uppercase tracking-[0.24em] font-bold"
+              style={{ color }}
+            >
+              {eyebrow}
             </span>
           )}
+          <h2 className="font-black text-[clamp(24px,2.6vw,40px)] leading-[1.1] tracking-tight text-white">
+            {title}
+          </h2>
         </div>
 
         {meme === null && (

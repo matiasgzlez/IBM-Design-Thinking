@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useTime, useTransform } from "motion/react";
 import MemeModal from "@/components/MemeModal";
 import { findMedia, type MemeSource } from "@/lib/memes";
@@ -19,8 +19,7 @@ type Phase = {
   /* Punta de flecha al final del arco */
   arrow: { x: number; y: number; rotate: number };
   label: { x: number; y: number };
-  tagline: string;
-  detail: string;
+  definition: string;
 };
 
 const CX = 450;
@@ -37,8 +36,7 @@ const phases: Phase[] = [
     start: { x: 294.4, y: 191 },
     arrow: { x: 605.6, y: 191, rotate: 55 },
     label: { x: 450, y: 56 },
-    tagline: "Sumergite en el mundo real",
-    detail: "Investigar y entender el problema en profundidad",
+    definition: "Aprender observando cómo trabajan e interactúan los usuarios en el mundo real.",
   },
   {
     id: "reflect",
@@ -49,8 +47,7 @@ const phases: Phase[] = [
     start: { x: 622.2, y: 219.7 },
     arrow: { x: 466.6, y: 489.3, rotate: 175 },
     label: { x: 700, y: 508 },
-    tagline: "Juntense y miren adentro",
-    detail: "Integrar lo aprendido y armar un plan de acción",
+    definition: "Integrar lo aprendido con el equipo y decidir el plan de acción.",
   },
   {
     id: "make",
@@ -61,8 +58,7 @@ const phases: Phase[] = [
     start: { x: 433.4, y: 489.3 },
     arrow: { x: 277.8, y: 219.7, rotate: 295 },
     label: { x: 205, y: 508 },
-    tagline: "Dale forma a lo abstracto",
-    detail: "Prototipos y resultados que alimentan la próxima observación",
+    definition: "Dar forma concreta a las ideas con prototipos que vuelven a ponerse a prueba.",
   },
 ];
 
@@ -102,7 +98,6 @@ function OrbitingTeam() {
 
 export default function LoopDiagram() {
   const [active, setActive] = useState<PhaseId | null>(null);
-  const [tooltip, setTooltip] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [memes, setMemes] = useState<Partial<Record<PhaseId, MemeSource>>>({});
   const [userPhoto, setUserPhoto] = useState<string | null>(null);
   const [openPhase, setOpenPhase] = useState<PhaseId | null>(null);
@@ -127,18 +122,8 @@ export default function LoopDiagram() {
     };
   }, []);
 
-  const handleMouseMove = (e: MouseEvent<SVGGElement>) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setTooltip({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  const activePhase = phases.find((p) => p.id === active);
   const openedPhase = phases.find((p) => p.id === openPhase);
   const openedMeme = openPhase ? memes[openPhase] : undefined;
-
-  const width = containerRef.current?.clientWidth ?? 0;
-  const flip = width > 0 && tooltip.x > width - 460;
 
   return (
     <div ref={containerRef} className="relative w-full h-full flex items-center justify-center">
@@ -227,7 +212,6 @@ export default function LoopDiagram() {
               style={{ cursor: "pointer" }}
               onMouseEnter={() => setActive(phase.id)}
               onMouseLeave={() => setActive(null)}
-              onMouseMove={handleMouseMove}
               onClick={() => setOpenPhase(phase.id)}
             >
               {/* Zona de hover más ancha */}
@@ -295,45 +279,12 @@ export default function LoopDiagram() {
         <OrbitingTeam />
       </svg>
 
-      {/* Tooltip: dos renglones y siempre dentro de la slide */}
-      <AnimatePresence>
-        {activePhase && (
-          <motion.div
-            key="tooltip"
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.94 }}
-            transition={{ duration: 0.14 }}
-            className="pointer-events-none absolute z-10 w-[380px] bg-[var(--color-bg-dark)] text-white px-5 py-4 rounded-lg shadow-xl"
-            style={{
-              top: tooltip.y + 30,
-              left: flip ? undefined : tooltip.x + 26,
-              right: flip ? Math.max(0, (containerRef.current?.clientWidth ?? 0) - tooltip.x + 26) : undefined,
-              transformOrigin: flip ? "top right" : "top left",
-            }}
-          >
-            <span
-              className="block font-black text-xl uppercase tracking-tight leading-none"
-              style={{ color: activePhase.color }}
-            >
-              {activePhase.es}
-            </span>
-            <span className="mt-1.5 block font-mono text-sm leading-snug text-white/75">
-              {activePhase.detail}
-            </span>
-            <span className="mt-2.5 block font-mono text-xs uppercase tracking-[0.18em] text-white/45">
-              ▶ Clic para ver el meme
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <AnimatePresence>
         {openedPhase && (
           <MemeModal
             key="meme"
-            title={openedPhase.name}
-            subtitle={openedPhase.tagline}
+            eyebrow={openedPhase.name}
+            title={openedPhase.definition}
             color={openedPhase.color}
             meme={openedMeme ?? null}
             slot={`public/loop/${openedPhase.id}.png`}

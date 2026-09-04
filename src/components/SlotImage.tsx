@@ -154,8 +154,8 @@ export default function SlotImage({
         {open && media && (
           <MemeModal
             key="slot-modal"
+            eyebrow={subtitle}
             title={title}
-            subtitle={subtitle}
             color={color}
             meme={media}
             slot={`public/${slot}.png`}
