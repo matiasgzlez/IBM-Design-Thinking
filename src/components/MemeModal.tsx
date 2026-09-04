@@ -91,11 +91,19 @@ export default function MemeModal({ title, subtitle, color, meme, slot, onClose 
 
         {meme?.kind === "video" && (
           <video
+            ref={(video) => {
+              if (!video) return;
+              video.muted = false;
+              video.volume = 1;
+              video.play().catch(() => {
+                video.muted = true;
+                void video.play().catch(() => {});
+              });
+            }}
             src={meme.url}
             className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"
             autoPlay
             loop
-            muted
             playsInline
             controls
           />

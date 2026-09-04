@@ -5,6 +5,21 @@ import { AnimatePresence, motion } from "motion/react";
 import MemeModal from "@/components/MemeModal";
 import { findMedia, type MemeSource } from "@/lib/memes";
 
+/**
+ * Intenta reproducir con sonido. Los navegadores solo lo permiten si ya hubo
+ * una interacción en la página (un clic o una tecla, que en una presentación
+ * siempre pasó); si lo bloquean, cae a reproducir en silencio.
+ */
+function playWithSound(video: HTMLVideoElement | null) {
+  if (!video) return;
+  video.muted = false;
+  video.volume = 1;
+  video.play().catch(() => {
+    video.muted = true;
+    void video.play().catch(() => {});
+  });
+}
+
 type Props = {
   /** Ruta dentro de public/ sin extensión, por ejemplo "keys/hills". */
   slot: string;
@@ -119,6 +134,7 @@ export default function SlotImage({
               />
             ) : (
               <motion.video
+                ref={playWithSound}
                 src={media.url}
                 initial={{ scale: 0.85, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -127,7 +143,6 @@ export default function SlotImage({
                 className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
                 autoPlay
                 loop
-                muted
                 playsInline
               />
             )}
