@@ -53,22 +53,25 @@ function Brush({ thick, color, delay }: { thick: boolean; color: string; delay: 
   );
 }
 
-const cepillos = [
-  {
-    slot: "caso/mango-fino",
-    label: "Mango fino",
-    note: "el que había: un cepillo de adulto más chico",
-    color: "var(--color-text-secondary)",
-    fallback: <Brush thick={false} color="#C6C6C6" delay={0.35} />,
-  },
-  {
-    slot: "caso/mango-grueso",
-    label: "Mango grueso",
-    note: "el que diseñó IDEO: grueso y antideslizante",
-    color: "var(--color-accent)",
-    fallback: <Brush thick color="var(--color-accent)" delay={0.6} />,
-  },
-];
+/** El dibujo de los dos cepillos, mientras no haya foto en public/caso/. */
+function BrushComparison() {
+  return (
+    <div className="flex h-full w-full flex-col justify-center gap-8">
+      <div className="flex flex-col gap-1">
+        <Brush thick={false} color="#C6C6C6" delay={0.35} />
+        <span className="font-mono text-base uppercase tracking-[0.16em] text-[var(--color-text-secondary)]">
+          Mango fino · el que había
+        </span>
+      </div>
+      <div className="flex flex-col gap-1">
+        <Brush thick color="var(--color-accent)" delay={0.6} />
+        <span className="font-mono text-base uppercase tracking-[0.16em] text-[var(--color-accent)]">
+          Mango grueso · el que diseñó IDEO
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Slide10CasoInsight() {
   return (
@@ -110,30 +113,23 @@ export default function Slide10CasoInsight() {
           </motion.p>
         </div>
 
-        <div className="h-full min-h-0 flex flex-col justify-center gap-8">
-          {cepillos.map(({ slot, label, note, color, fallback }, i) => (
-            <motion.div
-              key={slot}
-              initial={{ opacity: 0, x: 26 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: T.content + 0.1 + i * 0.12, ease: EASE }}
-              className="flex flex-col gap-2"
-            >
-              <SlotImage
-                slot={slot}
-                title={label}
-                subtitle={note}
-                color={color}
-                className="h-[150px] w-full"
-                fallback={fallback}
-                zoomOnHover
-              />
-              <span className="font-mono text-base uppercase tracking-[0.16em]" style={{ color }}>
-                {label} · <span className="normal-case tracking-normal">{note}</span>
-              </span>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 26 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: T.content + 0.1, ease: EASE }}
+          className="h-full min-h-0 flex items-center"
+        >
+          <SlotImage
+            slot="caso/cepillos"
+            title="Mango fino contra mango grueso"
+            subtitle="Oral-B & IDEO · 1996"
+            color="var(--color-accent)"
+            className="h-[85%] w-full"
+            fallback={<BrushComparison />}
+            zoomOnHover
+          />
+        </motion.div>
+
       </div>
     </section>
   );
