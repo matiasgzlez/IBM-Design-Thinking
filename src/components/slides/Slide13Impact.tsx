@@ -69,7 +69,7 @@ const metricas = [
   },
 ];
 
-export default function Slide12Impact() {
+export default function Slide13Impact() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden px-20 pt-14 pb-12 flex flex-col">
       <motion.h2

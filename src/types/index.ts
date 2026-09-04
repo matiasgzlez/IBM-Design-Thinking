@@ -12,6 +12,7 @@ export type SlideId =
   | "caso-encargo"
   | "caso-insight"
   | "caso-resultado"
+  | "caso-citibank"
   | "impact"
   | "gracias";
 

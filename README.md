@@ -33,7 +33,7 @@ npm run build && npm start   # build de producción
 | `Esc` | Volver a la portada |
 | `F` | Pantalla completa |
 
-## 🎞️ Las 13 slides
+## 🎞️ Las 14 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
@@ -48,8 +48,9 @@ npm run build && npm start   # build de producción
 | 09 | El caso · el encargo | Oral-B & IDEO (1996): ir a mirar a los chicos |
 | 10 | El caso · el hallazgo | El problema era la motricidad, no el tamaño |
 | 11 | El caso · el resultado | 18 meses como el más vendido de Estados Unidos |
-| 12 | Resultados | El estudio de Forrester, en verde porque son ganancias |
-| 13 | Gracias | El logo del grupo y el cierre |
+| 12 | El caso · Citibank | CitiDirect BE (2014): el caso insignia de IBM en banca |
+| 13 | Resultados | El estudio de Forrester, en verde porque son ganancias |
+| 14 | Gracias | El logo del grupo y el cierre |
 
 ## 🖼️ Las imágenes: se cambian sin tocar código
 
@@ -102,7 +103,7 @@ src/
 │   ├── SlotImage.tsx            # los huecos de imagen (zoom, clic, respaldo)
 │   ├── MemeModal.tsx            # el meme a pantalla completa
 │   ├── ui/following-pointer.tsx # el cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide13 + LoopDiagram
+│   └── slides/                  # Slide01…Slide14 + LoopDiagram
 ├── hooks/useKeyboardShortcuts.ts
 ├── lib/
 │   ├── motion.ts                # el sistema de tiempos de las animaciones

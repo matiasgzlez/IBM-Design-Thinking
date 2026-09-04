@@ -17,8 +17,9 @@ import Slide08Roles from "./slides/Slide08Roles";
 import Slide09CasoEncargo from "./slides/Slide09CasoEncargo";
 import Slide10CasoInsight from "./slides/Slide10CasoInsight";
 import Slide11CasoResultado from "./slides/Slide11CasoResultado";
-import Slide12Impact from "./slides/Slide12Impact";
-import Slide13Gracias from "./slides/Slide13Gracias";
+import Slide12CasoCitibank from "./slides/Slide12CasoCitibank";
+import Slide13Impact from "./slides/Slide13Impact";
+import Slide14Gracias from "./slides/Slide14Gracias";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
@@ -32,8 +33,9 @@ const slides: Slide[] = [
   { id: "caso-encargo", label: "El caso · el encargo", component: Slide09CasoEncargo },
   { id: "caso-insight", label: "El caso · el hallazgo", component: Slide10CasoInsight },
   { id: "caso-resultado", label: "El caso · el resultado", component: Slide11CasoResultado },
-  { id: "impact", label: "Resultados", component: Slide12Impact },
-  { id: "gracias", label: "Gracias", component: Slide13Gracias },
+  { id: "caso-citibank", label: "El caso · Citibank", component: Slide12CasoCitibank },
+  { id: "impact", label: "Resultados", component: Slide13Impact },
+  { id: "gracias", label: "Gracias", component: Slide14Gracias },
 ];
 
 export default function Presentation() {

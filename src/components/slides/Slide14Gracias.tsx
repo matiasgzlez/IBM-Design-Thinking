@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import Logo from "@/components/Logo";
 import { EASE } from "@/lib/motion";
 
-export default function Slide13Gracias() {
+export default function Slide14Gracias() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden flex flex-col items-center justify-center gap-10 px-20 py-16">
       <motion.div
