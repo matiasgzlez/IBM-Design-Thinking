@@ -67,6 +67,13 @@ usar esa plantilla para que el ritmo y la jerarquía sean iguales en todos.
 La punta de flecha al final de cada arco se rota `ánguloFinal + 90`. Si se cambia el centro o
 el radio, recalcular los endpoints: `x = cx + r·cos(θ)`, `y = cy + r·sin(θ)`.
 
+## Los memes del Loop
+
+`lib/memes.ts` prueba extensiones contra `public/loop/<fase>.<ext>` (observe, reflect, make) y
+`LoopDiagram` deja clickeable sólo la fase que encontró archivo. `MemeModal` se abre por encima
+de todo y **come el teclado mientras está abierto** (listener en fase de captura sobre `window`),
+si no las flechas pasarían la slide con el meme abierto.
+
 ## El logo
 
 `src/components/Logo.tsx` lee `public/logo.png`. **Precarga la imagen antes de montarla**:

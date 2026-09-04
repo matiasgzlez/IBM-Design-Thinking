@@ -1,0 +1,91 @@
+"use client";
+
+import { useEffect } from "react";
+import { motion } from "motion/react";
+import type { MemeSource } from "@/lib/memes";
+
+type Props = {
+  title: string;
+  subtitle?: string;
+  color: string;
+  meme: MemeSource;
+  onClose: () => void;
+};
+
+export default function MemeModal({ title, subtitle, color, meme, onClose }: Props) {
+  // Mientras el meme está abierto, el teclado no navega la presentación.
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      event.stopPropagation();
+      if (
+        event.key === "Escape" ||
+        event.key === " " ||
+        event.key === "Enter" ||
+        event.key === "ArrowRight" ||
+        event.key === "ArrowLeft"
+      ) {
+        event.preventDefault();
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.18 }}
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/80 backdrop-blur-sm px-16 py-12 cursor-pointer"
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94, y: 14 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.94, y: 14 }}
+        transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+        className="flex flex-col items-center gap-5 max-h-full"
+      >
+        <div className="flex items-baseline gap-4">
+          <span
+            className="font-black text-5xl uppercase tracking-tight leading-none"
+            style={{ color }}
+          >
+            {title}
+          </span>
+          {subtitle && (
+            <span className="font-mono text-base uppercase tracking-[0.18em] text-white/50">
+              {subtitle}
+            </span>
+          )}
+        </div>
+
+        {meme.kind === "image" ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={meme.url}
+            alt={title}
+            className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"
+            draggable={false}
+          />
+        ) : (
+          <video
+            src={meme.url}
+            className="max-h-[68vh] max-w-full rounded-xl object-contain shadow-2xl"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
+          />
+        )}
+
+        <span className="font-mono text-sm uppercase tracking-[0.2em] text-white/40">
+          Clic o cualquier tecla para volver
+        </span>
+      </motion.div>
+    </motion.div>
+  );
+}

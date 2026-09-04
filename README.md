@@ -39,6 +39,22 @@ La portada y el cierre muestran el logo del grupo desde **`public/logo.png`**
 (PNG con fondo transparente). Si el archivo no está, las slides se arman igual y el
 logo simplemente no aparece: no rompe nada.
 
+## 😂 Los memes del Loop
+
+En la slide del Loop, cada fase se puede clickear para mostrar su meme a pantalla completa.
+Para que aparezca alcanza con dejar el archivo en **`public/loop/`** con el nombre de la fase:
+
+```
+public/loop/observe.png
+public/loop/reflect.jpg
+public/loop/make.mp4
+```
+
+Sirven `png`, `jpg`, `jpeg`, `webp`, `gif`, `avif` para imágenes y `mp4` o `webm` para video
+(los videos arrancan solos, en loop y sin sonido). No hay que tocar código: la slide busca los
+archivos al cargar, y la fase queda clickeable sólo si encontró el suyo. Para cerrar el meme,
+clic o cualquier tecla.
+
 ## ⌨️ Atajos de teclado
 
 | Tecla | Acción |
