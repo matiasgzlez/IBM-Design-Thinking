@@ -48,7 +48,7 @@ npm run build && npm start   # build de producción
 | 09 | El caso · el encargo | Oral-B & IDEO (1996): ir a mirar a los chicos |
 | 10 | El caso · el hallazgo | El problema era la motricidad, no el tamaño |
 | 11 | El caso · el resultado | 18 meses como el más vendido de Estados Unidos |
-| 12 | El caso · Citibank | CitiDirect BE (2014): el caso insignia de IBM en banca |
+| 12 | El caso · Citibank | 2014: el caso insignia de IBM en banca corporativa |
 | 13 | Resultados | El estudio de Forrester, en verde porque son ganancias |
 | 14 | Gracias | El logo del grupo y el cierre |
 

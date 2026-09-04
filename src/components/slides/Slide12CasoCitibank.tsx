@@ -62,7 +62,7 @@ export default function Slide12CasoCitibank() {
             transition={{ duration: 0.5, delay: T.title, ease: EASE }}
             className="mt-3 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(44px,5.4vw,84px)]"
           >
-            Citibank <span className="text-[var(--color-accent)]">CitiDirect BE</span>
+            Citibank
           </motion.h2>
         </div>
 
@@ -74,7 +74,7 @@ export default function Slide12CasoCitibank() {
         >
           <SlotImage
             slot="caso/citibank"
-            title="Citibank · CitiDirect BE"
+            title="Citibank"
             subtitle="2014"
             color="var(--color-accent)"
             className="h-[110px] w-full"
