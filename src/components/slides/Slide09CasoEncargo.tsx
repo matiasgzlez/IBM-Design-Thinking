@@ -17,23 +17,7 @@ export default function Slide09CasoEncargo() {
         <span className="text-[var(--color-accent)]">(1996)</span>
       </motion.h2>
 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: T.title + 0.1, ease: EASE }}
-        className="mt-5 flex items-baseline gap-4 border-l-[6px] border-[var(--color-text-primary)] pl-5"
-      >
-        <span className="font-black text-2xl uppercase tracking-tight flex-shrink-0">IDEO</span>
-        <span className="text-[clamp(19px,1.7vw,25px)] leading-snug text-[var(--color-text-secondary)]">
-          es reconocida globalmente por haber sido la empresa que{" "}
-          <span className="text-[var(--color-text-primary)] font-bold">
-            popularizó y sistematizó la metodología del Design Thinking
-          </span>
-          .
-        </span>
-      </motion.div>
-
-      <div className="flex-1 min-h-0 mt-7 grid grid-cols-[1.15fr_1fr] gap-12 items-center">
+      <div className="flex-1 min-h-0 mt-8 grid grid-cols-[1.15fr_1fr] gap-12 items-center">
         <div className="flex flex-col gap-6">
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -43,7 +27,13 @@ export default function Slide09CasoEncargo() {
           >
             En 1996 todavía no existía el marco de IBM, pero este caso fue{" "}
             <span className="font-bold">el pionero en aplicar el corazón del método</span>.
-            Oral-B quería un cepillo infantil para liderar el mercado y le pidió el diseño a IDEO.
+            Oral-B quería un cepillo infantil para liderar el mercado y le pidió el diseño a{" "}
+            <span className="font-bold">IDEO</span>, reconocida globalmente por haber sido la
+            empresa que{" "}
+            <span className="font-bold">
+              popularizó y sistematizó la metodología del Design Thinking
+            </span>
+            .
           </motion.p>
 
           <motion.p
@@ -56,23 +46,22 @@ export default function Slide09CasoEncargo() {
             <span className="text-[var(--color-text-primary)] font-bold">
               ver a los chicos cepillándose los dientes
             </span>
-            . Los ejecutivos de Oral-B pensaron que era un pedido absurdo: “¿de verdad es
-            necesario?”.
+            . A los ejecutivos de Oral-B les pareció un pedido raro: “¿de verdad es necesario?”,
+            dijeron.
           </motion.p>
 
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: T.content + 0.24, ease: EASE }}
-            className="border-l-[6px] border-[var(--color-accent)] bg-[var(--color-accent-soft)] rounded-r-xl px-7 py-5"
+            className="text-[clamp(22px,2.1vw,32px)] leading-snug font-medium"
           >
-            <span className="font-mono text-sm uppercase tracking-[0.2em] font-bold text-[var(--color-accent)]">
-              Y ahí apareció lo que cambió todo
-            </span>
-            <p className="mt-2 text-[clamp(22px,2.1vw,32px)] leading-snug font-medium">
-              Los chicos agarran el cepillo de una forma totalmente distinta a la de los adultos.
-            </p>
-          </motion.div>
+            Durante las observaciones notaron algo clave: los chicos{" "}
+            <span className="text-[var(--color-accent)]">
+              agarran el cepillo de una forma totalmente distinta
+            </span>{" "}
+            a la de los adultos.
+          </motion.p>
         </div>
 
         <motion.div
