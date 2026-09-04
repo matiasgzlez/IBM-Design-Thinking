@@ -132,7 +132,7 @@ export default function SlotImage({
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                className="max-h-[80vh] max-w-full rounded-2xl object-contain shadow-2xl"
+                className={`${zoomCaption ? "h-[56vh]" : "h-[74vh]"} w-auto max-w-[90vw] rounded-2xl object-contain shadow-2xl`}
                 draggable={false}
               />
             ) : (
@@ -143,7 +143,7 @@ export default function SlotImage({
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 260, damping: 24 }}
-                className={`${zoomCaption ? "max-h-[52vh]" : "max-h-[80vh]"} max-w-full rounded-2xl object-contain shadow-2xl`}
+                className={`${zoomCaption ? "h-[56vh]" : "h-[74vh]"} w-auto max-w-[90vw] rounded-2xl object-contain shadow-2xl`}
                 autoPlay
                 loop
                 playsInline
