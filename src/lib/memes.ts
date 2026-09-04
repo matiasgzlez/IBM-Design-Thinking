@@ -5,6 +5,12 @@
  */
 export type MemeSource = { url: string; kind: "image" | "video" };
 
+/**
+ * Sello por carga de página: evita que el navegador conteste con un archivo
+ * viejo que ya no está en la carpeta (o que se lo pierda si lo acabás de poner).
+ */
+const CACHE_BUST = typeof window === "undefined" ? "" : `?v=${Date.now()}`;
+
 const IMAGE_EXT = ["png", "jpg", "jpeg", "webp", "gif", "avif"];
 const VIDEO_EXT = ["mp4", "webm"];
 
@@ -30,11 +36,11 @@ function probeVideo(url: string): Promise<boolean> {
 /** Busca el meme de una fase probando las extensiones posibles. */
 export async function findMeme(name: string): Promise<MemeSource | null> {
   for (const ext of IMAGE_EXT) {
-    const url = `/loop/${name}.${ext}`;
+    const url = `/loop/${name}.${ext}${CACHE_BUST}`;
     if (await probeImage(url)) return { url, kind: "image" };
   }
   for (const ext of VIDEO_EXT) {
-    const url = `/loop/${name}.${ext}`;
+    const url = `/loop/${name}.${ext}${CACHE_BUST}`;
     if (await probeVideo(url)) return { url, kind: "video" };
   }
   return null;
