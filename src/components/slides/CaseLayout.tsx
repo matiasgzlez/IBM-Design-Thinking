@@ -7,7 +7,7 @@ import { EASE, T } from "@/lib/motion";
 export type CaseBlock = { label: string; text: string };
 
 type Props = {
-  index: string;
+  index?: string;
   org: string;
   year: string;
   headline: ReactNode;
@@ -39,7 +39,9 @@ export default function CaseLayout({
         transition={{ duration: 0.4, ease: EASE }}
         className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)] flex items-center gap-4"
       >
-        <span className="text-[var(--color-accent)] font-bold">Ejemplo {index}</span>
+        <span className="text-[var(--color-accent)] font-bold">
+          {index ? `Ejemplo ${index}` : "El ejemplo"}
+        </span>
         <span className="text-[var(--color-divider)]">/</span>
         <span>{org}</span>
         <span className="text-[var(--color-divider)]">/</span>

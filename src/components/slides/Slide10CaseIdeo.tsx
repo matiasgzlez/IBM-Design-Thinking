@@ -176,12 +176,11 @@ function ToothbrushDiagram() {
   );
 }
 
-export default function Slide11CaseIdeo() {
+export default function Slide10CaseIdeo() {
   return (
     <CaseLayout
-      index="02"
-      org="IDEO"
-      year="Cepillo infantil"
+      org="IDEO · Oral-B"
+      year="1996"
       headline={
         <>
           Toda la industria hacía mangos finos.{" "}
@@ -191,7 +190,7 @@ export default function Slide11CaseIdeo() {
       blocks={[
         {
           label: "El encargo",
-          text: "Un fabricante de productos de higiene le pidió a IDEO un cepillo de dientes para chicos.",
+          text: "Oral-B le pidió a IDEO un cepillo de dientes para chicos que le ganara a la competencia.",
         },
         {
           label: "El supuesto de todos",
@@ -199,7 +198,7 @@ export default function Slide11CaseIdeo() {
         },
         {
           label: "Qué hicieron",
-          text: "En vez de asumir, se sentaron a observar a chicos reales lavándose los dientes.",
+          text: "En vez de asumir, entraron a las casas de los clientes a mirar a los chicos lavarse los dientes.",
         },
       ]}
       insight="Los chicos no agarran el cepillo con los dedos: lo agarran con el puño cerrado, porque la motricidad fina todavía no está desarrollada. Con un mango grueso limpian mejor."

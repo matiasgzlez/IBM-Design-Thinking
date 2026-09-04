@@ -15,12 +15,10 @@ import Slide06Hills from "./slides/Slide06Hills";
 import Slide07Playbacks from "./slides/Slide07Playbacks";
 import Slide08SponsorUsers from "./slides/Slide08SponsorUsers";
 import Slide09Roles from "./slides/Slide09Roles";
-import Slide10CaseAirbnb from "./slides/Slide10CaseAirbnb";
-import Slide11CaseIdeo from "./slides/Slide11CaseIdeo";
-import Slide12CasePG from "./slides/Slide12CasePG";
-import Slide13Impact from "./slides/Slide13Impact";
-import Slide14Fuentes from "./slides/Slide14Fuentes";
-import Slide15Thanks from "./slides/Slide15Thanks";
+import Slide10CaseIdeo from "./slides/Slide10CaseIdeo";
+import Slide11Impact from "./slides/Slide11Impact";
+import Slide12Fuentes from "./slides/Slide12Fuentes";
+import Slide13Thanks from "./slides/Slide13Thanks";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
@@ -32,12 +30,10 @@ const slides: Slide[] = [
   { id: "playbacks", label: "Playbacks", component: Slide07Playbacks },
   { id: "sponsor-users", label: "Sponsor Users", component: Slide08SponsorUsers },
   { id: "roles", label: "Roles", component: Slide09Roles },
-  { id: "case-airbnb", label: "Caso Airbnb", component: Slide10CaseAirbnb },
-  { id: "case-ideo", label: "Caso IDEO", component: Slide11CaseIdeo },
-  { id: "case-pg", label: "Caso P&G", component: Slide12CasePG },
-  { id: "impact", label: "Resultados", component: Slide13Impact },
-  { id: "sources", label: "Fuentes", component: Slide14Fuentes },
-  { id: "thanks", label: "Gracias", component: Slide15Thanks },
+  { id: "case-ideo", label: "El ejemplo", component: Slide10CaseIdeo },
+  { id: "impact", label: "Resultados", component: Slide11Impact },
+  { id: "sources", label: "Fuentes", component: Slide12Fuentes },
+  { id: "thanks", label: "Gracias", component: Slide13Thanks },
 ];
 
 export default function Presentation() {

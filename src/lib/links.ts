@@ -45,40 +45,26 @@ export const groups: LinkGroup[] = [
     ],
   },
   {
-    title: "Los tres ejemplos",
-    subtitle: "Airbnb, IDEO y P&G",
+    title: "El ejemplo: IDEO · Oral-B",
+    subtitle: "El cepillo de dientes para chicos, 1996",
     links: [
       {
-        label: "Los tres casos juntos — Triangility",
-        url: "https://triangility.com/design-thinking-examples-3-case-studies/",
-      },
-      {
-        label: "Airbnb: How Design Thinking Transformed Airbnb — First Round Review",
-        note: "Contado por Joe Gebbia, cofundador",
-        url: "https://review.firstround.com/how-design-thinking-transformed-airbnb-from-failing-startup-to-billion-dollar-business/",
-      },
-      {
-        label: "Airbnb: “Do Things That Don't Scale” — Paul Graham",
-        note: "El mentor que los mandó a Nueva York con una cámara",
-        url: "https://paulgraham.com/ds.html",
-      },
-      {
-        label: "IDEO: cómo usa la observación para diseñar — UserTesting",
-        url: "https://www.usertesting.com/blog/how-ideo-uses-customer-insights-to-design-innovative-products-users-love",
-      },
-      {
-        label: "IDEO · Oral-B: el caso del cepillo infantil",
-        note: "1996 · observaron a chicos reales lavándose los dientes",
+        label: "El caso del cepillo infantil — dt-seminar.net",
+        note: "Entraron a las casas a mirar a los chicos lavarse los dientes",
         url: "https://www.dt-seminar.net/content/summerterm2022/cases-2022/childrens-toothbrushes-design-thinking-oral-b/",
       },
       {
-        label: "P&G · Swiffer: “A pet project that went big” — The Boston Globe",
-        note: "18 casas filmadas en Cincinnati y Boston con la consultora Continuum",
-        url: "https://www.bostonglobe.com/business/2016/03/22/product-development-race-goes-swiffer/ddjA1UKErXX33B2Vx1rdsJ/story.html",
+        label: "Cómo IDEO usa la observación para diseñar — UserTesting",
+        url: "https://www.usertesting.com/blog/how-ideo-uses-customer-insights-to-design-innovative-products-users-love",
       },
       {
-        label: "P&G · Swiffer: A Chain of Innovation — paper académico",
-        url: "https://www.researchgate.net/publication/262574898_A_Chain_of_Innovation_The_Creation_of_Swiffer",
+        label: "Design Thinking Examples: 3 Case Studies — Triangility",
+        note: "De acá salió el caso, y trae otros dos: Airbnb y el Swiffer de P&G",
+        url: "https://triangility.com/design-thinking-examples-3-case-studies/",
+      },
+      {
+        label: "IDEO — Design Thinking",
+        url: "https://designthinking.ideo.com/",
       },
     ],
   },

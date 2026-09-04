@@ -6,7 +6,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { EASE, T, fadeUp, stagger } from "@/lib/motion";
 import { groups, sourcesUrl } from "@/lib/links";
 
-export default function Slide14Fuentes() {
+export default function Slide12Fuentes() {
   const [url, setUrl] = useState<string | null>(null);
 
   // La URL depende de dónde se esté presentando, así que se calcula en el cliente.

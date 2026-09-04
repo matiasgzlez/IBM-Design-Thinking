@@ -71,7 +71,7 @@ clic o cualquier tecla.
 | `Esc` | Volver al inicio |
 | `F` | Toggle fullscreen |
 
-## 🎞️ Las 15 slides
+## 🎞️ Las 13 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
@@ -84,12 +84,10 @@ clic o cualquier tecla.
 | 07 | Playbacks | Los 4 tipos + expectativa vs. realidad |
 | 08 | Sponsor Users | Cómo no vs. cómo sí, y los 3 requisitos |
 | 09 | Roles | Gerentes vs. equipo |
-| 10 | Caso Airbnb | Las fotos eran el problema |
-| 11 | Caso IDEO | El cepillo de mango grueso |
-| 12 | Caso P&G | El Swiffer y el paso de más |
-| 13 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
-| 14 | Fuentes | QR a /fuentes: badges de IBM, fuentes y la presentación |
-| 15 | Gracias | Logo y cierre |
+| 10 | El ejemplo | IDEO y Oral-B: el cepillo de mango grueso |
+| 11 | Resultados | El estudio de Forrester (ROI, tiempos, alineación) |
+| 12 | Fuentes | QR a /fuentes: badges de IBM, fuentes y la presentación |
+| 13 | Gracias | Logo y cierre |
 
 ## 🔗 La página de fuentes y el QR
 
@@ -97,7 +95,7 @@ clic o cualquier tecla.
 las páginas de IBM, los badges gratuitos, las fuentes de los tres casos y la bibliografía de
 la unidad. Arriba de todo tiene un botón para **volver a ver la presentación**.
 
-La slide 14 muestra un QR que apunta ahí. La URL se calcula sola:
+La slide 12 muestra un QR que apunta ahí. La URL se calcula sola:
 
 - si la presentación corre en un dominio público (o en la IP de red, `http://192.168.x.x:3000`),
   el QR apunta a **esa** URL + `/fuentes`, así que el celular de cualquiera la abre;
@@ -121,7 +119,7 @@ src/
 │   ├── ProgressBar.tsx          # Barra de progreso superior
 │   ├── Logo.tsx                 # Logo con precarga (no rompe si falta)
 │   ├── ui/following-pointer.tsx # Cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide15 + LoopDiagram + CaseLayout
+│   └── slides/                  # Slide01…Slide13 + LoopDiagram + CaseLayout
 ├── hooks/
 │   └── useKeyboardShortcuts.ts
 ├── lib/
