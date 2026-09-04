@@ -12,8 +12,7 @@ export type SlideId =
   | "roles"
   | "case-ideo"
   | "impact"
-  | "sources"
-  | "thanks";
+  | "sources";
 
 export interface Slide {
   id: SlideId;
