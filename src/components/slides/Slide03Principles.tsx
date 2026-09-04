@@ -244,9 +244,9 @@ const principles: Principle[] = [
     color: "var(--color-reflect)",
     label: "Reinvención incansable",
     en: "Restless reinvention",
+    lead: "Aprender e iterar continuamente sobre lo construido.",
     description:
-      "Ninguna solución es definitiva: todo lo que se entrega es una versión más, lista para volver a cambiar.",
-    quote: "Ningún producto está terminado: todo funciona como un prototipo en iteración constante.",
+      "Ningún producto está 100% terminado. Cada entrega es una hipótesis en evolución que se pone a prueba con usuarios reales para aprender, ajustar y mejorar de forma constante.",
     diagram: <ReinventionDiagram />,
   },
   {
