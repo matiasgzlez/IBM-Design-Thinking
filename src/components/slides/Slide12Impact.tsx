@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { EASE, T } from "@/lib/motion";
 
+/** Son ganancias: sobre el fondo negro van en verde, no en el rojo del acento. */
+const VERDE = "#35B45C";
+
 function CountUp({ to, duration = 1100, delay = 0 }: { to: number; duration?: number; delay?: number }) {
   const [value, setValue] = useState(0);
 
@@ -76,7 +79,7 @@ export default function Slide12Impact() {
         className="max-w-[92%] font-black leading-[1.02] tracking-[-0.03em] text-[clamp(28px,3.1vw,48px)]"
       >
         Un estudio independiente de{" "}
-        <span className="text-[var(--color-accent)]">Forrester (Total Economic Impact)</span> midió
+        <span style={{ color: VERDE }}>Forrester (Total Economic Impact)</span> midió
         los resultados económicos y operacionales de aplicar Enterprise Design Thinking durante un
         período de tres años.
       </motion.h2>
@@ -88,12 +91,13 @@ export default function Slide12Impact() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: T.content + i * 0.12, ease: EASE }}
-            className="border-t-4 border-[var(--color-accent)] pt-6 flex flex-col"
+            className="border-t-4 pt-6 flex flex-col"
+            style={{ borderColor: VERDE }}
           >
             <span className="block font-black leading-[0.85] tracking-[-0.05em] text-[clamp(44px,5.2vw,88px)]">
-              <span className="text-[var(--color-accent)]">{prefix}</span>
+              <span style={{ color: VERDE }}>{prefix}</span>
               <CountUp to={value} delay={400 + i * 120} />
-              <span className="text-[var(--color-accent)]">{suffix}</span>
+              <span style={{ color: VERDE }}>{suffix}</span>
             </span>
 
             <span className="mt-4 block font-black text-[clamp(20px,1.8vw,28px)] uppercase tracking-tight leading-none">
