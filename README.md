@@ -55,7 +55,8 @@ npm run build && npm start   # build de producción
 
 Cada hueco de imagen busca su archivo en `public/` al cargar la slide. Alcanza con dejar el
 archivo con el nombre que corresponde — sirven `png`, `jpg`, `jpeg`, `webp`, `gif`, `avif` y,
-para video, `mp4` o `webm`.
+para video, `mp4` o `webm`. Para fotos conviene `jpg` (un PNG de una foto pesa cinco veces más)
+y para dibujos o capturas con fondo transparente, `png`.
 
 ```
 public/logo.png                    # el logo del grupo: portada y cierre
@@ -66,13 +67,13 @@ public/principios/equipos.mp4      # principio 3 · video
 
 public/loop/observe.png            # los tres memes del Loop, uno por fase
 public/loop/reflect.png
-public/loop/make.png
+public/loop/make.jpg
 public/loop/usuario.jpg            # opcional: una cara real en el centro del Loop
 
 public/keys/hills.png              # el aviso del iPod
 public/keys/playbacks.png          # el caballo mitad dibujado
 
-public/caso/observacion.png        # slide 09
+public/caso/observacion.jpg        # slide 09
 public/caso/cepillos.png           # slide 10 · mango fino vs. mango grueso
 public/caso/resultado.png          # slide 11
 ```
