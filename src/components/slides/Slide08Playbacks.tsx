@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import SlotImage from "@/components/SlotImage";
 import { EASE, T } from "@/lib/motion";
 
 const playbacks = [
@@ -37,24 +38,56 @@ const playbacks = [
 export default function Slide08Playbacks() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
-      >
-        Llave 02 · <span className="text-[var(--color-accent)]">Playbacks</span>
-      </motion.div>
+      <div className="flex items-start justify-between gap-12">
+        <div className="flex-1 min-w-0">
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+          >
+            Llave 02 · <span className="text-[var(--color-accent)]">Playbacks</span>
+          </motion.div>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: T.title, ease: EASE }}
-        className="mt-4 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(40px,5vw,74px)]"
-      >
-        Cuatro momentos para{" "}
-        <span className="text-[var(--color-accent)]">alinear sin jerarquías.</span>
-      </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: T.title, ease: EASE }}
+            className="mt-4 font-black leading-[0.9] tracking-[-0.04em] text-[clamp(38px,4.6vw,70px)]"
+          >
+            Cuatro momentos para{" "}
+            <span className="text-[var(--color-accent)]">alinear sin jerarquías.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.3, ease: EASE }}
+            className="mt-5 max-w-3xl text-2xl text-[var(--color-text-secondary)] leading-snug"
+          >
+            Sin playbacks, el stakeholder ve el producto{" "}
+            <span className="text-[var(--color-text-primary)] font-bold">
+              el día que llega la caja
+            </span>
+            . Con playbacks, se entera en la semana dos — cuando todavía se puede corregir.
+          </motion.p>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: T.content, ease: EASE }}
+          className="flex-shrink-0 w-[360px]"
+        >
+          <SlotImage
+            slot="keys/playbacks"
+            title="Expectativa vs. realidad"
+            subtitle="Lo que se prometió y lo que llegó"
+            color="var(--color-reflect)"
+            className="h-[250px] w-full"
+          />
+        </motion.div>
+      </div>
 
       {/* Línea de tiempo del proyecto */}
       <div className="relative flex-1 flex items-center">

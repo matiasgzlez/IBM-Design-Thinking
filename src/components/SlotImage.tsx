@@ -44,7 +44,7 @@ export default function SlotImage({ slot, title, subtitle, color, className = ""
           <img
             src={media.url}
             alt={title}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             draggable={false}
           />
         )}
@@ -52,7 +52,7 @@ export default function SlotImage({ slot, title, subtitle, color, className = ""
         {media?.kind === "video" && (
           <video
             src={media.url}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             autoPlay
             loop
             muted
