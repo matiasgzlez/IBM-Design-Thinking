@@ -20,7 +20,8 @@ import Slide11CaseAirbnb from "./slides/Slide11CaseAirbnb";
 import Slide12CaseIdeo from "./slides/Slide12CaseIdeo";
 import Slide13CasePG from "./slides/Slide13CasePG";
 import Slide14Impact from "./slides/Slide14Impact";
-import Slide15Thanks from "./slides/Slide15Thanks";
+import Slide15Fuentes from "./slides/Slide15Fuentes";
+import Slide16Thanks from "./slides/Slide16Thanks";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
@@ -37,7 +38,8 @@ const slides: Slide[] = [
   { id: "case-ideo", label: "Caso IDEO", component: Slide12CaseIdeo },
   { id: "case-pg", label: "Caso P&G", component: Slide13CasePG },
   { id: "impact", label: "Resultados", component: Slide14Impact },
-  { id: "thanks", label: "Gracias", component: Slide15Thanks },
+  { id: "sources", label: "Fuentes", component: Slide15Fuentes },
+  { id: "thanks", label: "Gracias", component: Slide16Thanks },
 ];
 
 export default function Presentation() {

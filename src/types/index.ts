@@ -15,6 +15,7 @@ export type SlideId =
   | "case-ideo"
   | "case-pg"
   | "impact"
+  | "sources"
   | "thanks";
 
 export interface Slide {
