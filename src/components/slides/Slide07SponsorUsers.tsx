@@ -111,9 +111,10 @@ function SponsorUserDiagram() {
           animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.6, 0.6, 1, 1, 1] }}
           transition={{ ...LOOP, times: [0, 0.72, 0.78, 0.94, 1] }}
         >
-          <UserGlyph x={800} y={78} color="#8D8D8D" />
-          <circle cx={828} cy={62} r={13} fill="#DA1E28" />
-          <path d="M 823 57 L 833 67 M 833 57 L 823 67" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
+          {/* Arriba de la línea, como en la otra: si se apoya encima queda un borrón */}
+          <UserGlyph x={800} y={42} color="#8D8D8D" scale={0.9} />
+          <circle cx={832} cy={26} r={13} fill="#DA1E28" />
+          <path d="M 827 21 L 837 31 M 837 21 L 827 31" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
         </motion.g>
       </Lane>
 
