@@ -84,6 +84,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "El liderazgo habilita: arma el equipo y le da autoridad para decidir. Aprobar todo lo convierte en un cuello de botella.",
     sticker: "stickers/05",
+    textoIncluido: true,
     nombre: "El consejo de las hamburguesas",
   },
   {
