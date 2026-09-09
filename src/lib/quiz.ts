@@ -112,7 +112,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Observe existe justamente para eso: hay comportamiento que el usuario no sabe que tiene y por lo tanto nunca te va a contar.",
     sticker: "stickers/07",
-    nombre: "",
+    nombre: "Majo modo domingo",
   },
   {
     pregunta:
@@ -122,7 +122,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "El Hills Playback valida los objetivos antes de construir y el Playback Zero presenta la primera propuesta. Los Delivery se repiten sprint a sprint.",
     sticker: "stickers/08",
-    nombre: "",
+    nombre: "Modo delivery playback",
   },
   {
     pregunta:
@@ -137,7 +137,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Make: dar forma tangible para validar. Cuanto antes hacés, más rápido aprendés — y más barato sale equivocarse.",
     sticker: "stickers/09",
-    nombre: "",
+    nombre: "Minoli modo chef",
   },
   {
     pregunta:
@@ -152,7 +152,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Ningún producto está terminado. Cada entrega es una hipótesis en evolución que se vuelve a poner a prueba.",
     sticker: "stickers/10",
-    nombre: "",
+    nombre: "Hill rechazado",
   },
 ];
 
