@@ -42,11 +42,14 @@ async function llevarse(url: string, nombre: string) {
 export default function Quiz() {
   const [estado, setEstado] = useState<Estado>("inicio");
   const [indice, setIndice] = useState(0);
-  const [elegida, setElegida] = useState<number | null>(null);
-  const [respuestas, setRespuestas] = useState<number[]>([]);
+  const [respuestas, setRespuestas] = useState<(number | null)[]>(() =>
+    Array<number | null>(preguntas.length).fill(null),
+  );
   const [stickers, setStickers] = useState<Record<string, string>>({});
 
   const actual = preguntas[indice];
+  const elegida = respuestas[indice];
+  const contestadas = respuestas.filter((r) => r !== null).length;
   const aciertos = respuestas.filter((r, i) => r === preguntas[i].correcta).length;
   const resultado =
     resultados.find((r) => aciertos >= r.minimo) ?? resultados[resultados.length - 1];
@@ -70,14 +73,16 @@ export default function Quiz() {
   const empezar = () => {
     setEstado("jugando");
     setIndice(0);
-    setElegida(null);
-    setRespuestas([]);
+    setRespuestas(Array<number | null>(preguntas.length).fill(null));
   };
 
   const responder = (i: number) => {
-    if (elegida !== null) return;
-    setElegida(i);
-    setRespuestas((prev) => [...prev, i]);
+    if (respuestas[indice] !== null) return;
+    setRespuestas((prev) => {
+      const nuevas = [...prev];
+      nuevas[indice] = i;
+      return nuevas;
+    });
   };
 
   const siguiente = () => {
@@ -86,8 +91,10 @@ export default function Quiz() {
       return;
     }
     setIndice((i) => i + 1);
-    setElegida(null);
   };
+
+  /** Se puede volver: la idea es aprender, no competir. */
+  const atras = () => setIndice((i) => Math.max(0, i - 1));
 
   const acerto = elegida !== null && elegida === actual.correcta;
   const stickerActual = stickers[actual.sticker];
@@ -104,7 +111,7 @@ export default function Quiz() {
                 ? "0%"
                 : estado === "final"
                   ? "100%"
-                  : `${((indice + (elegida !== null ? 1 : 0)) / preguntas.length) * 100}%`,
+                  : `${(contestadas / preguntas.length) * 100}%`,
           }}
           transition={{ type: "spring", stiffness: 220, damping: 30 }}
         />
@@ -212,6 +219,15 @@ export default function Quiz() {
                   );
                 })}
               </div>
+
+              {indice > 0 && (
+                <button
+                  onClick={atras}
+                  className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-accent)]"
+                >
+                  ← Pregunta anterior
+                </button>
+              )}
 
               <AnimatePresence>
                 {elegida !== null && (
