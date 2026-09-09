@@ -249,6 +249,17 @@ export default function Quiz() {
                               {actual.nombre}
                             </span>
                           )}
+
+                          {/* Se lo puede llevar ahora o seguir y agarrarlos todos al final */}
+                          <button
+                            onClick={() =>
+                              llevarse(stickerActual, actual.sticker.split("/").pop() ?? "sticker")
+                            }
+                            className="mt-3 rounded-lg border-2 px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] font-bold transition-colors"
+                            style={{ borderColor: VERDE, color: VERDE }}
+                          >
+                            ↓ Guardármelo
+                          </button>
                         </div>
                       </motion.div>
                     )}

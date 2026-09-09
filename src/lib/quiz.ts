@@ -57,7 +57,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "El Sponsor User tiene que ser un usuario final real. El gerente aporta contexto, pero no vive el problema todos los días.",
     sticker: "stickers/03",
-    nombre: "Vero aprueba tu playback",
+    nombre: "Playback aprobado por Vero",
   },
   {
     pregunta:
