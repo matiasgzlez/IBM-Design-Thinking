@@ -50,7 +50,7 @@ npm run build && npm start   # build de producción
 | 11 | El caso · el resultado | 18 meses como el más vendido de Estados Unidos |
 | 12 | El caso · Citibank | 2014: el caso insignia de IBM en banca corporativa |
 | 13 | Resultados | El estudio de Forrester, en verde porque son ganancias |
-| 14 | Gracias | El logo del grupo y el cierre |
+| 14 | Gracias | El logo, el cierre y el QR al juego |
 
 ## 🖼️ Las imágenes: se cambian sin tocar código
 
@@ -86,6 +86,20 @@ principios y en la comparación de cepillos) o un recuadro punteado con la ruta 
 agrandan al pasar el mouse y quedan fijas con un clic. Las tres del caso (09, 10 y 11) son fijas
 a propósito. En el Loop, el meme se abre clickeando la fase, no la imagen.
 
+## 🎮 El juego (`/quiz`)
+
+La última slide muestra un QR que abre **`/quiz`**: diez preguntas sobre lo que se acaba de
+contar, con la explicación de cada respuesta y un resultado final con lo que conviene repasar.
+Está pensado para el celular y no guarda nada — es una app sin estado.
+
+La idea sale de [*Never Send The Slides*](https://martinfowler.com/articles/never-send-slides/need-presentation.html)
+de Sumeet Gayathri Moghe: en vez de mandar el deck después de exponer, se manda algo que la
+persona pueda explorar sola. Las preguntas se editan en `src/lib/quiz.ts`.
+
+> **Después de publicar en Vercel, actualizá `SITIO_PUBLICO` en `src/lib/links.ts`** con la URL
+> real. El QR usa la dirección desde donde se esté sirviendo la presentación, pero si exponés
+> desde `localhost` —donde ningún celular puede entrar— cae a esa constante.
+
 ## 📁 Estructura
 
 ```
@@ -95,12 +109,14 @@ src/
 │   ├── globals.css              # Tailwind v4 + los tokens de color en @theme
 │   ├── layout.tsx               # fuentes + metadata
 │   ├── page.tsx                 # renderiza <Presentation />
-│   └── fuentes/                 # página aparte con todos los links de referencia
+│   ├── fuentes/                 # página aparte con todos los links de referencia
+│   └── quiz/                    # el juego de preguntas
 ├── components/
 │   ├── Presentation.tsx         # el orden de las slides y la navegación
 │   ├── ProgressBar.tsx          # la barra de progreso de arriba
 │   ├── Logo.tsx                 # el logo, precargado para no romper si falta
 │   ├── SlotImage.tsx            # los huecos de imagen (zoom, clic, respaldo)
+│   ├── Quiz.tsx                 # el juego de preguntas del QR
 │   ├── MemeModal.tsx            # el meme a pantalla completa
 │   ├── ui/following-pointer.tsx # el cursor con el nombre del grupo
 │   └── slides/                  # Slide01…Slide14 + LoopDiagram
@@ -108,7 +124,8 @@ src/
 ├── lib/
 │   ├── motion.ts                # el sistema de tiempos de las animaciones
 │   ├── memes.ts                 # busca los archivos de public/
-│   ├── links.ts                 # las fuentes que lista /fuentes
+│   ├── links.ts                 # las fuentes de /fuentes y la URL pública
+│   ├── quiz.ts                  # las preguntas del juego
 │   └── utils.ts
 └── types/index.ts
 ```

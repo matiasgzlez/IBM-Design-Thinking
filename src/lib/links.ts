@@ -93,15 +93,16 @@ export const groups: LinkGroup[] = [
   },
 ];
 
-const SOURCES_PATH = "/fuentes";
+/**
+ * Dónde vive el sitio cuando no estamos en localhost. Se usa para los QR: un
+ * celular no puede abrir http://localhost:3000. **Actualizar después del deploy.**
+ */
+export const SITIO_PUBLICO = "https://ibm-design-thinking.vercel.app";
 
-/** Si presentás desde localhost el celular no puede entrar: cae al repo. */
-export const PUBLIC_FALLBACK =
-  "https://github.com/matiasgzlez/IBM-Design-Thinking/blob/main/FUENTES.md";
-
-export function sourcesUrl(): string {
-  if (typeof window === "undefined") return PUBLIC_FALLBACK;
+/** La URL absoluta de una ruta, sirva desde donde sirva la presentación. */
+export function appUrl(path: string): string {
+  if (typeof window === "undefined") return SITIO_PUBLICO + path;
   const { origin } = window.location;
-  const isLocal = origin.includes("localhost") || origin.includes("127.0.0.1");
-  return isLocal ? PUBLIC_FALLBACK : origin + SOURCES_PATH;
+  const esLocal = origin.includes("localhost") || origin.includes("127.0.0.1");
+  return (esLocal ? SITIO_PUBLICO : origin) + path;
 }
