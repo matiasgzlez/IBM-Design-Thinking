@@ -67,7 +67,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Observe es salir a mirar; Reflect es lo que pasa después: integrar lo aprendido y definir los próximos pasos.",
     sticker: "stickers/04",
-    nombre: "",
+    nombre: "Modo reflexión",
   },
   {
     pregunta:
@@ -82,7 +82,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "El liderazgo habilita: arma el equipo y le da autoridad para decidir. Aprobar todo lo convierte en un cuello de botella.",
     sticker: "stickers/05",
-    nombre: "",
+    nombre: "Equipo diverso y empoderado",
   },
   {
     pregunta:
