@@ -62,18 +62,9 @@ export default function Slide14Gracias() {
           )}
         </div>
 
-        <div className="max-w-xl">
-          <span className="block font-mono text-sm uppercase tracking-[0.22em] text-[var(--color-accent)] font-bold">
-            No te llevás las slides
-          </span>
-          <p className="mt-2 font-black text-[clamp(24px,2.4vw,36px)] leading-[1.05] tracking-tight">
-            Escaneá y probá si entendiste.
-          </p>
-          <p className="mt-2 text-lg leading-snug text-white/55">
-            Diez preguntas cortas, con la explicación de cada una. Ahí adentro también están la
-            presentación entera y las fuentes.
-          </p>
-        </div>
+        <p className="max-w-xl font-black text-[clamp(26px,2.8vw,42px)] leading-[1.05] tracking-tight">
+          Escaneá y probá si entendiste.
+        </p>
       </motion.div>
     </section>
   );
