@@ -267,7 +267,7 @@ export default function Quiz() {
                           >
                             ¡Sticker ganado!
                           </span>
-                          {actual.nombre && (
+                          {actual.nombre && !actual.textoIncluido && (
                             <span className="mt-1 block text-lg leading-snug text-[var(--color-text-secondary)]">
                               {actual.nombre}
                             </span>
@@ -378,9 +378,11 @@ export default function Quiz() {
                           }`}
                           draggable={false}
                         />
-                        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-secondary)] leading-tight">
-                          {ganado ? p.nombre || "Ganado" : "No lo ganaste"}
-                        </span>
+                        {(!ganado || !p.textoIncluido) && (
+                          <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-secondary)] leading-tight">
+                            {ganado ? p.nombre || "Ganado" : "No lo ganaste"}
+                          </span>
+                        )}
                         {ganado && guardados[p.sticker] && (
                           <span
                             className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold"

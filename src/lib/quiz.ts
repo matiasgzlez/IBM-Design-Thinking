@@ -12,6 +12,8 @@ export type Pregunta = {
   sticker: string;
   /** A quién representa el sticker: es el chiste. */
   nombre: string;
+  /** true si la imagen ya trae el nombre en una cinta: no se repite debajo. */
+  textoIncluido?: boolean;
 };
 
 export const preguntas: Pregunta[] = [
@@ -97,6 +99,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "“No nos miden por las funcionalidades que entregamos, sino por qué tan bien resolvemos las necesidades de nuestros usuarios.”",
     sticker: "stickers/06",
+    textoIncluido: true,
     nombre: "Minoli modo TED talk",
   },
   {
@@ -112,6 +115,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Observe existe justamente para eso: hay comportamiento que el usuario no sabe que tiene y por lo tanto nunca te va a contar.",
     sticker: "stickers/07",
+    textoIncluido: true,
     nombre: "Majo modo domingo",
   },
   {
@@ -122,6 +126,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "El Hills Playback valida los objetivos antes de construir y el Playback Zero presenta la primera propuesta. Los Delivery se repiten sprint a sprint.",
     sticker: "stickers/08",
+    textoIncluido: true,
     nombre: "Modo delivery playback",
   },
   {
@@ -137,6 +142,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Make: dar forma tangible para validar. Cuanto antes hacés, más rápido aprendés — y más barato sale equivocarse.",
     sticker: "stickers/09",
+    textoIncluido: true,
     nombre: "Minoli modo chef",
   },
   {
@@ -152,6 +158,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Ningún producto está terminado. Cada entrega es una hipótesis en evolución que se vuelve a poner a prueba.",
     sticker: "stickers/10",
+    textoIncluido: true,
     nombre: "Hill rechazado",
   },
 ];
