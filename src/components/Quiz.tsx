@@ -1,23 +1,71 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { EASE } from "@/lib/motion";
+import { findMedia } from "@/lib/memes";
 import { preguntas, resultados } from "@/lib/quiz";
 
 const VERDE = "#1E7A3C";
 
 type Estado = "inicio" | "jugando" | "final";
 
+/**
+ * En el celular abre el menú de compartir —ahí está WhatsApp—; si el navegador
+ * no lo soporta, descarga el archivo.
+ */
+async function llevarse(url: string, nombre: string) {
+  const archivo = `${nombre}.png`;
+  try {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const file = new File([blob], archivo, { type: blob.type || "image/png" });
+    if (typeof navigator !== "undefined" && navigator.canShare?.({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file] });
+      } catch {
+        /* el usuario canceló */
+      }
+      return;
+    }
+  } catch {
+    /* sin fetch disponible: descarga directa */
+  }
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = archivo;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
 export default function Quiz() {
   const [estado, setEstado] = useState<Estado>("inicio");
   const [indice, setIndice] = useState(0);
   const [elegida, setElegida] = useState<number | null>(null);
   const [respuestas, setRespuestas] = useState<number[]>([]);
+  const [stickers, setStickers] = useState<Record<string, string>>({});
 
   const actual = preguntas[indice];
   const aciertos = respuestas.filter((r, i) => r === preguntas[i].correcta).length;
-  const resultado = resultados.find((r) => aciertos >= r.minimo) ?? resultados[resultados.length - 1];
+  const resultado =
+    resultados.find((r) => aciertos >= r.minimo) ?? resultados[resultados.length - 1];
+
+  // Los stickers que estén puestos en public/stickers/
+  useEffect(() => {
+    let cancelado = false;
+    (async () => {
+      for (const p of preguntas) {
+        const encontrado = await findMedia(p.sticker);
+        if (!cancelado && encontrado?.kind === "image") {
+          setStickers((prev) => ({ ...prev, [p.sticker]: encontrado.url }));
+        }
+      }
+    })();
+    return () => {
+      cancelado = true;
+    };
+  }, []);
 
   const empezar = () => {
     setEstado("jugando");
@@ -41,9 +89,11 @@ export default function Quiz() {
     setElegida(null);
   };
 
+  const acerto = elegida !== null && elegida === actual.correcta;
+  const stickerActual = stickers[actual.sticker];
+
   return (
     <main className="min-h-screen w-full bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-      {/* Barra de progreso, igual que en la presentación */}
       <div className="fixed top-0 left-0 right-0 h-[3px] bg-[var(--color-divider)] z-50">
         <motion.div
           className="h-full bg-[var(--color-accent)]"
@@ -81,8 +131,12 @@ export default function Quiz() {
               </h1>
 
               <p className="mt-6 text-xl sm:text-2xl leading-snug text-[var(--color-text-secondary)]">
-                Diez situaciones para resolver aplicando el método. No alcanza con haber
-                escuchado: hay que saber usarlo. Cada respuesta te explica por qué.
+                Diez situaciones para resolver aplicando el método. No alcanza con haber escuchado:
+                hay que saber usarlo.
+              </p>
+
+              <p className="mt-4 text-xl sm:text-2xl leading-snug font-bold">
+                Cada respuesta correcta te gana un sticker. Al final te los llevás.
               </p>
 
               <button
@@ -112,11 +166,16 @@ export default function Quiz() {
               exit={{ opacity: 0, x: -24 }}
               transition={{ duration: 0.28, ease: EASE }}
             >
-              <span className="font-mono text-sm uppercase tracking-[0.22em] text-[var(--color-text-secondary)]">
-                Pregunta {String(indice + 1).padStart(2, "0")}{" "}
-                <span className="text-[var(--color-divider)]">/</span>{" "}
-                {String(preguntas.length).padStart(2, "0")}
-              </span>
+              <div className="flex items-baseline justify-between gap-4">
+                <span className="font-mono text-sm uppercase tracking-[0.22em] text-[var(--color-text-secondary)]">
+                  Pregunta {String(indice + 1).padStart(2, "0")}{" "}
+                  <span className="text-[var(--color-divider)]">/</span>{" "}
+                  {String(preguntas.length).padStart(2, "0")}
+                </span>
+                <span className="font-mono text-sm uppercase tracking-[0.18em] font-bold" style={{ color: VERDE }}>
+                  {aciertos} 🏆
+                </span>
+              </div>
 
               <h2 className="mt-4 font-black leading-[1.02] tracking-[-0.03em] text-[clamp(26px,6.4vw,42px)]">
                 {actual.pregunta}
@@ -129,8 +188,7 @@ export default function Quiz() {
                   const elegidaEsta = elegida === i;
 
                   let estilo = "border-[var(--color-divider)]";
-                  if (respondida && esCorrecta) estilo = "border-transparent";
-                  else if (respondida && elegidaEsta) estilo = "border-transparent";
+                  if (respondida && (esCorrecta || elegidaEsta)) estilo = "border-transparent";
                   else if (respondida) estilo = "border-[var(--color-divider)] opacity-45";
 
                   return (
@@ -163,11 +221,43 @@ export default function Quiz() {
                     transition={{ duration: 0.3, ease: EASE }}
                     className="mt-7"
                   >
+                    {/* El sticker ganado */}
+                    {acerto && stickerActual && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.4, rotate: -18 }}
+                        animate={{ opacity: 1, scale: 1, rotate: -5 }}
+                        transition={{ type: "spring", stiffness: 240, damping: 13, delay: 0.15 }}
+                        className="mb-6 flex items-center gap-5 rounded-2xl border-2 px-5 py-4"
+                        style={{ borderColor: VERDE }}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={stickerActual}
+                          alt={actual.nombre || "Sticker"}
+                          className="w-24 shrink-0 object-contain drop-shadow-lg"
+                          draggable={false}
+                        />
+                        <div>
+                          <span
+                            className="block font-black text-xl uppercase tracking-tight leading-none"
+                            style={{ color: VERDE }}
+                          >
+                            ¡Sticker ganado!
+                          </span>
+                          {actual.nombre && (
+                            <span className="mt-1 block text-lg leading-snug text-[var(--color-text-secondary)]">
+                              {actual.nombre}
+                            </span>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+
                     <span
                       className="font-mono text-sm uppercase tracking-[0.2em] font-bold"
-                      style={{ color: elegida === actual.correcta ? VERDE : "var(--color-accent)" }}
+                      style={{ color: acerto ? VERDE : "var(--color-accent)" }}
                     >
-                      {elegida === actual.correcta ? "✓ Correcto" : "✗ No era esa"}
+                      {acerto ? "✓ Correcto" : "✗ No era esa"}
                     </span>
                     <p className="mt-2 text-lg sm:text-xl leading-snug text-[var(--color-text-secondary)]">
                       {actual.explicacion}
@@ -177,7 +267,7 @@ export default function Quiz() {
                       onClick={siguiente}
                       className="mt-6 w-full rounded-xl bg-[var(--color-bg-dark)] px-8 py-5 text-xl font-black uppercase tracking-tight text-white transition-opacity hover:opacity-90"
                     >
-                      {indice + 1 >= preguntas.length ? "Ver resultado →" : "Siguiente →"}
+                      {indice + 1 >= preguntas.length ? "Ver mis stickers →" : "Siguiente →"}
                     </button>
                   </motion.div>
                 )}
@@ -194,13 +284,13 @@ export default function Quiz() {
               transition={{ duration: 0.35, ease: EASE }}
             >
               <span className="font-mono text-sm uppercase tracking-[0.22em] text-[var(--color-text-secondary)]">
-                Tu resultado
+                Tu colección
               </span>
 
               <div className="mt-3 flex items-baseline gap-3">
                 <span
                   className="font-black leading-none tracking-[-0.05em] text-[clamp(72px,22vw,150px)]"
-                  style={{ color: aciertos >= 6 ? VERDE : "var(--color-accent)" }}
+                  style={{ color: aciertos >= 5 ? VERDE : "var(--color-accent)" }}
                 >
                   {aciertos}
                 </span>
@@ -216,6 +306,52 @@ export default function Quiz() {
                 {resultado.texto}
               </p>
 
+              {/* Los stickers */}
+              {Object.keys(stickers).length > 0 && (
+              <div className="mt-10">
+                <span className="font-mono text-sm uppercase tracking-[0.2em] text-[var(--color-text-secondary)]">
+                  Tocá uno para guardarlo o mandarlo por WhatsApp
+                </span>
+
+                <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                  {preguntas.map((p, i) => {
+                    const ganado = respuestas[i] === p.correcta;
+                    const url = stickers[p.sticker];
+                    if (!url) return null;
+
+                    return (
+                      <motion.button
+                        key={p.sticker}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: 0.1 + i * 0.05, ease: EASE }}
+                        onClick={() => ganado && llevarse(url, p.sticker.split("/").pop() ?? "sticker")}
+                        disabled={!ganado}
+                        className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-4 transition-colors ${
+                          ganado
+                            ? "border-[var(--color-divider)] hover:border-[var(--color-accent)]"
+                            : "border-transparent"
+                        }`}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={url}
+                          alt={p.nombre || `Sticker ${i + 1}`}
+                          className={`w-full object-contain ${
+                            ganado ? "drop-shadow-lg" : "grayscale opacity-25"
+                          }`}
+                          draggable={false}
+                        />
+                        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-secondary)] leading-tight">
+                          {ganado ? p.nombre || "Ganado" : "No lo ganaste"}
+                        </span>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+              </div>
+              )}
+
               {/* Qué falló */}
               {respuestas.some((r, i) => r !== preguntas[i].correcta) && (
                 <div className="mt-10">
@@ -225,10 +361,7 @@ export default function Quiz() {
                   <ul className="mt-4 flex flex-col gap-4">
                     {preguntas.map((p, i) =>
                       respuestas[i] !== p.correcta ? (
-                        <li
-                          key={p.pregunta}
-                          className="border-l-4 border-[var(--color-accent)] pl-5"
-                        >
+                        <li key={p.pregunta} className="border-l-4 border-[var(--color-accent)] pl-5">
                           <span className="block text-lg font-bold leading-snug">{p.pregunta}</span>
                           <span className="mt-1 block text-lg leading-snug" style={{ color: VERDE }}>
                             {p.opciones[p.correcta]}

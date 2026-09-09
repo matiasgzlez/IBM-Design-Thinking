@@ -89,9 +89,15 @@ a propósito. En el Loop, el meme se abre clickeando la fase, no la imagen.
 ## 🎮 El juego (`/quiz`)
 
 La última slide muestra un QR que abre **`/quiz`**: diez situaciones para resolver aplicando el
-método —no preguntas sobre lo que se dijo—, con cuatro opciones cada una, la explicación de cada
-respuesta y un resultado final con lo que conviene repasar. Está pensado para el celular y no
-guarda nada: es una app sin estado.
+método —no preguntas sobre lo que se dijo—, con cuatro opciones cada una y la explicación de cada
+respuesta. Está pensado para el celular y no guarda nada: es una app sin estado.
+
+**Cada respuesta correcta gana un sticker.** Los archivos van en `public/stickers/01.png` …
+`10.png` (uno por pregunta, en orden) y en 512×512 con fondo transparente, que es el formato de
+WhatsApp. Al final se ve la colección: los ganados en color y los que faltaron en gris. Tocando
+uno se abre el menú de compartir del celular —ahí está WhatsApp— y si el navegador no lo soporta,
+se descarga. El chiste de cada sticker (a quién representa) se escribe en el campo `nombre` de
+`src/lib/quiz.ts`. Si no hay ningún archivo, la sección no aparece.
 
 La idea sale de [*Never Send The Slides*](https://martinfowler.com/articles/never-send-slides/need-presentation.html)
 de Sumeet Gayathri Moghe: en vez de mandar el deck después de exponer, se manda algo que la
