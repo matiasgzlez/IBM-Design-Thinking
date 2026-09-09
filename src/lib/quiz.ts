@@ -97,7 +97,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "“No nos miden por las funcionalidades que entregamos, sino por qué tan bien resolvemos las necesidades de nuestros usuarios.”",
     sticker: "stickers/06",
-    nombre: "",
+    nombre: "Minoli modo TED talk",
   },
   {
     pregunta:
