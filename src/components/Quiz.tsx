@@ -14,7 +14,7 @@ type Estado = "inicio" | "jugando" | "final";
  * En el celular abre el menú de compartir —ahí está WhatsApp—; si el navegador
  * no lo soporta, descarga el archivo.
  */
-async function llevarse(url: string, nombre: string) {
+async function llevarse(url: string, nombre: string): Promise<boolean> {
   const archivo = `${nombre}.png`;
   try {
     const res = await fetch(url);
@@ -23,10 +23,10 @@ async function llevarse(url: string, nombre: string) {
     if (typeof navigator !== "undefined" && navigator.canShare?.({ files: [file] })) {
       try {
         await navigator.share({ files: [file] });
+        return true;
       } catch {
-        /* el usuario canceló */
+        return false; // el usuario canceló
       }
-      return;
     }
   } catch {
     /* sin fetch disponible: descarga directa */
@@ -37,6 +37,7 @@ async function llevarse(url: string, nombre: string) {
   document.body.appendChild(a);
   a.click();
   a.remove();
+  return true;
 }
 
 export default function Quiz() {
@@ -46,6 +47,7 @@ export default function Quiz() {
     Array<number | null>(preguntas.length).fill(null),
   );
   const [stickers, setStickers] = useState<Record<string, string>>({});
+  const [guardados, setGuardados] = useState<Record<string, boolean>>({});
 
   const actual = preguntas[indice];
   const elegida = respuestas[indice];
@@ -91,6 +93,11 @@ export default function Quiz() {
       return;
     }
     setIndice((i) => i + 1);
+  };
+
+  const guardar = async (slot: string, url: string) => {
+    const listo = await llevarse(url, slot.split("/").pop() ?? "sticker");
+    if (listo) setGuardados((prev) => ({ ...prev, [slot]: true }));
   };
 
   /** Se puede volver: la idea es aprender, no competir. */
@@ -268,13 +275,15 @@ export default function Quiz() {
 
                           {/* Se lo puede llevar ahora o seguir y agarrarlos todos al final */}
                           <button
-                            onClick={() =>
-                              llevarse(stickerActual, actual.sticker.split("/").pop() ?? "sticker")
-                            }
+                            onClick={() => guardar(actual.sticker, stickerActual)}
                             className="mt-3 rounded-lg border-2 px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] font-bold transition-colors"
-                            style={{ borderColor: VERDE, color: VERDE }}
+                            style={
+                              guardados[actual.sticker]
+                                ? { borderColor: VERDE, backgroundColor: VERDE, color: "#FFFFFF" }
+                                : { borderColor: VERDE, color: VERDE }
+                            }
                           >
-                            ↓ Guardármelo
+                            {guardados[actual.sticker] ? "✓ Guardado" : "↓ Guardármelo"}
                           </button>
                         </div>
                       </motion.div>
@@ -352,7 +361,7 @@ export default function Quiz() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: 0.1 + i * 0.05, ease: EASE }}
-                        onClick={() => ganado && llevarse(url, p.sticker.split("/").pop() ?? "sticker")}
+                        onClick={() => ganado && guardar(p.sticker, url)}
                         disabled={!ganado}
                         className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-4 transition-colors ${
                           ganado
@@ -372,6 +381,14 @@ export default function Quiz() {
                         <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-secondary)] leading-tight">
                           {ganado ? p.nombre || "Ganado" : "No lo ganaste"}
                         </span>
+                        {ganado && guardados[p.sticker] && (
+                          <span
+                            className="font-mono text-[11px] uppercase tracking-[0.14em] font-bold"
+                            style={{ color: VERDE }}
+                          >
+                            ✓ Guardado
+                          </span>
+                        )}
                       </motion.button>
                     );
                   })}
