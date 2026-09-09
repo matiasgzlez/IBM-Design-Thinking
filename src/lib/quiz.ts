@@ -1,6 +1,7 @@
 /**
- * Las preguntas del juego que abre el QR del cierre. Salen todas de algo que
- * se dijo en la presentación: si alguien la siguió, las contesta.
+ * Las preguntas del juego que abre el QR del cierre. No preguntan qué dijimos
+ * en la presentación: plantean una situación y hay que aplicar el método.
+ * Cuatro opciones cada una, así el azar rinde 25% y no 33%.
  */
 export type Pregunta = {
   pregunta: string;
@@ -11,102 +12,123 @@ export type Pregunta = {
 
 export const preguntas: Pregunta[] = [
   {
-    pregunta: "¿Por qué IBM tuvo que reinventar el Design Thinking clásico?",
+    pregunta:
+      "Un equipo escribió: “El usuario puede exportar reportes en PDF, Excel y CSV desde el panel”. ¿Por qué esto todavía no es un Hill?",
     opciones: [
-      "Porque estaba pensado para talleres chicos y no escalaba a una empresa de cientos de miles de personas",
-      "Porque era demasiado caro de aplicar",
-      "Porque los usuarios no querían participar de las entrevistas",
-    ],
-    correcta: 0,
-    explicacion:
-      "Además, los equipos ágiles lo leían como volver al waterfall: una etapa larga de análisis antes de escribir código.",
-  },
-  {
-    pregunta: "Las tres fases del Loop son…",
-    opciones: [
-      "Planificar, ejecutar y medir",
-      "Observar, reflexionar y hacer",
-      "Investigar, diseñar y entregar",
+      "Porque no aclara en qué sprint se entrega",
+      "Porque describe lo que hace el sistema, no lo que logra el usuario ni qué lo hace sorprendente",
+      "Porque debería nombrar la tecnología que se va a usar",
+      "Ya es un Hill: nombra al usuario y lo que puede hacer",
     ],
     correcta: 1,
     explicacion:
-      "Y no terminan nunca: lo que sale de Hacer vuelve a alimentar la próxima observación.",
+      "Un Hill se escribe como un outcome: quién, qué logra y el wow. Ese texto es una lista de formatos de exportación.",
   },
   {
-    pregunta: "Un Hill se escribe con tres partes. ¿Cuáles?",
-    opciones: ["Problema, solución y métrica", "Qué, cómo y cuándo", "Who, what y wow"],
-    correcta: 2,
-    explicacion:
-      "Quién es el usuario, qué va a poder lograr y qué haría que el resultado sea sorprendente.",
-  },
-  {
-    pregunta: "¿Cuál de estas frases es un Hill?",
+    pregunta: "Un equipo definió nueve Hills para un proyecto de seis meses. ¿Qué le dirías?",
     opciones: [
-      "“Reproductor MP3 de 5 GB, batería de 10 horas y sincronización por FireWire”",
-      "“1.000 canciones en tu bolsillo”",
-      "“Rediseñar la app de música para el tercer trimestre”",
-    ],
-    correcta: 1,
-    explicacion:
-      "La primera es una lista de funcionalidades y la tercera es una tarea con fecha. Solo la del medio dice qué logra el usuario.",
-  },
-  {
-    pregunta: "¿Para qué sirven los Playbacks?",
-    opciones: [
-      "Para alinear expectativas con los stakeholders antes, durante y al final de la construcción",
-      "Para medir la velocidad del equipo en cada sprint",
-      "Para dejar grabadas las reuniones y poder repasarlas",
+      "Que son demasiados: IBM recomienda un máximo de tres, el resto del esfuerzo va a la Foundation",
+      "Que están bien mientras cada uno tenga su Sponsor User",
+      "Que le faltan: cuantos más objetivos, más claro el rumbo",
+      "Que los divida en Hills chicos, uno por sprint",
     ],
     correcta: 0,
     explicacion:
-      "Sin playbacks, el stakeholder ve el producto el día que llega la caja — y ahí ya es tarde para corregir.",
+      "Con nueve objetivos “prioritarios” no hay ninguno. El resto del trabajo es Foundation: mantenimiento y base.",
   },
   {
-    pregunta: "De los cuatro tipos de Playback, ¿cuál se repite en cada sprint?",
-    opciones: ["El Hills Playback", "El Playback Zero", "Los Delivery Playbacks"],
-    correcta: 2,
-    explicacion:
-      "El Hills Playback valida los objetivos antes de construir y el Playback Zero muestra la primera propuesta. Los Delivery se repiten sin parar.",
-  },
-  {
-    pregunta: "Un Sponsor User es…",
+    pregunta:
+      "Para un sistema de gestión de guardias médicas, el equipo sumó como Sponsor User al gerente de sistemas del hospital. ¿Cuál es el problema?",
     opciones: [
-      "Alguien del equipo que representa al usuario en las reuniones",
-      "El cliente que paga el proyecto",
-      "Un usuario real que participa del proyecto desde el día uno",
+      "Ninguno: es quien mejor conoce la infraestructura del hospital",
+      "Que debería haber al menos dos personas, no una",
+      "Que no es representativo: el usuario final es quien arma y cubre las guardias, no quien administra los sistemas",
+      "Que un gerente no puede participar de sesiones de diseño",
     ],
     correcta: 2,
     explicacion:
-      "La regla de IBM: al menos un Sponsor User asignado a cada Hill. Y no aparece al final solo para aprobar.",
+      "El Sponsor User tiene que ser un usuario final real. El gerente aporta contexto, pero no vive el problema todos los días.",
   },
   {
-    pregunta: "En el caso de Oral-B e IDEO, ¿qué descubrieron al observar a los chicos?",
+    pregunta:
+      "El equipo juntó cuarenta notas de campo, las agrupó en cuatro patrones y decidió por dónde arrancar. ¿En qué parte del Loop está?",
+    opciones: ["Observe", "Reflect", "Make", "Todavía en ninguna: eso es previo al Loop"],
+    correcta: 1,
+    explicacion:
+      "Observe es salir a mirar; Reflect es lo que pasa después: integrar lo aprendido y definir los próximos pasos.",
+  },
+  {
+    pregunta:
+      "El gerente aprueba personalmente cada cambio de diseño antes de que el equipo lo implemente. ¿Qué principio se está rompiendo?",
     opciones: [
-      "Que agarran el cepillo con el puño, porque todavía no tienen desarrollada la motricidad fina",
-      "Que preferían los cepillos de colores llamativos",
-      "Que necesitaban cepillos todavía más chicos",
+      "Foco en los resultados del usuario",
+      "Reinvención incansable",
+      "Ninguno: es su responsabilidad como líder",
+      "Equipos diversos y empoderados",
+    ],
+    correcta: 3,
+    explicacion:
+      "El liderazgo habilita: arma el equipo y le da autoridad para decidir. Aprobar todo lo convierte en un cuello de botella.",
+  },
+  {
+    pregunta:
+      "El tablero del equipo muestra “32 funcionalidades entregadas este trimestre”. Según EDT, ¿qué debería estar midiendo?",
+    opciones: [
+      "Cuánto mejoró el usuario en aquello que venía a hacer",
+      "La cantidad de sprints cerrados en fecha",
+      "Los defectos reportados por release",
+      "La cantidad de features respecto de la competencia",
     ],
     correcta: 0,
     explicacion:
-      "Por eso el mango grueso y antideslizante: fue el más vendido de Estados Unidos por 18 meses y hoy es el estándar.",
+      "“No nos miden por las funcionalidades que entregamos, sino por qué tan bien resolvemos las necesidades de nuestros usuarios.”",
   },
   {
-    pregunta: "En Enterprise Design Thinking, ¿qué le toca al liderazgo?",
+    pregunta:
+      "Si IDEO se hubiera quedado en la oficina y hubiera mandado una encuesta a los padres, ¿qué se habría perdido?",
     opciones: [
-      "Diseñar la solución y bajarla al equipo para que la construya",
-      "Habilitar: dar autonomía, armar equipos diversos y medir outcomes en vez de entregas",
-      "Aprobar cada decisión del equipo antes de que avance",
+      "El precio que las familias estaban dispuestas a pagar",
+      "Los colores que prefieren los chicos",
+      "El puño: nadie declara cómo agarra un cepillo, eso solo se descubre mirando",
+      "La cantidad de veces por día que se lavan los dientes",
+    ],
+    correcta: 2,
+    explicacion:
+      "Observe existe justamente para eso: hay comportamiento que el usuario no sabe que tiene y por lo tanto nunca te va a contar.",
+  },
+  {
+    pregunta:
+      "Terminaron el tercer sprint y quieren mostrar el avance real a los stakeholders. ¿Qué momento corresponde?",
+    opciones: ["Hills Playback", "Playback Zero", "Client Playback", "Delivery Playback"],
+    correcta: 3,
+    explicacion:
+      "El Hills Playback valida los objetivos antes de construir y el Playback Zero presenta la primera propuesta. Los Delivery se repiten sprint a sprint.",
+  },
+  {
+    pregunta:
+      "Antes de construir un flujo nuevo, el equipo quiere saber si funciona. ¿Qué haría Enterprise Design Thinking?",
+    opciones: [
+      "Un documento de especificación funcional aprobado por todas las áreas",
+      "Un prototipo rápido y descartable puesto frente a usuarios reales",
+      "Esperar al final del sprint y mostrar la versión terminada",
+      "Una reunión con los referentes de cada área para consensuar el flujo",
     ],
     correcta: 1,
     explicacion:
-      "El equipo ejecuta: construye empatía con el usuario, integra las visiones y toma la iniciativa.",
+      "Make: dar forma tangible para validar. Cuanto antes hacés, más rápido aprendés — y más barato sale equivocarse.",
   },
   {
-    pregunta: "Según el estudio de Forrester, ¿cuánto se redujo el tiempo de diseño y desarrollo?",
-    opciones: ["Un 25%", "Un 50%", "Un 75%"],
-    correcta: 2,
+    pregunta:
+      "El producto salió, las métricas son buenas y el equipo quiere cerrar el proyecto. ¿Qué diría el principio de reinvención incansable?",
+    opciones: [
+      "Que hay que congelar el diseño para no romper lo que ya funciona",
+      "Que el proyecto puede cerrarse y el equipo pasar al siguiente",
+      "Que conviene esperar seis meses y recién ahí revisar",
+      "Que lo entregado sigue siendo un prototipo: la próxima iteración empieza ahora",
+    ],
+    correcta: 3,
     explicacion:
-      "Los ciclos pasaron de 6-8 meses a 3-4 meses por lanzamiento, con un ROI de más del 300%.",
+      "Ningún producto está terminado. Cada entrega es una hipótesis en evolución que se vuelve a poner a prueba.",
   },
 ];
 
@@ -114,12 +136,12 @@ export const resultados = [
   {
     minimo: 9,
     titulo: "Sos un Sponsor User.",
-    texto: "Entendiste el método completo: los principios, el Loop y las tres llaves.",
+    texto: "No solo entendiste el método: sabés aplicarlo a una situación que no viste antes.",
   },
   {
     minimo: 6,
     titulo: "Tenés el Loop.",
-    texto: "Lo esencial está. Repasá las llaves —Hills, Playbacks y Sponsor Users— y quedás.",
+    texto: "Lo esencial está. Repasá las tres llaves —Hills, Playbacks y Sponsor Users— y quedás.",
   },
   {
     minimo: 0,

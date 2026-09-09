@@ -81,8 +81,8 @@ export default function Quiz() {
               </h1>
 
               <p className="mt-6 text-xl sm:text-2xl leading-snug text-[var(--color-text-secondary)]">
-                Diez preguntas cortas sobre lo que acabás de ver. Cada respuesta te dice por qué,
-                y al final te decimos cómo te fue.
+                Diez situaciones para resolver aplicando el método. No alcanza con haber
+                escuchado: hay que saber usarlo. Cada respuesta te explica por qué.
               </p>
 
               <button

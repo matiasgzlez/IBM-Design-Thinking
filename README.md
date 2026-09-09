@@ -88,9 +88,10 @@ a propósito. En el Loop, el meme se abre clickeando la fase, no la imagen.
 
 ## 🎮 El juego (`/quiz`)
 
-La última slide muestra un QR que abre **`/quiz`**: diez preguntas sobre lo que se acaba de
-contar, con la explicación de cada respuesta y un resultado final con lo que conviene repasar.
-Está pensado para el celular y no guarda nada — es una app sin estado.
+La última slide muestra un QR que abre **`/quiz`**: diez situaciones para resolver aplicando el
+método —no preguntas sobre lo que se dijo—, con cuatro opciones cada una, la explicación de cada
+respuesta y un resultado final con lo que conviene repasar. Está pensado para el celular y no
+guarda nada: es una app sin estado.
 
 La idea sale de [*Never Send The Slides*](https://martinfowler.com/articles/never-send-slides/need-presentation.html)
 de Sumeet Gayathri Moghe: en vez de mandar el deck después de exponer, se manda algo que la
