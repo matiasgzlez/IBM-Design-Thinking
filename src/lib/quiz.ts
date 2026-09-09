@@ -42,7 +42,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Con nueve objetivos “prioritarios” no hay ninguno. El resto del trabajo es Foundation: mantenimiento y base.",
     sticker: "stickers/02",
-    nombre: "Observe mode: verano",
+    nombre: "Modo pileta",
   },
   {
     pregunta:
@@ -82,7 +82,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "El liderazgo habilita: arma el equipo y le da autoridad para decidir. Aprobar todo lo convierte en un cuello de botella.",
     sticker: "stickers/05",
-    nombre: "Equipo diverso y empoderado",
+    nombre: "El comité de las hamburguesas",
   },
   {
     pregunta:
