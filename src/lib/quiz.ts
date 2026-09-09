@@ -28,7 +28,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Un Hill se escribe como un outcome: quién, qué logra y el wow. Ese texto es una lista de formatos de exportación.",
     sticker: "stickers/01",
-    nombre: "",
+    nombre: "Sponsor User de la parrilla",
   },
   {
     pregunta: "Un equipo definió nueve Hills para un proyecto de seis meses. ¿Qué le dirías?",
