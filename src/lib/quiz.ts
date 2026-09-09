@@ -42,7 +42,7 @@ export const preguntas: Pregunta[] = [
     explicacion:
       "Con nueve objetivos “prioritarios” no hay ninguno. El resto del trabajo es Foundation: mantenimiento y base.",
     sticker: "stickers/02",
-    nombre: "",
+    nombre: "Observe mode: verano",
   },
   {
     pregunta:
