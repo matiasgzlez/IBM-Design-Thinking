@@ -33,7 +33,7 @@ npm run build && npm start   # build de producción
 | `Esc` | Volver a la portada |
 | `F` | Pantalla completa |
 
-## 🎞️ Las 14 slides
+## 🎞️ Las 15 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
@@ -51,6 +51,7 @@ npm run build && npm start   # build de producción
 | 12 | El caso · Citibank | 2014: el caso insignia de IBM en banca corporativa |
 | 13 | Resultados | El estudio de Forrester, en verde porque son ganancias |
 | 14 | Gracias | El logo, el cierre y el QR al juego |
+| 15 | ¡Feliz día del profe! | Las fotos de Vero, Majo y Minoli como polaroids, con papelitos |
 
 ## 🖼️ Las imágenes: se cambian sin tocar código
 
@@ -61,6 +62,7 @@ y para dibujos o capturas con fondo transparente, `png`.
 
 ```
 public/logo.png                    # el logo del grupo: portada y cierre
+public/profes/                     # las tres fotos de la slide del día del profe
 
 public/principios/outcomes.png     # principio 1 · el desire path
 public/principios/reinvencion.png  # principio 2 · el archivo "FINAL FINAL"
@@ -126,7 +128,7 @@ src/
 │   ├── Quiz.tsx                 # el juego de preguntas del QR
 │   ├── MemeModal.tsx            # el meme a pantalla completa
 │   ├── ui/following-pointer.tsx # el cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide14 + LoopDiagram
+│   └── slides/                  # Slide01…Slide15 + LoopDiagram
 ├── hooks/useKeyboardShortcuts.ts
 ├── lib/
 │   ├── motion.ts                # el sistema de tiempos de las animaciones

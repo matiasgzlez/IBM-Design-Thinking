@@ -20,6 +20,7 @@ import Slide11CasoResultado from "./slides/Slide11CasoResultado";
 import Slide12CasoCitibank from "./slides/Slide12CasoCitibank";
 import Slide13Impact from "./slides/Slide13Impact";
 import Slide14Gracias from "./slides/Slide14Gracias";
+import Slide15DiaDelProfe from "./slides/Slide15DiaDelProfe";
 
 const slides: Slide[] = [
   { id: "cover", label: "Portada", component: Slide01Cover },
@@ -36,6 +37,7 @@ const slides: Slide[] = [
   { id: "caso-citibank", label: "El caso · Citibank", component: Slide12CasoCitibank },
   { id: "impact", label: "Resultados", component: Slide13Impact },
   { id: "gracias", label: "Gracias", component: Slide14Gracias },
+  { id: "dia-del-profe", label: "Feliz día del profe", component: Slide15DiaDelProfe },
 ];
 
 export default function Presentation() {
