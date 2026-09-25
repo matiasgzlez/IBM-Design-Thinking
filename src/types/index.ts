@@ -14,8 +14,7 @@ export type SlideId =
   | "caso-resultado"
   | "caso-citibank"
   | "impact"
-  | "gracias"
-  | "dia-del-profe";
+  | "gracias";
 
 export interface Slide {
   id: SlideId;
