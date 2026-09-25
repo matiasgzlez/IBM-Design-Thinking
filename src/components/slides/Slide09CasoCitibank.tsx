@@ -43,7 +43,7 @@ const bloques = [
   },
 ];
 
-export default function Slide12CasoCitibank() {
+export default function Slide09CasoCitibank() {
   return (
     <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
       <div className="flex items-start justify-between gap-12">

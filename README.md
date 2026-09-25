@@ -33,7 +33,7 @@ npm run build && npm start   # build de producción
 | `Esc` | Volver a la portada |
 | `F` | Pantalla completa |
 
-## 🎞️ Las 14 slides
+## 🎞️ Las 11 slides
 
 | # | Slide | Qué muestra |
 |---|-------|-------------|
@@ -41,16 +41,13 @@ npm run build && npm start   # build de producción
 | 02 | Por qué existe | 2015-16: el Design Thinking clásico no funcionaba a gran escala |
 | 03 | The Principles | Los 3 principios, cada uno con su meme o diagrama animado |
 | 04 | The Loop | Observe · Reflect · Make — clic en cada fase abre su definición y su meme |
-| 05 | Hills | Who / What / Wow con el aviso del iPod (el hover lo desarma en sus tres partes) |
+| 05 | Hills | Who / What / Wow con el aviso del iPod |
 | 06 | Playbacks | Los 4 momentos sobre la línea del proyecto + el meme del caballo |
-| 07 | Sponsor Users | Dos líneas animadas: el usuario al final vs. el usuario desde el día uno |
+| 07 | Sponsor Users | Dos líneas animadas: el usuario al final vs. desde el día uno |
 | 08 | Roles | Líderes vs. equipo de trabajo |
-| 09 | El caso · el encargo | Oral-B & IDEO (1996): ir a mirar a los chicos |
-| 10 | El caso · el hallazgo | El problema era la motricidad, no el tamaño |
-| 11 | El caso · el resultado | 18 meses como el más vendido de Estados Unidos |
-| 12 | El caso · Citibank | 2014: el caso insignia de IBM en banca corporativa |
-| 13 | Resultados | El estudio de Forrester, en verde porque son ganancias |
-| 14 | Gracias | El logo, el cierre y el QR al juego |
+| 09 | El caso · Citibank | 2014: el caso insignia de IBM en banca corporativa |
+| 10 | Resultados | El estudio de Forrester, en verde porque son ganancias |
+| 11 | Gracias | El logo, el cierre y el QR al juego |
 
 ## 🖼️ Las imágenes: se cambian sin tocar código
 
@@ -74,9 +71,7 @@ public/loop/usuario.jpg            # opcional: una cara real en el centro del Lo
 public/keys/hills.png              # el aviso del iPod
 public/keys/playbacks.png          # el caballo mitad dibujado
 
-public/caso/observacion.jpg        # slide 09
-public/caso/cepillos.png           # slide 10 · mango fino vs. mango grueso
-public/caso/resultado.png          # slide 11
+public/caso/citibank.png           # slide 09 · el logo de Citibank
 ```
 
 Si un archivo no está, la slide se arma igual: muestra el diagrama animado de respaldo (en los
@@ -126,7 +121,7 @@ src/
 │   ├── Quiz.tsx                 # el juego de preguntas del QR
 │   ├── MemeModal.tsx            # el meme a pantalla completa
 │   ├── ui/following-pointer.tsx # el cursor con el nombre del grupo
-│   └── slides/                  # Slide01…Slide14 + LoopDiagram
+│   └── slides/                  # Slide01…Slide11 + LoopDiagram
 ├── hooks/useKeyboardShortcuts.ts
 ├── lib/
 │   ├── motion.ts                # el sistema de tiempos de las animaciones

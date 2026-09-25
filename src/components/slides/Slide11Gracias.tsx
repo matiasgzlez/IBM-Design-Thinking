@@ -7,7 +7,7 @@ import Logo from "@/components/Logo";
 import { EASE } from "@/lib/motion";
 import { appUrl } from "@/lib/links";
 
-export default function Slide14Gracias() {
+export default function Slide11Gracias() {
   const [url, setUrl] = useState<string | null>(null);
 
   // Depende de dónde se esté presentando, así que se calcula en el cliente.
