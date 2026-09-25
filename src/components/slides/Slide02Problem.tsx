@@ -24,7 +24,7 @@ const razones = [
     num: "03",
     label: "Además, chocaba con lo que ya usaban",
     description:
-      "Usaban métodos ágiles, DevOps y PMOM —el modelo operativo de gestión de proyectos—, ya instalados en la empresa y corriendo en los sprints. El Design Thinking clásico no se ajustaba a eso.",
+      "Usaban Scrum, DevOps y PMOM —el modelo operativo de gestión de proyectos—, ya instalados en la empresa y corriendo en los sprints. El Design Thinking clásico no se ajustaba a eso.",
     highlight:
       "Por lo tanto, los llevó a reformular el enfoque en su propio lenguaje: así nació Enterprise Design Thinking.",
   },
