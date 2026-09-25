@@ -45,30 +45,6 @@ export const groups: LinkGroup[] = [
     ],
   },
   {
-    title: "El ejemplo: IDEO · Oral-B",
-    subtitle: "El cepillo de dientes para chicos, 1996",
-    links: [
-      {
-        label: "El caso del cepillo infantil — dt-seminar.net",
-        note: "Entraron a las casas a mirar a los chicos lavarse los dientes",
-        url: "https://www.dt-seminar.net/content/summerterm2022/cases-2022/childrens-toothbrushes-design-thinking-oral-b/",
-      },
-      {
-        label: "Cómo IDEO usa la observación para diseñar — UserTesting",
-        url: "https://www.usertesting.com/blog/how-ideo-uses-customer-insights-to-design-innovative-products-users-love",
-      },
-      {
-        label: "Design Thinking Examples: 3 Case Studies — Triangility",
-        note: "De acá salió el caso, y trae otros dos: Airbnb y el Swiffer de P&G",
-        url: "https://triangility.com/design-thinking-examples-3-case-studies/",
-      },
-      {
-        label: "IDEO — Design Thinking",
-        url: "https://designthinking.ideo.com/",
-      },
-    ],
-  },
-  {
     title: "La unidad",
     subtitle: "Agilidad Avanzada 2026 · Unidad 1: Design Thinking",
     links: [

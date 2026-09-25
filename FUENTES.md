@@ -17,15 +17,6 @@ Presentación sobre **IBM Enterprise Design Thinking** — Viernes de la Jungla 
 - [IBM Design Thinking Model — Designorate](https://www.designorate.com/ibm-design-thinking/)
 - [Adaptation and Adoption at Scale — This is Design Thinking](https://thisisdesignthinking.net/2019/07/ibm-design-thinking-adaptation-adoption-at-scale/) — por qué el método clásico no escalaba en IBM
 
-## El ejemplo: IDEO · Oral-B
-
-El cepillo de dientes para chicos, 1996.
-
-- [El caso del cepillo infantil — dt-seminar.net](https://www.dt-seminar.net/content/summerterm2022/cases-2022/childrens-toothbrushes-design-thinking-oral-b/) — entraron a las casas a mirar a los chicos lavarse los dientes
-- [Cómo IDEO usa la observación para diseñar — UserTesting](https://www.usertesting.com/blog/how-ideo-uses-customer-insights-to-design-innovative-products-users-love)
-- [Design Thinking Examples: 3 Case Studies — Triangility](https://triangility.com/design-thinking-examples-3-case-studies/) — de acá salió el caso, y trae otros dos: Airbnb y el Swiffer de P&G
-- [IDEO — Design Thinking](https://designthinking.ideo.com/)
-
 ## La unidad
 
 - [Design Council — Framework for Innovation (Double Diamond)](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/)

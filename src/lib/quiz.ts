@@ -105,22 +105,6 @@ export const preguntas: Pregunta[] = [
   },
   {
     pregunta:
-      "Si IDEO se hubiera quedado en la oficina y hubiera mandado una encuesta a los padres, ¿qué se habría perdido?",
-    opciones: [
-      "El precio que las familias estaban dispuestas a pagar",
-      "Los colores que prefieren los chicos",
-      "El puño: nadie declara cómo agarra un cepillo, eso solo se descubre mirando",
-      "La cantidad de veces por día que se lavan los dientes",
-    ],
-    correcta: 2,
-    explicacion:
-      "Observe existe justamente para eso: hay comportamiento que el usuario no sabe que tiene y por lo tanto nunca te va a contar.",
-    sticker: "stickers/07",
-    textoIncluido: true,
-    nombre: "Majo modo domingo",
-  },
-  {
-    pregunta:
       "Terminaron el tercer sprint y quieren mostrar el avance real a los stakeholders. ¿Qué momento corresponde?",
     opciones: ["Hills Playback", "Playback Zero", "Client Playback", "Delivery Playback"],
     correcta: 3,
@@ -167,17 +151,17 @@ export const preguntas: Pregunta[] = [
 /** El mensaje según cómo le fue. */
 export const resultados = [
   {
-    minimo: 10,
-    titulo: "Diez de diez.",
+    minimo: 9,
+    titulo: "Nueve de nueve.",
     texto: "Te llevaste la colección completa. No te queda nada por repasar.",
   },
   {
-    minimo: 8,
+    minimo: 7,
     titulo: "Sos un Sponsor User.",
     texto: "No solo entendiste el método: sabés aplicarlo a una situación que no viste antes.",
   },
   {
-    minimo: 5,
+    minimo: 4,
     titulo: "Tenés el Loop.",
     texto: "Lo esencial está. Repasá las tres llaves —Hills, Playbacks y Sponsor Users— y quedás.",
   },
