@@ -71,7 +71,7 @@ const metricas = [
 
 export default function Slide10Impact() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden px-20 pt-14 pb-12 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-dark)] text-white overflow-hidden px-6 sm:px-20 pt-10 sm:pt-14 pb-24 sm:pb-12 flex flex-col">
       <motion.h2
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function Slide10Impact() {
         período de tres años.
       </motion.h2>
 
-      <div className="flex-1 min-h-0 mt-10 grid grid-cols-4 gap-8 content-center">
+      <div className="flex-1 min-h-0 mt-10 grid grid-cols-2 sm:grid-cols-4 gap-8 content-center">
         {metricas.map(({ prefix, value, suffix, label, detail }, i) => (
           <motion.div
             key={label}

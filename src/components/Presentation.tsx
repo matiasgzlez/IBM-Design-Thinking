@@ -3,6 +3,8 @@
 import { useCallback, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
+import { useSwipe } from "@/hooks/useSwipe";
+import { usePunteroFino } from "@/hooks/usePunteroFino";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 import type { Slide } from "@/types";
 import ProgressBar from "./ProgressBar";
@@ -49,34 +51,74 @@ export default function Presentation() {
   }, []);
 
   useKeyboardShortcuts({ onNext, onPrev, onReset });
+  const swipe = useSwipe({ onNext, onPrev });
+  const punteroFino = usePunteroFino();
 
   const slide = slides[currentSlide];
   const SlideComponent = slide.component;
 
-  return (
-    <main className="relative h-screen w-screen overflow-hidden bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
-      <FollowerPointerCard title="Viernes de la Jungla" className="h-full w-full">
-        <ProgressBar current={currentSlide} total={total} />
+  const contenido = (
+    <>
+      <ProgressBar current={currentSlide} total={total} />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={slide.id}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-            className="absolute inset-0"
-          >
-            <SlideComponent />
-          </motion.div>
-        </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={slide.id}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -30 }}
+          transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+          className="absolute inset-0 overflow-y-auto overscroll-contain sm:overflow-hidden"
+        >
+          <SlideComponent />
+        </motion.div>
+      </AnimatePresence>
 
-        <div className="fixed bottom-6 right-8 z-40 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-secondary)] pointer-events-none">
+      {/* En el celular no hay teclado: se pasa con el dedo o con estos botones */}
+      <div className="fixed bottom-4 left-4 right-4 z-40 flex items-center justify-between sm:hidden">
+        <button
+          onClick={onPrev}
+          disabled={currentSlide === 0}
+          aria-label="Slide anterior"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-bg-dark)]/80 text-lg text-white ring-1 ring-white/25 backdrop-blur-sm transition-opacity disabled:opacity-25"
+        >
+          ←
+        </button>
+        <span className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-secondary)]">
           {String(currentSlide + 1).padStart(2, "0")}
           <span className="mx-1 text-[var(--color-divider)]">/</span>
           {String(total).padStart(2, "0")}
-        </div>
-      </FollowerPointerCard>
+        </span>
+        <button
+          onClick={onNext}
+          disabled={currentSlide === total - 1}
+          aria-label="Slide siguiente"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-bg-dark)]/80 text-lg text-white ring-1 ring-white/25 backdrop-blur-sm transition-opacity disabled:opacity-25"
+        >
+          →
+        </button>
+      </div>
+
+      <div className="fixed bottom-6 right-8 z-40 hidden font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-secondary)] pointer-events-none sm:block">
+        {String(currentSlide + 1).padStart(2, "0")}
+        <span className="mx-1 text-[var(--color-divider)]">/</span>
+        {String(total).padStart(2, "0")}
+      </div>
+    </>
+  );
+
+  return (
+    <main
+      {...swipe}
+      className="relative h-[100dvh] w-screen overflow-hidden bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]"
+    >
+      {punteroFino ? (
+        <FollowerPointerCard title="Viernes de la Jungla" className="h-full w-full">
+          {contenido}
+        </FollowerPointerCard>
+      ) : (
+        <div className="h-full w-full">{contenido}</div>
+      )}
     </main>
   );
 }

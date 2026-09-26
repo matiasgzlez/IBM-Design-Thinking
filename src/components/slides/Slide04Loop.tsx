@@ -6,7 +6,7 @@ import LoopDiagram from "./LoopDiagram";
 
 export default function Slide04Loop() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-10 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 pt-10 sm:pt-14 pb-24 sm:pb-10 flex flex-col">
       <motion.h2
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export default function Slide04Loop() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: T.content }}
-        className="flex-1 min-h-0 mt-2"
+        className="flex-1 min-h-0 mt-2 flex items-center justify-center"
       >
         <LoopDiagram />
       </motion.div>

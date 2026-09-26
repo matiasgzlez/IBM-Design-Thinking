@@ -8,18 +8,18 @@ const titleLines = ["IBM", "DESIGN", "THINKING"];
 
 export default function Slide01Cover() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 py-14 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 py-10 pb-24 sm:py-14 flex flex-col">
       <motion.span
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.28em] text-[var(--color-accent)]"
+        className="font-mono text-sm sm:text-xl uppercase tracking-[0.28em] text-[var(--color-accent)]"
       >
         Agilidad Avanzada · Unidad 1 · Design Thinking
       </motion.span>
 
-      <div className="flex-1 min-h-0 flex items-center gap-10">
-        <h1 className="font-black leading-[0.82] tracking-[-0.045em] flex flex-col flex-shrink-0">
+      <div className="flex-1 min-h-0 flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+        <h1 className="font-black leading-[0.82] tracking-[-0.045em] flex flex-col flex-shrink-0 self-stretch sm:self-auto">
           {titleLines.map((line, i) => (
             <motion.span
               key={line}
@@ -28,8 +28,8 @@ export default function Slide01Cover() {
               transition={{ duration: 0.55, delay: i * 0.09, ease: EASE }}
               className={
                 i === 0
-                  ? "text-[clamp(70px,9vw,150px)] text-[var(--color-accent)]"
-                  : "text-[clamp(70px,9vw,150px)]"
+                  ? "text-[clamp(52px,13vw,90px)] sm:text-[clamp(70px,9vw,150px)] text-[var(--color-accent)]"
+                  : "text-[clamp(52px,13vw,90px)] sm:text-[clamp(70px,9vw,150px)]"
               }
             >
               {line}
@@ -57,7 +57,7 @@ export default function Slide01Cover() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="font-mono text-xl uppercase tracking-[0.22em] font-bold text-[var(--color-text-primary)]"
+        className="font-mono text-sm sm:text-xl uppercase tracking-[0.22em] font-bold text-[var(--color-text-primary)]"
       >
         Viernes de la Jungla
       </motion.div>

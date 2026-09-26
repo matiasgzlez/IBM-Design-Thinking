@@ -89,82 +89,83 @@ function Lane({
   );
 }
 
+/** El título de cada línea va en HTML: adentro del SVG, en un celular quedaba de 5px. */
+function LaneTitle({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <p className={`font-mono text-[11px] sm:text-[15px] uppercase tracking-[0.16em] leading-snug ${className}`}>
+      {children}
+    </p>
+  );
+}
+
 function SponsorUserDiagram() {
   return (
-    <svg viewBox="0 0 880 300" className="w-full h-full" fill="none">
+    <div className="flex h-full flex-col justify-center gap-6 sm:gap-10">
       {/* ── Así no ── */}
-      <text
-        x={0}
-        y={22}
-        fontSize={15}
-        fontFamily="monospace"
-        letterSpacing="0.16em"
-        fill="var(--color-text-secondary)"
-      >
-        ASÍ NO · EL USUARIO APARECE AL FINAL SOLO PARA “APROBAR”
-      </text>
-
-      <Lane y={78} color="#8D8D8D" track="var(--color-divider)">
-        {/* El usuario recién aparece cuando ya está todo hecho */}
-        <motion.g
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.6, 0.6, 1, 1, 1] }}
-          transition={{ ...LOOP, times: [0, 0.72, 0.78, 0.94, 1] }}
-        >
-          {/* Arriba de la línea, como en la otra: si se apoya encima queda un borrón */}
-          <UserGlyph x={800} y={42} color="#8D8D8D" scale={0.9} />
-          <circle cx={832} cy={26} r={13} fill="#3D3D3D" />
-          <path d="M 827 21 L 837 31 M 837 21 L 827 31" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
-        </motion.g>
-      </Lane>
+      <div>
+        <LaneTitle className="text-[var(--color-text-secondary)]">
+          Así no · el usuario aparece al final solo para “aprobar”
+        </LaneTitle>
+        <svg viewBox="0 0 880 100" className="mt-2 w-full sm:max-w-[980px]" fill="none">
+          <Lane y={75} color="#8D8D8D" track="var(--color-divider)">
+            {/* El usuario recién aparece cuando ya está todo hecho */}
+            <motion.g
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: [0, 0, 1, 1, 0], scale: [0.6, 0.6, 1, 1, 1] }}
+              transition={{ ...LOOP, times: [0, 0.72, 0.78, 0.94, 1] }}
+            >
+              {/* Arriba de la línea, como en la otra: si se apoya encima queda un borrón */}
+              <UserGlyph x={800} y={39} color="#8D8D8D" scale={0.9} />
+              <circle cx={832} cy={23} r={13} fill="#3D3D3D" />
+              <path d="M 827 18 L 837 28 M 837 18 L 827 28" stroke="#FFFFFF" strokeWidth={2.5} strokeLinecap="round" />
+            </motion.g>
+          </Lane>
+        </svg>
+      </div>
 
       {/* ── Así sí ── */}
-      <text
-        x={0}
-        y={186}
-        fontSize={15}
-        fontFamily="monospace"
-        letterSpacing="0.16em"
-        fill="var(--color-make)"
-      >
-        ASÍ SÍ · EL USUARIO CO-CREA DE PRINCIPIO A FIN
-      </text>
-
-      <Lane y={242} color="var(--color-make)" track="var(--color-divider)">
-        {/* El usuario viaja con el equipo */}
-        <motion.g
-          initial={{ opacity: 0 }}
-          animate={{ x: [START, END, END, END], opacity: [1, 1, 1, 0] }}
-          transition={{ ...LOOP, times: [0, 0.7, 0.94, 1], ease: "easeInOut" }}
-        >
-          <UserGlyph x={0} y={206} color="var(--color-make)" scale={0.9} />
-        </motion.g>
-
-        {/* Y deja su marca en cada etapa */}
-        {STEPS.map((x) => {
-          const p = passAt(x);
-          return (
+      <div>
+        <LaneTitle className="text-[var(--color-make)]">
+          Así sí · el usuario co-crea de principio a fin
+        </LaneTitle>
+        <svg viewBox="0 0 880 100" className="mt-2 w-full sm:max-w-[980px]" fill="none">
+          <Lane y={75} color="var(--color-make)" track="var(--color-divider)">
+            {/* El usuario viaja con el equipo */}
             <motion.g
-              key={`u-${x}`}
+              initial={{ opacity: 0 }}
+              animate={{ x: [START, END, END, END], opacity: [1, 1, 1, 0] }}
+              transition={{ ...LOOP, times: [0, 0.7, 0.94, 1], ease: "easeInOut" }}
+            >
+              <UserGlyph x={0} y={39} color="var(--color-make)" scale={0.9} />
+            </motion.g>
+
+            {/* Y deja su marca en cada etapa */}
+            {STEPS.map((x) => {
+              const p = passAt(x);
+              return (
+                <motion.g
+                  key={`u-${x}`}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: [0, 0, 1, 1, 0], scale: [0, 0, 1, 1, 1] }}
+                  transition={{ ...LOOP, times: [0, p, p + 0.05, 0.94, 1] }}
+                >
+                  <UserGlyph x={x} y={39} color="var(--color-make)" scale={0.75} />
+                </motion.g>
+              );
+            })}
+
+            <motion.g
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: [0, 0, 1, 1, 0], scale: [0, 0, 1, 1, 1] }}
-              transition={{ ...LOOP, times: [0, p, p + 0.05, 0.94, 1] }}
+              transition={{ ...LOOP, times: [0, 0.7, 0.76, 0.94, 1] }}
             >
-              <UserGlyph x={x} y={206} color="var(--color-make)" scale={0.75} />
+              <circle cx={800} cy={75} r={14} fill="var(--color-success)" />
+              <path d="M 793 75 L 798 81 L 808 69" stroke="#FFFFFF" strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round" />
             </motion.g>
-          );
-        })}
-
-        <motion.g
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: [0, 0, 1, 1, 0], scale: [0, 0, 1, 1, 1] }}
-          transition={{ ...LOOP, times: [0, 0.7, 0.76, 0.94, 1] }}
-        >
-          <circle cx={800} cy={242} r={14} fill="var(--color-success)" />
-          <path d="M 793 242 L 798 248 L 808 236" stroke="#FFFFFF" strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round" />
-        </motion.g>
-      </Lane>
-    </svg>
+          </Lane>
+        </svg>
+      </div>
+    </div>
   );
 }
 
@@ -190,12 +191,12 @@ const requisitos = [
 
 export default function Slide07SponsorUsers() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 pt-10 sm:pt-14 pb-24 sm:pb-12 flex flex-col">
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+        className="font-mono text-sm sm:text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
       >
         The Keys · llave 03 ·{" "}
         <span className="text-[var(--color-accent)]">Sponsor Users</span>
@@ -215,7 +216,7 @@ export default function Slide07SponsorUsers() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: T.content }}
-        className="flex-1 min-h-0 my-6"
+        className="flex-1 min-h-0 mt-6 mb-6 sm:mt-10"
       >
         <SponsorUserDiagram />
       </motion.div>
@@ -224,7 +225,7 @@ export default function Slide07SponsorUsers() {
         variants={stagger(1.2, 0.1)}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6"
       >
         {requisitos.map(({ num, label, description }) => (
           <motion.div

@@ -43,12 +43,12 @@ const ipodCaption = (
 
 export default function Slide05Hills() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 pt-10 sm:pt-14 pb-24 sm:pb-12 flex flex-col">
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+        className="font-mono text-sm sm:text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
       >
         The Keys · <span className="text-[var(--color-accent)]">llave 01</span>
       </motion.div>
@@ -62,7 +62,7 @@ export default function Slide05Hills() {
         Hills
       </motion.h2>
 
-      <div className="flex-1 min-h-0 mt-8 grid grid-cols-[1.1fr_1fr] gap-14 items-center">
+      <div className="flex-1 min-h-0 mt-8 grid grid-cols-1 sm:grid-cols-[1.1fr_1fr] gap-8 sm:gap-14 items-center">
         {/* El texto */}
         <div className="flex flex-col gap-7">
           <motion.p

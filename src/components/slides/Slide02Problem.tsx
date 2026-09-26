@@ -32,8 +32,8 @@ const razones = [
 
 export default function Slide02Problem() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-14 pb-12 flex flex-col">
-      <div className="flex items-start justify-between gap-10">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 pt-10 sm:pt-14 pb-24 sm:pb-12 flex flex-col">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 sm:gap-10">
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function Slide02Problem() {
         variants={stagger()}
         initial="hidden"
         animate="show"
-        className="my-auto grid grid-cols-3 gap-6"
+        className="my-auto grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6"
       >
         {razones.map(({ num, label, description, highlight }) => (
           <motion.div

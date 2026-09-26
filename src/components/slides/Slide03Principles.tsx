@@ -271,7 +271,7 @@ const principles: Principle[] = [
 
 export default function Slide03Principles() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-10 pb-8 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 pt-10 pb-24 sm:pb-8 flex flex-col">
       <motion.h2
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
@@ -281,7 +281,7 @@ export default function Slide03Principles() {
         Los <span className="text-[var(--color-accent)]">3 principios</span> del Enterprise Design Thinking
       </motion.h2>
 
-      <div className="mt-5 grid grid-cols-3 gap-6 flex-1 min-h-0">
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 flex-1 min-h-0">
         {principles.map(({ num, slot, color, label, en, lead, description, quote, diagram }, i) => (
           <motion.div
             key={num}

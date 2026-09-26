@@ -59,17 +59,17 @@ const playbacksCaption = (
 
 export default function Slide06Playbacks() {
   return (
-    <section className="relative w-screen h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-20 pt-12 pb-10 flex flex-col">
+    <section className="relative w-screen min-h-[100dvh] sm:h-screen bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] overflow-hidden px-6 sm:px-20 pt-10 sm:pt-12 pb-24 sm:pb-10 flex flex-col">
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: EASE }}
-        className="font-mono text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
+        className="font-mono text-sm sm:text-xl uppercase tracking-[0.22em] text-[var(--color-text-secondary)]"
       >
         The Keys · <span className="text-[var(--color-accent)]">llave 02</span>
       </motion.div>
 
-      <div className="mt-3 grid grid-cols-[1fr_340px] gap-12 items-start">
+      <div className="mt-3 grid grid-cols-1 sm:grid-cols-[1fr_340px] gap-6 sm:gap-12 items-start">
         <div>
           <motion.h2
             initial={{ opacity: 0, y: 18 }}
@@ -130,10 +130,10 @@ export default function Slide06Playbacks() {
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
             style={{ transformOrigin: "left" }}
-            className="absolute left-0 right-0 top-8 h-[3px] bg-[var(--color-divider)]"
+            className="absolute left-0 right-0 top-8 h-[3px] bg-[var(--color-divider)] hidden sm:block"
           />
 
-          <div className="relative grid grid-cols-4 gap-6">
+          <div className="relative grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-6">
             {playbacks.map(({ num, name, when, description, color }, i) => (
               <motion.div
                 key={num}

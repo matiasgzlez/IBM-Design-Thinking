@@ -10,10 +10,11 @@ Se navega con el teclado, cada slide ocupa exactamente la pantalla y nunca hay s
 
 ## Reglas del proyecto
 
-1. **Nada de scroll.** `html, body { overflow: hidden }`. Cada slide es
-   `w-screen h-screen ... overflow-hidden`. Si el contenido no entra, se achica el
+1. **Nada de scroll en el proyector.** `html, body { overflow: hidden }`. Cada slide es
+   `w-screen min-h-[100dvh] sm:h-screen ... overflow-hidden`. Si el contenido no entra, se achica el
    contenido — no se agrega scroll a la página. Ojo con las columnas altas: usar
    `min-h-0` en los hijos de un flex/grid para que no desborden sobre el pie.
+   **La excepción es el celular** (ver más abajo): ahí la slide sí crece y se scrollea.
 2. **Un solo acento.** El rojo del logo (`--color-accent: #CE1B1B`) sobre blanco / negro carbón /
    grises. La paleta sale del logo de Viernes de la Jungla: rojo, dorado y verde selva. Las únicas excepciones son los colores de las tres fases del Loop
    (`--color-observe`, `--color-reflect`, `--color-make`) y `--color-success` /
@@ -91,6 +92,28 @@ estar sobre la tarjeta y el hover parpadearía.
 `src/components/Logo.tsx` lee `public/logo.png`. **Precarga la imagen antes de montarla**:
 si el archivo no está, no renderiza nada. No usar `onError` sobre un `<img>` server-rendered,
 porque el error dispara antes de que React enganche el handler y queda el ícono de imagen rota.
+
+## El celular
+
+La presentación se da en un proyector, pero el QR del final se abre en el teléfono, así que
+todo tiene que sobrevivir a 390px de ancho:
+
+- Cada slide es `min-h-[100dvh] sm:h-screen`: en el celular crece y se scrollea dentro de su
+  contenedor (`overflow-y-auto` en `Presentation.tsx`), en pantalla grande sigue clavada.
+- Se pasa de slide con el dedo (`hooks/useSwipe.ts`, que ignora el gesto si es más vertical que
+  horizontal para no robarle el scroll) o con la barra de botones `sm:hidden` de abajo. Por eso
+  todas las slides llevan `pb-24 sm:pb-*`: es el lugar de esa barra.
+- El cursor con el nombre del grupo sólo se monta si hay mouse de verdad
+  (`hooks/usePunteroFino.ts` → `(hover: hover) and (pointer: fine)`).
+- Las grillas van `grid-cols-1 sm:grid-cols-N` y los títulos llevan una clamp propia para el
+  celular (`text-[clamp(34px,8.6vw,84px)] sm:text-[clamp(...)]`): con la clamp de escritorio,
+  una palabra como "responsabilidades" se salía de la pantalla.
+- **El texto de un SVG no escala bien en un celular.** Un `<text fontSize={15}>` dentro de un
+  viewBox de 880 de ancho queda en 5px reales. Los títulos van en HTML al lado del SVG
+  (ver `Slide07SponsorUsers.tsx`), no adentro.
+- Un `h-full` dentro de un `flex-1` **no funciona** si el ancestro tiene `min-h` en vez de `h`:
+  el porcentaje no resuelve y el SVG se queda con su alto intrínseco. Si hace falta centrar,
+  centrar con flex en el padre en vez de estirar al hijo.
 
 ## Verificar cambios
 

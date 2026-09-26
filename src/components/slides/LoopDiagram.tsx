@@ -127,7 +127,9 @@ export default function LoopDiagram() {
 
   return (
     <div ref={containerRef} className="relative w-full h-full flex items-center justify-center">
-      <svg viewBox="0 0 900 620" className="w-full h-full" fill="none" style={{ display: "block" }}>
+      {/* El viewBox va ajustado al dibujo: con aire de sobra, en un celular el círculo
+          quedaba diminuto. */}
+      <svg viewBox="130 10 680 520" className="w-full h-full" fill="none" style={{ display: "block" }}>
         {/* Halo del centro */}
         {[0, 1].map((i) => (
           <motion.circle
